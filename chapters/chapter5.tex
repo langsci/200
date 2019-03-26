@@ -1,4 +1,4 @@
-%versao de 15-MAR-2019
+%versao de 23-MAR-2019
 
 \chapter{Modificação nominal}
 
@@ -80,32 +80,35 @@ Note-se, por fim, que, além de orações relativas, os modificadores nominais p
 
 
 
-\section{Modificação adjetival}
+\section{Sintagmas adjetivais}
 
 Comecemos pela sentença abaixo:
 
 \begin{exe}
-\ex O cachorro branco fugiu.\label{sul}
+	\ex O cachorro branco fugiu.\label{sul}
 \end{exe}
 
 \n Do ponto de vista sintático, vamos considerar o sintagma adjetival
 como um adjunto do sintagma nominal, conforme a representação
-abaixo:\\
+a seguir:
 
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ o ].D [ [ [ cachorro ].N ].NP [ [ branco ].A ].AP ].NP ].DP [ [ fugiu ].V  ].VP ].S } \caption{Modificação de NP por AP }
+\end{figure}
 
-\Tree [ [ [ o ].D [ [ [ cachorro
-].N ].NP [ [ branco ].A ].AP ].NP ].DP [ [ fugiu ].V  ].VP ].S
-
-\bigskip
 
 
 Temos uma descrição definida na posição de sujeito encabeçada pelo artigo \textit{o} e que toma por complemento um NP. Até aqui, nada de novo. A novidade é a natureza complexa desse NP, formado por um AP e outro NP. E, aqui, deparamo-nos com um problema.
 Quando analisamos NPs e APs no capítulo 2, tratamos a extensão
-desses sintagmas como sendo funções de tipo $\langle e,t\rangle$:\\
+desses sintagmas como sendo funções de tipo $\langle e,t\rangle$:
 
-\n \den{[$_{\text{NP}}$ cachorro]} = $\lambda x_{e}.\ \predica{cachorro}{x}$
+\begin{exe}
+	\ex \den{[$_{\text{NP}}$ cachorro]} = $\lambda x_{e}.\ \predica{cachorro}{x}$
+\end{exe}
 
-\n \den{[$_{\text{AP}}$ branco]} = $\lambda x_{e}.\ \predica{branco}{x}$\\
+\begin{exe}
+	\ex \den{[$_{\text{AP}}$ branco]} = $\lambda x_{e}.\ \predica{branco}{x}$
+\end{exe}
 
 \n A questão agora é como obter a extensão do NP \textit{cachorro
 branco}. Aplicação funcional não pode nos servir, já que
@@ -129,51 +132,58 @@ Retornemos ao valor semântico do NP \textit{cachorro
 branco}. Como as condições de verdade de (\ref{sul}) nos dizem que
 quem fugiu deve ser não apenas um cachorro, mas também ser
 da cor branca, já sabemos o que queremos para a extensão do NP:
-\\
 
-\n \den{[$_{\text{NP}}$ cachorro branco]} = $\lambda x_{e}.\ 
-\predica{cachorro}{x}\ \&\ \predica{branco}{x}$\\
+\begin{exe}
+	\ex \den{[$_{\text{NP}}$ cachorro branco]} = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \predica{branco}{x}$
+\end{exe}
 
 \n Como tanto a extensão do NP \textit{cachorro} quanto a do NP
 \textit{cachorro branco} são de tipo $\langle e,t\rangle$, para
 valermo-nos de aplicação funcional, devemos atribuir à extensão de
 AP, e, por conseguinte, à extensão do adjetivo \textit{branco}, o
 tipo $\langle\langle e,t\rangle,\langle
-e,t\rangle\rangle$. Informalmente, \textit{branco} modifica a extensão do NP, retornando uma outra função que, por sua vez, retorna o valor 1 apenas para os indivíduos previamente caracterizados pela extensão do NP que são brancos. Pondo tudo isso em termos formais, temos:\\
+e,t\rangle\rangle$. Informalmente, \textit{branco} modifica a extensão do NP, retornando uma outra função que, por sua vez, retorna o valor 1 apenas para os indivíduos previamente caracterizados pela extensão do NP que são brancos. Pondo tudo isso em termos formais, temos:
 
-\n \den{branco} = $\lambda F_{\langle e,t \rangle}.\lambda x_{e}.\
-F'(x)\ \&\ \predica{branco}{x}$\\
+\begin{exe}
+	\ex \den{branco} = $\lambda F_{\langle e,t \rangle}.\lambda x_{e}.\ F'(x)\ \&\ \predica{branco}{x}$
+\end{exe}
 
-
-\n \den{[$_{\text{NP}}$ cachorro branco]} = \den{[$_{\text{AP}}$
-branco]}(\den{[$_{\text{NP}}$ cachorro]})\\
+\begin{exe}
+	\ex \den{cachorro branco} = \den{branco}(\den{cachorro})
+\end{exe}
 
 \n Essa igualdade entre os tipos semânticos da extensão do NP que serve de
 argumento à extensão de AP e da extensão do NP
 resultante permite derivar a
 extensão de NPs modificados por mais de um adjetivo, como no exemplo a seguir, através de múl\-ti\-plas instâncias de aplicação funcional:
 
+\begin{exe}
+	\ex $[_{\text{NP}}\ \text{cachorro branco peludo} ] $
+\end{exe}
 
-\Tree [ [ [ [ cachorro ].N ].NP [ [ branco ].A ].AP ].NP [ [
-peludo ].A ].AP ].NP
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ [ cachorro ].N ].NP [ [ branco ].A ].AP ].NP [ [ peludo ].A ].AP ].NP } \caption{ Iteração de modificadores adjetivas }
+\end{figure}
 
-\bigskip
 
-\n \den{[$_{\text{NP}}$ cachorro branco peludo]} =
-\den{[$_{\text{AP}}$ peludo]}(\den{[$_{\text{NP}}$ cachorro branco]})\\
+\begin{exe}
+	\ex \den{cachorro branco peludo} = \den{peludo}(\den{cachorro branco})
+\end{exe}
 
-\n Como já sabemos que:\\
+\n Como já sabemos que:
 
-\n \den{[$_{\text{NP}}$ cachorro branco]} = \den{[$_{\text{AP}}$
-branco]}(\den{[$_{\text{NP}}$ cachorro]})\\
+\begin{exe}
+	\ex \den{cachorro branco} = \den{branco}(\den{cachorro})
+\end{exe}
 
-\n Temos que:\\
+\n temos que:
 
-\n \den{[$_{\text{NP}}$ cachorro branco peludo]} =
-\den{[$_{\text{AP}}$ peludo]}(\den{[$_{\text{AP}}$
-branco]}(\den{[$_{\text{NP}}$ cachorro]}))\\
+\begin{exe}
+	\ex \den{cachorro branco peludo} = \\ \den{peludo}(\den{branco}(\den{cachorro})) = \\
+	$\lambda x.\ \predica{cachorro}{x}\ \&\ \predica{branco}{x}\ \&\ \predica{peludo}{x}$
+\end{exe}
 
-\n \den{[$_{\text{NP}}$ cachorro branco peludo]} = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \predica{branco}{x}\ \&\ \predica{peludo}{x}$\\
+
 
 \n Temos, portanto, como interpretar estruturas em que um ou mais
 adjetivos modificam um sintagma nominal. Em todos esses casos, o resultado é uma função de tipo $\langle e,t\rangle$, que em casos como (\ref{sul}) é o tipo de argumento esperado pela extensão do artigo definido, conforme vimos no último capítulo. Resta-nos, agora, retornar aos
@@ -184,7 +194,7 @@ casos em que o adjetivo não aparece junto a nenhum nome, como em \textit{Sultã
 Consideremos o exemplo a seguir:
 
 \begin{exe}
-\ex Sultão é branco.\label{wer}
+	\ex Sultão é branco.\label{wer}
 \end{exe}
 
 \n Para casos como esse, precisamos ainda de nossa antiga entrada
@@ -192,18 +202,26 @@ lexical que atribuía à extensão de adjetivos como \textit{branco}
 o tipo $\langle e,t\rangle$. Isto equivale a dizer que precisamos
 assumir que esse adjetivo é ambíguo e que no léxico estão listadas
 as duas entradas abaixo (vamos usar a marca $'$ para distinguir as
-entradas):\\
+entradas):
 
-\n \den{branco} = $\lambda x_{e}.\ \predica{branco}{x}$\\
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{branco} = $\lambda x_{e}.\ \predica{branco}{x}$
+		\ex \den{branco$'$} = $\lambda F_{\langle e,t\rangle}.\ F'(x)\ \&\ \predica{branco}{x}$
+	\end{xlist}
+\end{exe}
 
-\n \den{branco$'$} = $\lambda F_{\langle e,t\rangle}.\ F'(x)\ \&\ \predica{branco}{x}$\\
+\n O mesmo valeria pra outros adjetivos, como \textit{peludo}, por exemplo:
 
-\n O mesmo valeria pra outros adjetivos, como \textit{peludo}, por
-exemplo:\\
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{peludo} = $\lambda x_{e}.\ \predica{peludo}{x}$
+		\ex \den{peludo$'$} = $\lambda F_{\langle e,t\rangle}.\ F'(x)\ \&\ \predica{peludo}{x}$
+	\end{xlist}
+\end{exe}
 
-\n \den{peludo} = $\lambda x_{e}.\ \predica{peludo}{x}$\\
-
-\n \den{peludo$'$} = $\lambda F_{\langle e,t\rangle}.\ F'(x)\ \&\ \predica{peludo}{x}$\\
 
 
 \n Duplicando, uma a uma,  as entradas lexicais de todos os
@@ -240,17 +258,23 @@ sintagma nominal, como atestam os exemplos abaixo:
 	\end{xlist}
 \end{exe}
 
-\n Para esses casos, também precisaríamos ter duas possibilidades:\\
+\n Para esses casos, também precisaríamos ter duas possibilidades:
 
-\n \den{[$_{\text{AP}}$ fiel ao João]} = $\lambda x_{e}.\ \predica{fiel}{x,joão}$
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{[$_{\text{AP}}$ fiel ao João]} = $\lambda x_{e}.\ \predica{fiel}{x,joão}$
+		\ex \den{[$_{\text{AP}}$ fiel ao João]} = $\lambda F_{\langle e,t\rangle}.\ \lambda x_{e}.\ F'(x)\ \&\ \predica{fiel}{x,joão}$
+	\end{xlist}
+\end{exe}
 
-\n \den{[$_{\text{AP}}$ fiel ao João]} = $\lambda F_{\langle
-e,t\rangle}.\ \lambda x_{e}.\ F'(x)\ \&\ \predica{fiel}{x,joão}$\\
-
-\n \den{[$_{\text{PP}}$ de Campinas]} = $\lambda x_{e}.\ \predica{ser\_de}{x,campinas}$
-
-\n \den{[$_{\text{PP}}$ de Campinas]} = $\lambda F_{\langle
-	e,t\rangle}.\ \lambda x_{e}.\ F'(x)\ \&\ \predica{ser\_de}{x,campinas}$\\
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{[$_{\text{PP}}$ de Campinas]} = $\lambda x_{e}.\ \predica{ser\_de}{x,campinas}$ 
+		\ex \den{[$_{\text{PP}}$ de Campinas]} = $\lambda F_{\langle e,t\rangle}.\ \lambda x_{e}.\ F'(x)\ \&\ \predica{ser\_de}{x,campinas}$
+	\end{xlist}
+\end{exe}
 
 \n Para captar essa generalização acerca da possibilidade de uso
 de sintagmas adjetivais e preposicionais acompanhados ou não de um sintagma
@@ -260,43 +284,34 @@ que se podem atribuir a eles. Trata-se de uma \textsc{regra de
 mudança de tipos}, que assume que o tipo básico das extensões dos
 APs é $\langle e,t\rangle$ e explicita como obter uma extensão de
 tipo $\langle\langle e,t\rangle,\langle e,t\rangle\rangle$ a
-partir da extensão de tipo $\langle e,t\rangle$:\\
+partir da extensão de tipo $\langle e,t\rangle$:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Regra de mudança de tipos para sintagmas adjetivais e preposicionais \\
+	Seja \textit{X} um sintagma adjetival ou preposicional cuja extensão $\alpha$ é de tipo $\langle e,t\rangle$. Mude a extensão de \textit{X} de $\alpha$ para $\alpha '$, sendo $\alpha '$ de tipo $\langle\langle e,t\rangle,\langle e,t\rangle\rangle$ e definida da seguinte forma: $\alpha ' = (\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ \alpha(x) = 1)$
+\end{exe}
 
-\n \textbf{Regra de mudança de tipos para sintagmas adjetivais e preposicionais}\\
-Seja \textit{X} um sintagma adjetival ou preposicional cuja extensão $\alpha$ é de
-tipo $\langle e,t\rangle$. Mude a extensão de \textit{X} de
-$\alpha$ para $\alpha '$, sendo $\alpha '$ de tipo $\langle\langle
-e,t\rangle,\langle e,t\rangle\rangle$ e definida
-da seguinte forma:\\
 
-\n $\alpha ' = (\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ \alpha(x) = 1)$
-
-\end{tcolorbox}
-
-\bigskip
 
 \n A aplicação desta regra fica condicionada ao contexto sintático em que o sintagma aparecer. Assim, para o
 adjetivo \textit{branco}, por exemplo, basta listá-lo no léxico
 como denotando uma função de tipo $\langle e,t\rangle$. Isso
 (junto com o princípio dos nós não ramificados) nos daria a
 extensão do AP necessária para a interpretação de
-sentenças como (\ref{wer}):\\
+sentenças como (\ref{wer}):
 
-\n \den{AP} = $\lambda x.\ \predica{branco}{x}$\\
+\begin{exe}
+	\ex \den{AP} = $\lambda x.\ \predica{branco}{x}$
+\end{exe}
 
 \n Para sentenças como (\ref{sul}), em que o AP modifica um NP,
-recorreríamos à regra acima, que nos forneceria o seguinte:\\
+recorreríamos à regra acima, que nos forneceria o seguinte:
 
-\n \den{AP$'$} = $\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\
-F'(x)\ \&\ \llbracket \text{AP} \rrbracket (x) = 1$\\
-
-\n \den{AP$'$} = $\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\
-F'(x)\ \&\ (\lambda x.\ \predica{branco}{x})(x) = 1$\\
-
-\n \den{AP$'$} = $\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\
-F'(x)\ \&\ \predica{branco}{x}$\\
+\begin{exe}
+	\ex \den{AP$'$} = $\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ \llbracket \text{AP} \rrbracket (x) = 1$\\
+	\den{AP$'$} = $\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ (\lambda x.\ \predica{branco}{x})(x) = 1$\\
+	\den{AP$'$} = $\lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ \predica{branco}{x}$
+\end{exe}
 
 \n O leitor poderá verificar a adequação dessa regra, aplicando-a
 na derivação das condições de verdade das demais sentenças
@@ -310,61 +325,60 @@ branco}, sabendo que seus constituintes imediatos tinham como extensões funçõ
 analisar um tratamento alternativo, ao qual fizemos alusão mais
 acima, em que os tipos semânticos de NPs e APs permanecem
 inalterados, mas um novo princípio composicional é introduzido.
-Chamemos este novo princípio de \textsc{Conjunção funcional}:\\
+Chamemos este novo princípio de \textsc{Conjunção funcional}:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Conjunção funcional \\
+	Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são $\beta$ e $\gamma$, tal que \den{$\beta$} e \den{$\gamma$} pertençam a D$_{\langle e,t\rangle}$. Neste caso, \den{$\alpha$} = $\lambda x_{e}.\ $\den{$\beta$}$(\textit{x}) = 1$\ \&\ \den{$\gamma$}$(\textit{x}) = 1$
+\end{exe}
 
-\n \textbf{Conjunção funcional}
-
-\n Seja $\alpha$ um nó ramificado, cujos constituintes imediatos
-são $\beta$ e $\gamma$, tal que \den{$\beta$} e \den{$\gamma$}
-pertençam a D$_{\langle e,t\rangle}$. Neste caso, \den{$\alpha$} =
-$\lambda x_{e}.\ $\den{$\beta$}$(\textit{x}) = 1$\ \&\
-\den{$\gamma$}$(\textit{x}) = 1$
-
-\end{tcolorbox}
-
-\bigskip
 
 \n Conjunção funcional permite que obtenhamos uma extensão de tipo
 $\langle e,t\rangle$ para um nó cujos constituintes imediatos
 possuem, ambos, extensões do tipo $\langle e,t\rangle$. Note a semelhança com o que vimos no capítulo 3 sobre a interpretação
 da conjunção \textit{e} em casos como [$_{\text{VP}}$ fuma e bebe] ou NPs como [$_{\text{NP}}$ médico e psicólogo], inclusive no uso do conectivo lógico \& na metalinguagem. Voltando a
 nosso exemplo, utilizamos o nosso novo princípio para obter a
-extensão do NP \textit{cachorro branco} da seguinte forma:\\
+extensão do NP \textit{cachorro branco} da seguinte forma:
 
-\n \den{[$_{\text{NP}}$ cachorro branco]} = $\lambda x_{e}.\
-\llbracket [_{\text{NP}}\ \text{cachorro}]\rrbracket(x) = 1\
-\&\
-\llbracket [_{\text{AP}}\ \text{branco}]\rrbracket(x) = 1$\\
-
-\n \den{[$_{\text{NP}}\ \text{cachorro branco}]$} = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \predica{branco}{x}$\\
+\begin{exe}
+	\ex \den{cachorro branco} = $\lambda x_{e}.\ \llbracket  \text{cachorro} \rrbracket(x) = 1\ \&\ \llbracket \text{branco} \rrbracket(x) = 1$\\
+	\den{cachorro branco} = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \predica{branco}{x}$
+\end{exe}
 
 \n Conjunção funcional também nos serve nos casos em que um PP
-modifica um NP, como em \textit{médico de Campinas}:\\
-\\
+modifica um NP, como em \textit{médico de Campinas}:
 
-\Tree [ [ [ médico ].N ].NP [ [ de ].P [ [ Campinas ].N ].NP ].PP
-].NP
 
-\bigskip
+
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ médico ].N ].NP [ [ de ].P [ [ Campinas ].N ].NP ].PP ].NP } \caption{Modificação de NP por PP }
+\end{figure}
 
 \n Note que este uso da preposição \textit{de} indicando origem
 geográfica difere do uso que vimos quando tratamos de NPs como
 \textit{irmão de Maria} ou APs como \textit{fiel ao João}. Para esses últimos, a
 preposição foi tratada como um item semanticamente vácuo. Para o
-caso acima, o que queremos é o seguinte:\\
+caso acima, o que queremos é o seguinte:
 
-\n \den{de} = $\lambda x_{e}.\ \lambda y_{e}.\ \predica{ser\_de}{y,x}$\\
+\begin{exe}
+	\ex \den{de} = $\lambda x_{e}.\ \lambda y_{e}.\ \predica{ser\_de}{y,x}$
+\end{exe}
 
 \n Como o leitor já pode antecipar, a extensão do PP \textit{de Campinas} é obtida através de Aplicação
-Funcional. Já a extensão do NP \textit{médico de Campinas} é obtida
-utilizando-se Conjunção funcional:\\
+Funcional. Já a extensão do NP \textit{médico de Campinas} é obtida utilizando-se Conjunção funcional:
 
-\n \den{de Campinas} = \den{de}(\den{Campinas}) = $\lambda y.\ \predica{ser\_de}{y,campinas}$\\
-\den{médico} = $\lambda y.\ \predica{médico}{y}$\\
-\den{médico de Campinas} = $\lambda y.\ \llbracket \text{médico} \rrbracket = 1\ \&\ \llbracket \text{de Campinas} \rrbracket = 1$ \\
-\den{médico de Campinas} = $\lambda y.\ \predica{médico}{y}\ \&\ \predica{ser\_de}{y,campinas}$ \\
+\begin{exe}
+	\ex \den{de Campinas} = \den{de}(\den{Campinas}) = $\lambda y.\ \predica{ser\_de}{y,campinas}$
+\end{exe}
+
+\begin{exe}
+	\ex\den{médico} = $\lambda y.\ \predica{médico}{y}$
+\end{exe}
+
+\begin{exe}
+	\ex \den{médico de Campinas} = $(\lambda y.\ \llbracket \text{médico} \rrbracket = 1\ \&\ \llbracket \text{de Campinas} \rrbracket = 1)$ \\
+	\den{médico de Campinas} = $\lambda y.\ \predica{médico}{y}\ \&\ \predica{ser\_de}{y,campinas}$
+\end{exe}
 
 No restante deste capítulo, continuaremos a nos valer da regra de mudança de tipos formulada
 mais acima em vez da conjunção funcional. Tal escolha,
@@ -450,11 +464,11 @@ e a natureza de uma classe de comparação, muito menos elucidar
 questões profundas sobre dependência contextual. Nosso objetivo
 aqui é mais modesto. Queremos apenas indicar na entrada lexical de
 certos adjetivos a influência do contexto, ainda que de maneira
-rudimentar. Assim, contentemo-nos com o seguinte:\\
+rudimentar. Assim, contentemo-nos com o seguinte:
 
-\n \den{grande} = $\lambda x_{e}.$ o
-tamanho de $x$ está acima do padrão estabelecido pela
-classe de comparação fornecida pelo contexto de fala.\\
+\begin{exe}
+	\ex \den{grande} = $\lambda x_{e}.$ o tamanho de $x$ está acima do padrão estabelecido pela classe de comparação fornecida pelo contexto de fala.
+\end{exe}
 
 \n A não validade do argumento em (\ref{nueba}) decorre, portanto, do fato de
 que o contexto de fala poder mudar entre o momento que falamos/ouvimos a
@@ -506,11 +520,12 @@ diversas análises alternativas têm sido propostas não só para o
 português brasileiro, mas também para outras línguas.
 
 Comecemos por (\ref{reld}), cujo sujeito receberá a seguinte
-estrutura:\\
+estrutura:
 
-\Tree [.DP [.D o ] [.NP [.NP [.N cachorro ] ] [.S\1 que$_1$ [.S [.DP João ] [.VP [.V adora ] [.DP ele$_1$ ] ] ] ] ] ].DP
+\begin{figure}[H]
+	\centerline{ \Tree [.DP [.D o ] [.NP [.NP [.N cachorro ] ] [.S\1 que$_1$ [.S [.DP João ] [.VP [.V adora ] [.DP ele$_1$ ] ] ] ] ] ].DP } \caption{Modificação de NP por oração relativa com pronome resumptivo }
+\end{figure}
 
-\bigskip
 
 \n Trataremos a palavra \textit{que} que aparece no início da
 oração relativa como um pronome relativo e atribuiremos a ele o
@@ -531,9 +546,11 @@ branco. Parece, então, natural tratar o NP \textit{cachorro
 que  João adora ele} como denotando uma função de tipo $\langle
 e,t\rangle$ que leva um indivíduo qualquer no valor de verdade 1
 se, e somente se, esse indivíduo for um cachorro e for também um
-indivíduo que João adora. \\
+indivíduo que João adora.
 
-\n \den{cachorro que João adora ele} = $\lambda x.\ \predica{cachorro}{x}\ \&\ \predica{adora}{joão,x}$ \\
+\begin{exe}
+	\ex \den{cachorro que João adora ele} = $\lambda x.\ \predica{cachorro}{x}\ \&\ \predica{adora}{joão,x}$
+\end{exe}
 
 \n Para nossa oração relativa,
 queremos associá-la semanticamente a uma função de tipo $\langle e,t\rangle$ que leve um
@@ -543,30 +560,29 @@ envolvendo sintagmas adjetivais e preposicionais para casos
 envolvendo orações relativas. A tarefa que nos resta, claro, é
 obter tal resultado composicionalmente.
 
-Com esse intuito, vamos primeiro operar uma pequena modificação na
-estrutura que adotamos acima para a oração relativa. Seguindo uma
-proposta elaborada em \cite{heikra98}, vamos assumir que, na
-interface sintaxe-semântica, o índice que atribuímos ao pronome
-relativo seja transferido do pronome para o constituinte irmão
-deste pronome, como exemplificado abaixo:\\
+Com esse intuito, vamos primeiro operar uma pequena modificação na estrutura que adotamos acima para a oração relativa. Seguindo uma proposta elaborada em \cite{heikra98}, vamos assumir que, na interface sintaxe-semântica, o índice que atribuímos ao pronome relativo seja transferido do pronome para o constituinte irmão deste pronome, adjungindo-se a ele, como esquematizado a seguir:
 
 
+\begin{figure}[H]
+	\centerline{ \Tree [. que$_i$ $\ \ \ \ \ \alpha\ \ \ \ \ $ ] \hspace{0.3in} $\Longrightarrow$ \hspace{0.3in} \Tree [. {\ \ \ que\ \ \ } [. $i$ $\ \ \ \ \ \alpha\ \ \ \ \ $ ] ] } \caption{Transferência de índice }
+\end{figure}
 
-\Tree [.DP [.D o ] [.NP [.NP [.N cachorro ] ] [.S\2 que [.S\1 1
-[.S [.DP João ] [.VP [.V adora ] [.DP ele$_1$ ] ] ] ] ]
-] ]
+Aplicando esse processo à estrutura que estamos analisando, teríamos o seguinte (para facilitar a referência futura aos constituintes no topo da oração relativa, vamos rotulá-los de S$'$ e S$''$):
 
-\bigskip
+\begin{figure}[H]
+	\centerline{ \Tree [.DP [.D o ] [.NP [.NP [.N cachorro ] ] [.S\2 que [.S\1 1 [.S [.DP João ] [.VP [.V adora ] [.DP ele$_1$ ] ] ] ] ] ] ] } \caption{Oração relativa após transferência de índice }
+\end{figure}
+
 
 \n Esse processo de transferência de ín\-di\-ces é apenas uma conveniência, mas que será especialmente
-útil quando analisarmos estruturas derivadas por movimento e a
-interpretação de sintagmas quantificadores no pró\-xi\-mo
-ca\-pí\-tu\-lo.
+útil quando analisarmos estruturas derivadas por movimento e a interpretação de sintagmas quantificadores no pró\-xi\-mo ca\-pí\-tu\-lo.
 
 Vejamos, então, como podemos proceder. Com relação ao constituinte
-S, já sabemos o que o nosso sistema deriva. Para uma atribuição $g$ qualquer, temos:\\
+S, já sabemos o que o nosso sistema deriva. Para uma atribuição $g$ qualquer, temos:
 
-\n \den{S}$^{g}$ = 1 \textit{sse} João adora g(1).\\
+\begin{exe}
+	\ex \den{S}$^{g}$ = 1 \textit{sse} João adora g(1).
+\end{exe}
 
 \n Como esse constituinte contém um pronome, sua extensão depende
 da atribuição \textit{g}. Mas note que, ao passarmos de
@@ -583,95 +599,114 @@ $\langle e,t\rangle$, no nosso caso) a partir da extensão de
 conta o índice do pronome relativo que marca a posição
 relativizada no interior de \textit{S}. Para interpretar  constituintes como $S'$, que dominam um
 índice numérico, elaboraremos um novo princípio composicional,
-que chamaremos de \textbf{abstração funcional}. Vamos enunciá-lo e depois explicá-lo:\\
+que chamaremos de \textsc{abstração funcional}. Vamos enunciá-lo e depois explicá-lo:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Abstração funcional \\
+	Seja $\alpha$ um nó ramificado cujos constituintes imediatos são um índice numérico \textit{i} e $\beta$. Então, \den{$\alpha$}$^{g}$ = $\lambda x. \llbracket \beta \rrbracket^{g[i \rightarrow x]}$
+\end{exe}
 
-\n\textbf{Abstração funcional}\\
-Seja $\alpha$ um nó ramificado cujos constituintes imediatos são um índice numérico \textit{i} e $\beta$. Então, \den{$\alpha$}$^{g}$
-= $\lambda x_{e}. \llbracket \beta
-\rrbracket^{g[i \rightarrow x]}$
 
-\end{tcolorbox}
-
-\bigskip
 
 \n Se você se lembrar do que vimos no capítulo 2 sobre a notação lambda, você perceberá que a expressão correspondente à extensão de $\alpha$ na regra acima é uma \textit{abstração}-$\lambda$ obtida a partir da extensão de $\beta$. Abstrações lambda, como já sabemos, representam funções. Daí o nome desse princípio. Quanto à notação $\underline{\llbracket \beta \rrbracket^{g[i
 \rightarrow x]}}$, ela deve ser interpretada da seguinte forma: a
 extensão de $\beta $ em relação a uma atribuição $g'$,
 que é idêntica a $g$ exceto pelo fato de que $g'$
 mapeia o número $i$ no indivíduo $x$, ou seja, $g'(i)=x$. Os exemplos
-abaixo ilustram a notação $g[{i \rightarrow x}]$:\\
+abaixo ilustram a notação $g[{i \rightarrow x}]$:
 
-$g:\ \left[%
-\begin{array}{@{}c@{\ }l@{\ }l@{}}%
-1 & \rightarrow& \text{João} \\
-2 & \rightarrow & \text{Pedro} \\
-3 & \rightarrow & \text{Maria} \\
-\end{array}\right]$\ \ \ \ \ \ $g[1\rightarrow \text{Carlos}]:\ \left[%
-\begin{array}{@{}c@{\ }l@{\ }l@{}}%
-1 & \rightarrow& \text{Carlos} \\
-2 & \rightarrow & \text{Pedro} \\
-3 & \rightarrow & \text{Maria} \\
-\end{array}\right]$\\\\
+\begin{exe}
+	\ex Exemplos de atribuições modificadas \\\\
+	$g:\ \left[%
+	\begin{array}{@{}c@{\ }l@{\ }l@{}}%
+	1 & \rightarrow& \text{João} \\
+	2 & \rightarrow & \text{Pedro} \\
+	3 & \rightarrow & \text{Maria} \\
+	\end{array}\right]$\ \ \ \ \ \ $g[1\rightarrow \text{Carlos}]:\ \left[%
+	\begin{array}{@{}c@{\ }l@{\ }l@{}}%
+	1 & \rightarrow& \text{Carlos} \\
+	2 & \rightarrow & \text{Pedro} \\
+	3 & \rightarrow & \text{Maria} \\
+	\end{array}\right]$\\\\
 
-$g:\ \left[%
-\begin{array}{@{}c@{\ }l@{\ }l@{}}%
-1 & \rightarrow& \text{João} \\
-2 & \rightarrow & \text{Pedro} \\
-3 & \rightarrow & \text{Maria} \\
-\end{array}\right]$\ \ \ \ \ \ $g[3 \rightarrow \text{Paula}]:\ \left[%
-\begin{array}{@{}c@{\ }l@{\ }l@{}}%
-1 & \rightarrow& \text{João} \\
-2 & \rightarrow & \text{Pedro} \\
-3 & \rightarrow & \text{Paula} \\
-\end{array}\right]$\\\\
+	$g:\ \left[%
+	\begin{array}{@{}c@{\ }l@{\ }l@{}}%
+	1 & \rightarrow& \text{João} \\
+	2 & \rightarrow & \text{Pedro} \\
+	3 & \rightarrow & \text{Maria} \\
+	\end{array}\right]$\ \ \ \ \ \ $g[3 \rightarrow \text{Paula}]:\ \left[%
+	\begin{array}{@{}c@{\ }l@{\ }l@{}}%
+	1 & \rightarrow& \text{João} \\
+	2 & \rightarrow & \text{Pedro} \\
+	3 & \rightarrow & \text{Paula} \\
+	\end{array}\right]$\\\\
 
-$g:\ \left[%
-\begin{array}{@{}c@{\ }l@{\ }l@{}}%
-1 & \rightarrow& \text{João} \\
-2 & \rightarrow & \text{Pedro} \\
-\end{array}\right]$\ \ \ \ \ \ $g[3 \rightarrow \text{Maria}]:\ \left[%
-\begin{array}{@{}c@{\ }l@{\ }l@{}}%
-1 & \rightarrow& \text{João} \\
-2 & \rightarrow & \text{Pedro} \\
-3 & \rightarrow & \text{Maria} \\
-\end{array}\right]$\\\\
+	$g:\ \left[%
+	\begin{array}{@{}c@{\ }l@{\ }l@{}}%
+	1 & \rightarrow& \text{João} \\
+	2 & \rightarrow & \text{Pedro} \\
+	\end{array}\right]$\ \ \ \ \ \ $g[3 \rightarrow \text{Maria}]:\ \left[%
+	\begin{array}{@{}c@{\ }l@{\ }l@{}}%
+	1 & \rightarrow& \text{João} \\
+	2 & \rightarrow & \text{Pedro} \\
+	3 & \rightarrow & \text{Maria} \\
+	\end{array}\right]$
+\end{exe}
 
 \n Note que para qualquer atribuição \textit{g}, o domínio de
 $g[i \rightarrow x]$ será idêntico ao domínio de \textit{g} se o
 número \textit{i} já pertencer ao domínio de \textit{g}, como nos dois primeiros casos acima.
 Entretanto, o domínio de $g[i \rightarrow x]$ incluirá o domínio de \textit{g} se o número \textit{i} não
-pertencer ao domínio de \textit{g}, como no terceiro caso acima. Mas o mais importante nesse ponto é notar que, para uma atribuição \textit{g}, um indivíduo \textit{x} e um índice \textit{i} quaisquer, teremos sempre:\\
+pertencer ao domínio de \textit{g}, como no terceiro caso acima. Mas o mais importante nesse ponto é notar que, para uma atribuição \textit{g}, um indivíduo \textit{x} e um índice \textit{i} quaisquer, teremos sempre:
 
-\n $g[i \rightarrow x](i) = x$\\
+\begin{exe}
+	\ex $g[i \rightarrow x](i) = x$
+\end{exe}
 
 \n Antes de prosseguir, uma última e breve observação notacional. Adotamos aqui para as atribuições modificadas a notação $g[i \rightarrow x]$, que tomamos emprestada de \cite{buring05}, e que nos parece mais transparente e amigável do que a notação mais comum em manuais de lógica, que é $g[i/x]$. De qualquer forma, trata-se apenas de uma questão de gosto, sendo ambas equivalentes semanticamente.
 
 Com essas definições e exemplos em mente, podemos usar
 a abstração funcional para a obtenção da extensão do
 constituinte $S'$ na estrutura que estamos
-interpretando:\\
+interpretando:
 
-\n\den{$S'$}$^{g}$ = $\lambda x_{e}. \llbracket \text{S}
-\rrbracket^{g[1 \rightarrow x]}$\\
+\begin{exe}
+	\ex \den{$S'$}$^{g}$ = $\lambda x. \llbracket \text{S} \rrbracket^{g[1 \rightarrow x]}$ \label{adbel}
+\end{exe}
 
-\n Note que a mesma variável $x$ que aparece junto ao operador lambda aparece na especificação da atribuição em relação à qual a extensão de S está relativizada. É isso que permitirá ao(s) pronome(s) que estivere(m) marcado(s) com o índice $1$ no interior de S se comportarem semanticamente como variáveis ligadas. Vejamos os detalhes. S é uma sentença simples formada por um verbo transitivo e seus dois argumentos. Sua extensão, portanto, é obtida através de aplicação funcional (além, claro, do princípio dos nós não ramificados):\\
+\n Note que a mesma variável $x$ que aparece junto ao operador lambda aparece na especificação da atribuição em relação à qual a extensão de S está relativizada. É isso que permitirá ao(s) pronome(s) que estivere(m) marcado(s) com o índice $1$ no interior de S se comportarem semanticamente como variáveis ligadas. Vejamos os detalhes. S é uma sentença simples formada por um verbo transitivo e seus dois argumentos. Sua extensão, portanto, é obtida através de aplicação funcional (além, claro, do princípio dos nós não ramificados):
 
-\n  \den{$S'$}$^{g}$ = $\lambda x.$ \den{adora}$^{g[1 \rightarrow x]}$(\den{ele$_{1}$}$^{g[1 \rightarrow x]}$)(\den{João}$^{g[1 \rightarrow x]}$)\\
+\begin{exe}
+	\ex \den{S}$^{g[1 \rightarrow x]}$ = \den{adora}$^{g[1 \rightarrow x]}$(\den{ele$_{1}$}$^{g[1 \rightarrow x]}$)(\den{João}$^{g[1 \rightarrow x]}$)
+\end{exe}
 
-\n As extensões do verbo \textit{adorar} e do sujeito \textit{João}, por não conterem pronomes, não apresentam nada de novo:\\
+\n As extensões do verbo \textit{adorar} e do sujeito \textit{João}, por não conterem pronomes, não apresentam nada de novo:
 
-\n\den{adora}$^{g[1 \rightarrow x]}$ = $\lambda x.\lambda y.\ \predica{adora}{y,x}$\\
-\den{João}$^{g[1 \rightarrow x]}$ = \textit{joão}\\
+\begin{exe}
+	\ex 
+	\begin{xlist}
+		\ex \den{adora}$^{g[1 \rightarrow x]}$ = $\lambda x.\lambda y.\ \predica{adora}{y,x}$
+		\ex \den{João}$^{g[1 \rightarrow x]}$ = \textit{joão}
+	\end{xlist}
+\end{exe}
 
-\n Em relação ao pronome \textit{ele}, dado o que sabemos desde o capítulo anterior e o que acabamos de ver acima, temos:\\
+\n Em relação ao pronome \textit{ele}, dado o que sabemos desde o capítulo anterior e o que acabamos de ver acima, temos:
 
-\n\den{ele$_{1}$}$^{g[1 \rightarrow x]}$ = $g[1 \rightarrow x](1)$ = $x$ \\
+\begin{exe}
+	\ex \den{ele$_{1}$}$^{g[1 \rightarrow x]}$ = $g[1 \rightarrow x](1)$ = $x$ 
+\end{exe}
 
-\n Juntando tudo isso, temos:\\
+\n Juntando tudo isso, temos:
 
-\n \den{S$'$}$^{g}$ = $\lambda x.\ \predica{adora}{joão,x}$\\
+\begin{exe}
+	\ex \den{S}$^{g[1 \rightarrow x]}$ = 1 \textit{sse} $\predica{adora}{joão,x}$
+\end{exe}
+
+\n Somando isso ao que já tínhamos em (\ref{adbel}), chegamos ao seguinte:
+
+\begin{exe}
+	\ex \den{S$'$}$^{g}$ = $\lambda x.\ \predica{adora}{joão,x}$
+\end{exe}
 
 \n No fim das contas, o pronome resumptivo $ele_{1}$ acabou sendo interpretado como uma variável ligada pelo operador lambda. Esse, por sua vez, foi introduzido pela regra de abstração funcional ao se deparar com o índice $1$, o mesmo índice do pronome. Isso foi possível pois aplicação funcional e o princípio dos nós não ramificados não interferem na atribuição, apenas a ``passam adiante'', por assim dizer. Isso permite uma conexão semântica entre o índice numérico que aparece junto ao pronome relativo no início da oração e os pronomes marcados com esse mesmo índice em seu interior, mesmo que haja uma distância sintática entre eles.
 
@@ -690,35 +725,37 @@ do NP \textit{cachorro} quanto a extensão da oração relativa
 \textit{que João adora ele} seriam de tipo $\langle e,t\rangle$. A segunda opção seria atribuir uma extensão ao pronome relativo e
 valermo-nos de aplicação funcional. Para tanto, essa
 extensão deve ser uma função de tipo $\langle et,\langle et,
-et\rangle\rangle$, definida da seguinte forma:\\
+et\rangle\rangle$, definida da seguinte forma:
 
-\n \den{que$_{\text{\textsc{rel}}}$}$^{g}$ = $\lambda F_{\langle
-e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ G'(x)\ \&\ F'(x)$\\
+\begin{exe}
+	\ex \den{que}$^{g}$ = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ G'(x)\ \&\ F'(x)$
+\end{exe}
 
-\n Note que, de acordo com essa entrada, cabe ao pronome relativo o papel da conjunção dos predicados correspondentes à oração relativa e ao NP que ela modifica. Para a oração relativa S$''$ acima, teríamos:\\
+\n Note que, de acordo com essa entrada, cabe ao pronome relativo o papel da conjunção dos predicados correspondentes à oração relativa e ao NP que ela modifica. Para a oração relativa S$''$ acima, teríamos:
 
-\n\den{S$''$}$^{g}$ = \den{que$_{\text{\textsc{rel}}}$}$^{g}$(\den{S$'$}$^{g}$)
-
-\n \n \den{$S''$}$^{g}$ = $\lambda G_{\langle e,t\rangle}.\lambda
-x_{e}.\ G'(x)\ \&\ \predica{adora}{joão,x}$\\
+\begin{exe}
+	\ex \den{S$''$}$^{g}$ = \den{que}$^{g}$(\den{S$'$}$^{g}$) \\
+	\den{$S''$}$^{g}$ = $\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ G'(x)\ \&\ \predica{adora}{joão,x}$
+\end{exe}
 
 \n Note que essa extensão da oração relativa é de tipo $\langle et,et\rangle$, o mesmo tipo dos sintagmas adjetivais que modificam NPs, refletindo o caráter de modificador nominal destas orações. Como a extensão de \textit{cachorro} é uma função de tipo
 $\langle e,t\rangle$, valemo-nos de aplicação funcional mais uma
 vez para chegarmos à extensão do NP \textit{cachorro que João
-adora ele}:\\
+adora ele}:
 
-\n\den{NP}$^{g}$ = \den{S$''$}$^{g}$(\den{cachorro}$^{g}$)\\
-\den{NP}$^{g}$ = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\
-\predica{adora}{joão,x}$\\
+\begin{exe}
+	\ex \den{NP}$^{g}$ = \den{S$''$}$^{g}$(\den{cachorro}$^{g}$)\\
+	\den{NP}$^{g}$ = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \predica{adora}{joão,x}$
+\end{exe}
 
 \n Por fim, para a obtenção da extensão do DP \textit{o cachorro
 que João adora ele}, basta aplicarmos a extensão do artigo definido
 à extensão do NP que acabamos de derivar e o resultado, como o
 leitor poderá verificar, será o seguinte: o único indivíduo
 \textit{x} saliente no contexto, tal que \textit{x} é um cachorro
-e o João adora \textit{x}.  \\
+e o João adora \textit{x}.
 
-\n \textbf{Vestígios e movimento sintático} \\
+\subsection{Vestígios e movimento sintático}
 
 \n A oração relativa que analisamos acima continha um pronome
 resumptivo na posição relativizada. Como já mencionamos, esse não
@@ -734,60 +771,37 @@ repetido abaixo como (\ref{erl}):
 direto, no exemplo acima) até o início da oração, deixando em sua
 posição de partida um vestígio \textit{t} (de \textit{trace}, em inglês) com o mesmo índice e sem realização fonética. Essa
 análise está representada abaixo (assumindo o mesmo processo de
-transferência de índice discutido anteriormente):\\
+transferência de índice discutido anteriormente):
 
-\begin{forest}
-	[DP
-		[D[o]]
-		[NP
-			[NP[cachorro]] 
-			[S$''$
-				[que,name=relat]
-				[S$'$
-					[1]
-					[S
-						[DP[João]]
-						[VP
-							[V[adora]]
-							[DP[t$_1$,name=vest]]
-						]
-					]
-				]
-			]
-		]
-	]
-	\draw[->] (vest) to[out=south west,in=south] (relat);
-\end{forest}	
+\begin{figure}[H]
+	\centerline{ \Tree [.NP [.NP cachorro ] [. que [. 1 \qroof{João adora t$_{1}$}.S ] ] ] } \caption{Estrutura resultante do movimento do pronome relativo e da transferência de índice }
+\end{figure}
 
-\bigskip
+
 
 \n Será essa a estrutura que o componente
 semântico interpretará. Para tanto, precisamos atribuir uma
 extensão ao vestígio indexado. Assumiremos aqui que orações relativas
-com e sem pronomes resumptivos contribuem de maneira idêntica para
+com vestígios e com pronomes resumptivos contribuem de maneira idêntica para
 as condições de verdade das sentenças que as contêm e analisaremos
 os vestígios da mesma forma como analisamos os pronomes
 resumptivos, ou seja, como variáveis ligadas. Vestígios, ao
 contrário dos pronomes, não admitem interpretações dependentes do contexto. Para
 nós, entretanto, isso não será relevante, já que admitiremos
 tratar-se de uma restrição puramente sintática. Temos, então, o
-seguinte:\\
+seguinte:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Entrada lexical dos vestígios \\
+	Para qualquer vestígio \textit{t}, atribuição \textit{g} e número natural \textit{i},\\
 
-\n \textbf{Entrada lexical dos vestígios}\\
-Para qualquer vestígio \textit{t}, atribuição
-\textit{g} e número natural \textit{i},\\
+	$\llbracket t_{i}\rrbracket^{g} =
+	\begin{cases}
+    	g(i) & \text{se } i\in \text{Domínio}(g)\\
+    	indefinido & \text{se } i\not\in \text{Domínio}(g)
+	\end{cases}$
+\end{exe}
 
-$\llbracket t_{i}\rrbracket^{g} =
-\begin{cases}
-    g(i) & \text{se } i\in \text{Domínio}(g)\\
-    indefinido & \text{se } i\not\in \text{Domínio}(g)
-\end{cases}$
-
-\end{tcolorbox}
-
-\bigskip
 
 \n Dada a semelhança na interpretação de pronomes e vestígios, a
 derivação de (\ref{erl}) prossegue de maneira idêntica à derivação
@@ -818,9 +832,11 @@ vestígio deixado na posição de sujeito:
 \end{exe}
 
 \n Essa atribuição de índices leva à seguinte extensão para a
-oração relativa:\\
+oração relativa:
 
-\n \den{que$_{1}$ t$_{1}$ mordeu o dono dele$_{2}$}$^{g}$ = $\lambda x.\ \predica{mordeu}{x, o dono de g(2)}$\\
+\begin{exe}
+	\ex \den{que$_{1}$ t$_{1}$ mordeu o dono dele$_{2}$}$^{g}$ = $\lambda x.\ \predica{mordeu}{x, o dono de g(2)}$
+\end{exe}
 
 \n Note que essa extensão depende do valor da atribuição
 \textit{g}. Se, por exemplo, \textit{g}(2) = Sultão, então teremos
@@ -829,75 +845,45 @@ somente se, este indivíduo tiver mordido o dono de Sultão. Vejamos, como exerc
 pronome relativo, temos a seguinte estrutura para a oração relativa:
 
 \begin{exe}
-    \ex $[_{\text{S}''}$ que
-     [$_{\text{S}'}$ 1 [$_{\text{S}}$ t$_{1}$ mordeu o dono dele$_{2}$
-     ]]]   \label{esa}
+    \ex $[_{\text{S}''}$ que [$_{\text{S}'}$ 1 [$_{\text{S}}$ t$_{1}$ mordeu o dono dele$_{2}$ ]]]   \label{esa}
 \end{exe}
 
-\n Apresentamos abaixo a derivação, passo a passo, dessa estrutura para que o leitor possa conferir em detalhe a aplicação de tudo o que vimos até aqui. Procederemos de cima para baixo na estrutura:\\
+\n Apresentamos abaixo a derivação, passo a passo, dessa estrutura para que o leitor possa conferir em detalhe a aplicação de tudo o que vimos até aqui. Procederemos de cima para baixo na estrutura:
 
-\n 1. \den{S$''$}$^{g}$ = \den{que}$^{g}$(\den{S$'$}$^{g}$) \hfill (AF)\\
-
-\n 2. \den{S$'$}$^{g}$ = $\lambda x.$ \den{S}$^{g[1 \rightarrow x]}$
-\hfill (AbF)\\
-
-\n 3. \den{S$''$}$^{g}$ = \den{que}$^{g}$($\lambda x.$ \den{S}$^{g[1 \rightarrow x]}$) \hfill (1,2)\\
-
-\n 4. \den{S}$^{g[1 \rightarrow x]}$ = \den{mordeu o dono
-dele$_{2}$}$^{g[1 \rightarrow x]}$(\den{t$_{1}$}$^{g[1 \rightarrow x]}$)
-\hfill
-(AF)\\
-
-\n 5. \den{mordeu o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ =
-\den{mordeu}$^{g[1 \rightarrow x]}$(\den{o dono dele$_{2}$}$^{g[1 \rightarrow x]}$) \hfill (AF)\\
-
-\n 6. \den{mordeu}$^{g[1 \rightarrow x]}$ = $\lambda x.\lambda y.\ \predica{mordeu}{y,x}$ \hfill (L)\\
-
-\n 7. \den{o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = \den{o}$^{g[1
-\rightarrow x]}$(\den{dono dele$_{2}$}$^{g[1 \rightarrow x]}$) \hfill
-(AF)\\
-
-\n 8. \den{o}$^{g[1 \rightarrow x]}$ = $\lambda F.\ \iota z[F'(z)]$ \hfill (L)\\
-
-\n 9. \den{dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = \den{dono}$^{g[1
-\rightarrow x]}$(\den{dele$_{2}$}$^{g[1 \rightarrow x]}$) \hfill (AF)\\
-
-\n 10. \den{dono}$^{g[1 \rightarrow x]}$ = $\lambda x.\lambda y.\ \predica{dono}{y,x}$ \hfill (L)\\
-
-\n 11. \den{dele$_{2}$}$^{g[1 \rightarrow x]}$ = \den{ele$_{2}$}$^{g[1
-\rightarrow x]}$ \hfill (NNR, \textit{de} é vácua)\\
-
-\n 12. \den{ele$_{2}$}$^{g[1 \rightarrow x]}$ = $g[1 \rightarrow x](2)$ = $g(2)$ \hfill (L,
-Ass.Mod)\\
-
-\n 13. \den{dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = $\lambda y.\ \predica{dono}{y,g(2)}$ \hfill (9,10,11,12)\\
-
-\n 14. \den{o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = $\iota z[\predica{dono}{z,g(2)}]$ \hfill (7,8,13)\\
-
-\n 15. \den{mordeu o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ =
-$\lambda y.\ \textsc{mordeu}(y,\iota z[\textsc{dono}(z,g(2))])$ \hfill (5,6,14)\\
-
-\n 16. \den{t$_{1}$}$^{g[1 \rightarrow x]}$ = $g[1 \rightarrow x](1)$ = $x$ \hfill (L,Ass.Mod)\\
-
-\n 17. \den{S}$^{g[1 \rightarrow x]}$ = 1 \textit{sse} $\textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$ \hfill (4,15,16)\\
-
-\n 18. \den{S$'$}$^{g}$ = $\lambda x.\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$ \hfill (2,17)\\
-
-\n 19. \den{S$''$}$^{g}$ = \den{que}$^{g}$($\lambda x.\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$) \hfill (1,18)\\
-
-\n 20. \den{que}$^{g}$ = $\lambda F_{\langle e,t\rangle}.\lambda
-G_{\langle e,t\rangle}.\lambda x_{e}.\ G'(x)\ \&\ F'(x)$
-\hfill (L)\\
-
-\n 21. \den{S$''$}$^{g}$ = $\lambda G_{\langle e,t\rangle}.\lambda
-x_{e}.\ G'(x)\ \&\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$
-\hfill (19,20)\\
+\begin{exe}
+	\ex Derivação semântica de (\ref{esa})\\
+	1. \den{S$''$}$^{g}$ = \den{que}$^{g}$(\den{S$'$}$^{g}$) \hfill (AF)\\
+	2. \den{S$'$}$^{g}$ = $\lambda x.$ \den{S}$^{g[1 \rightarrow x]}$ \hfill (AbF)\\
+	3. \den{S$''$}$^{g}$ = \den{que}$^{g}$($\lambda x.$ \den{S}$^{g[1 \rightarrow x]}$) \hfill (1,2)\\
+	4. \den{S}$^{g[1 \rightarrow x]}$ = \den{mordeu o dono dele$_{2}$}$^{g[1 \rightarrow x]}$(\den{t$_{1}$}$^{g[1 \rightarrow x]}$) \hfill (AF)\\
+	5. \den{mordeu o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = \\
+	\hspace*{\fill} \den{mordeu}$^{g[1 \rightarrow x]}$(\den{o dono dele$_{2}$}$^{g[1 \rightarrow x]}$) \ \ \ (AF) \\
+	6. \den{mordeu}$^{g[1 \rightarrow x]}$ = $\lambda x.\lambda y.\ \predica{mordeu}{y,x}$ \hfill (L)\\
+	7. \den{o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = \den{o}$^{g[1 \rightarrow x]}$(\den{dono dele$_{2}$}$^{g[1 \rightarrow x]}$) \hfill (AF)\\
+	8. \den{o}$^{g[1 \rightarrow x]}$ = $\lambda F.\ \iota z[F'(z)]$ \hfill (L)\\
+	9. \den{dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = \den{dono}$^{g[1 \rightarrow x]}$(\den{dele$_{2}$}$^{g[1 \rightarrow x]}$) \hfill (AF)\\
+	10. \den{dono}$^{g[1 \rightarrow x]}$ = $\lambda x.\lambda y.\ \predica{dono}{y,x}$ \hfill (L)\\
+	11. \den{dele$_{2}$}$^{g[1 \rightarrow x]}$ = \den{ele$_{2}$}$^{g[1 \rightarrow x]}$ \hfill (NNR, \textit{de} é vácua)\\
+	12. \den{ele$_{2}$}$^{g[1 \rightarrow x]}$ = $g[1 \rightarrow x](2)$ = $g(2)$ \hfill (L, Atr.Mod)\\
+	13. \den{dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = $\lambda y.\ \predica{dono}{y,g(2)}$ \hfill (9,10,11,12)\\
+	14. \den{o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = $\iota z[\predica{dono}{z,g(2)}]$ \hfill (7,8,13)\\
+	15. \den{mordeu o dono dele$_{2}$}$^{g[1 \rightarrow x]}$ = \\
+	\hspace*{\fill} $\lambda y.\ \textsc{mordeu}(y,\iota z[\textsc{dono}(z,g(2))])$ \ \ \  (5,6,14)\\
+	16. \den{t$_{1}$}$^{g[1 \rightarrow x]}$ = $g[1 \rightarrow x](1)$ = $x$ \hfill (L,Atr.Mod)\\
+	17. \den{S}$^{g[1 \rightarrow x]}$ = 1 \textit{sse} $\textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$ \hfill (4,15,16)\\
+	18. \den{S$'$}$^{g}$ = $\lambda x.\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$ \hfill (2,17)\\
+	19. \den{S$''$}$^{g}$ = \den{que}$^{g}$($\lambda x.\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$) \hfill (1,18)\\
+	20. \den{que}$^{g}$ = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ G'(x)\ \&\ F'(x)$ \hfill (L)\\
+	21. \den{S$''$}$^{g}$ = $\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ G'(x)\ \&\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,g(2))])$ \hfill (19,20)
+\end{exe}
 
 \n Combinando o resultado acima com o a extensão do nome
 \textit{cachorro}, obteremos o resultado que desejávamos
-para o NP \textit{cachorro que mordeu o dono dele}:\\
+para o NP \textit{cachorro que mordeu o dono dele}:
 
-\n \den{NP}$^{g}$ = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \textsc{mordeu}(x,\iota x[\textsc{dono}(x,g(2))])$\\
+\begin{exe}
+	\ex \den{NP}$^{g}$ = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \textsc{mordeu}(x,\iota x[\textsc{dono}(x,g(2))])$
+\end{exe}
 
 \n Na outra leitura possível para (\ref{fug}), quem fugiu foi um
 cachorro que mordeu o próprio dono. Essa leitura pode ser
@@ -910,18 +896,26 @@ posição de sujeito e o pronome \textit{ele}:
 \end{exe}
 
 \n Nesse caso, dada a coindexação entre o vestígio, o pronome
-\textit{ele} e o pronome relativo, obteremos o seguinte:\\
+\textit{ele} e o pronome relativo, obteremos o seguinte:
 
-\n \den{t$_{1}$}$^{g[1 \rightarrow x]}$ = $x$ \\
+\begin{exe}
+	\ex \den{t$_{1}$}$^{g[1 \rightarrow x]}$ = $x$ 
+\end{exe}
 
-\n \den{dele$_{1}$}$^{g[1 \rightarrow x]}$ = $x$ \\
+\begin{exe}
+	\ex \den{dele$_{1}$}$^{g[1 \rightarrow x]}$ = $x$
+\end{exe} 
 
-\n \den{S}$^{g[1 \rightarrow x]}$ = 1 \textit{sse} $\textsc{mordeu}(x,\iota z[\textsc{dono}(z,x)])$\\
+\begin{exe}
+	\ex \den{S}$^{g[1 \rightarrow x]}$ = 1 \textit{sse} $\textsc{mordeu}(x,\iota z[\textsc{dono}(z,x)])$
+\end{exe}
 
 \n O restante da derivação procede de maneira análoga ao que vimos
-acima, resultando na seguinte extensão para o NP \textit{cachorro que mordeu o dono dele}:\\
+acima, resultando na seguinte extensão para o NP \textit{cachorro que mordeu o dono dele}:
 
-\n \den{NP}$^{g}$ = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,x)])$\\
+\begin{exe}
+	\ex \den{NP}$^{g}$ = $\lambda x_{e}.\ \predica{cachorro}{x}\ \&\ \textsc{mordeu}(x,\iota z[\textsc{dono}(z,x)])$
+\end{exe}
 
 \n Conforme desejávamos, obtivemos uma extensão que não depende da atribuição.
 

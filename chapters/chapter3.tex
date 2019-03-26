@@ -1,4 +1,4 @@
-%versao de 15-MAR-2019
+%versao de 23-MAR-2019
 
 \chapter{Coordenação e negação}
 
@@ -15,19 +15,20 @@ Consideremos a sentença (\ref{co}) abaixo:
 \end{exe}
 
 \n Essa senten\-ça é formada pela coordena\-ção de duas outras
-senten\-ças por meio da conjun\-ção aditiva \textit{e}. No capítulo 1, representamos essa coordenação como uma estrutura ternária em que a conjunção \textit{e} tinha como irmãos na árvore sintática as duas partes coordenadas.\\
+senten\-ças por meio da conjun\-ção aditiva \textit{e}. No capítulo 1, representamos essa coordenação como uma estrutura ternária em que a conjunção \textit{e} tinha como irmãos na árvore sintática as duas partes coordenadas.
 
-\Tree [ \qroof{João trabalha}.S$_{1}$ e \qroof{Maria
-	estuda}.S$_{2}$ ].S
+\begin{figure}[H]
+	\centerline{ \Tree [ \qroof{João trabalha}.S$_{1}$ e \qroof{Maria estuda}.S$_{2}$ ].S } \caption{Estrutura ternária para a coordenação }
+\end{figure}
 
-\bigskip
 
-\n É possível, entretanto, adotar uma estrutura binária para essas construções, colocando-as em pé igualdade com outras construções sintáticas complexas como os VPs e as sentenças do capítulo 2. Não iremos aqui argumentar empiricamente a favor dessa posição (ver, por exemplo, \cite{munn93}, capítulo 2, para possíveis indícios), apenas adotando-a por uma questão de uniformidade. Rotularemos o item \textit{e} de Coord(enação) e as projeções imediatamente acima dele de Coord$^{\prime}$ e CoordP:\\
 
-\Tree [ \qroof{João trabalha}.S$_{1}$ [ [ e ].Coord \qroof{Maria
-estuda}.S$_{2}$ ].Coord$^{\prime}$ ].CoordP
+\n É possível, entretanto, adotar uma estrutura binária para essas construções, deixando as mesmas em pé igualdade com outras construções sintáticas complexas como os VPs e as sentenças do capítulo 2. Não iremos aqui argumentar empiricamente a favor dessa posição (ver, por exemplo, \cite{munn93}, capítulo 2, para possíveis indícios), apenas adotando-a por uma questão de uniformidade. Rotularemos o item \textit{e} de Coord(enação) e as projeções imediatamente acima dele de Coord$^{\prime}$ e CoordP:
 
-\bigskip
+\begin{figure}[H]
+	\centerline{ \Tree [ \qroof{João trabalha}.S$_{1}$ [ [ e ].Coord \qroof{Maria estuda}.S$_{2}$ ].Coord$^{\prime}$ ].CoordP } \caption{Estrutura binária para a coordenação }
+\end{figure}
+
 
 Lembre-se, entretanto, que rótulos não desempenham nenhum papel em
 nosso sistema. O que realmente importa é a estrutura hierárquica e as extensões dos seus constituintes. Nem aplicação funcional nem o princípio dos nós não ramificados fazem  menção a rótulos categoriais (NP, VP, S, ...). Portanto, se, por alguma razão extra, você preferir outros rótulos (ConjP, S$^{\prime}$, ...), sinta-se à vontade para modificá-los.
@@ -46,10 +47,11 @@ mudan\-ça nos tipos reflete a diferen\-ça que acabamos de notar.
 Quanto à descri\-ção dessa fun\-ção, notemos que uma senten\-ça
 coordenada é verdadeira se as senten\-ças que a compõem forem
 ambas verdadeiras, e falsa se umas delas, ou ambas, forem falsas.
-A entrada lexical abaixo capta essa condi\-ção:\\
+A entrada lexical abaixo capta essa condi\-ção:
 
-\n \den{e} = $(\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \text{e}\
-q=1)$\\
+\begin{exe}
+	\ex \den{e} = $(\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \text{e}\ q=1)$
+\end{exe}
 
 Antes de prosseguir, pausemos um instante para fazer algumas considerações sobre o uso da conjunção \textit{e}, já que esse uso  costuma trazer à tona outras nuances de significado, além da adição, tais como nexos causais e temporais. Considere, por exemplo, as sentenças abaixo:
 
@@ -77,81 +79,93 @@ Já a exigência de que ambas as orações coordenadas sejam verdadeiras tem um 
 
 Não discutiremos aqui como a veiculação de nexos causais e temporais emerge de certos usos da conjunção \textit{e}. Limitamo-nos a apontar que esse foi e continua sendo um tema muito discutido em pragmática, que, muitas vezes, se caracteriza por buscar manter uma semântica mais austera, enriquecida por princípios conversacionais que regem a interação linguística entre falantes (ver sugestões de leitura ao final deste capítulo).
 
-Para realçar esse tratamento semântico enxuto que estamos dando a \textit{e}, vamos usar na metalinguagem o conectivo lógico $\&$ (às vezes também representado por $\land$), caracterizado por exigir única e exclusivamente a verdade de ambas as sentenças coordenadas. Sua contribuição semântica costuma ser representada em uma tabela como a abaixo, em que $\phi$ e $\psi$ representam duas sentenças quaisquer:
+Para realçar esse tratamento semântico enxuto que estamos dando a \textit{e}, vamos usar na metalinguagem o conectivo lógico $\&$ (às vezes também representado por $\land$), caracterizado por exigir única e exclusivamente a verdade de ambas as sentenças coordenadas. Sua contribuição semântica costuma ser representada como na tabela \ref{tabelae}, em que $\phi$ e $\psi$ representam duas sentenças quaisquer:
+
+\begin{table}
+	\begin{tabularx}{.4\textwidth}{XXX}
+		\lsptoprule
+		$\phi$ & $\psi$ & $\phi\ \&\ \psi$ \\
+		\midrule 
+		1 & 1 & \ \ \ 1 \\  
+		1 & 0 & \ \ \ 0 \\ 
+		0 & 1 & \ \ \ 0 \\ 
+		0 & 0 & \ \ \ 0 \\
+		\lspbottomrule
+	\end{tabularx}
+\caption{Tabela de verdade de $\&$}
+\label{tabelae}
+\end{table}
+
+
+\n A entrada lexical de \textit{e} será, portanto, a seguinte:
 
 \begin{exe}
-	\ex Tabela de verdade de $\&$\\
-	
-	\begin{tabular}{c|c||c}
-		$\phi$ & $\psi$ & $\phi\ \&\ \psi$ \\ 
-		%\hline 
-		1 & 1 & 1 \\ 
-		%\hline 
-		1 & 0 & 0 \\ 
-		%\hline 
-		0 & 1 & 0 \\ 
-		%\hline 
-		0 & 0 & 0 \\ 
-	\end{tabular} 	
+	\ex \den{e} = $(\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\ q=1)$
 \end{exe}
 
-\n A entrada lexical de \textit{e} será, portanto, a seguinte: \\
-
-\n \den{e} = $(\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\
-q=1)$\\ 
-
 Feitas essas considerações, vejamos como as condi\-çõ\-es de verdade de (\ref{co}), repetida abaixo, são
-derivadas\\
+derivadas:
 
-\Tree [ \qroof{João trabalha}.S$_{1}$ [ [ e ].Coord \qroof{Maria
-	estuda}.S$_{2}$ ].Coord$^{\prime}$ ].CoordP
+\begin{figure}[H]
+	\centerline{ \Tree [ \qroof{João trabalha}.S$_{1}$ [ [ e ].Coord \qroof{Maria estuda}.S$_{2}$ ].Coord$^{\prime}$ ].CoordP } \caption{Coordenação sentencial }
+\end{figure}
 
-\bigskip
+
+
 
 \n Através de aplica\-ção funcional, obtemos o
-seguinte:\\
+seguinte:
 
-\n \den{Coord$^{\prime}$} = \den{Coord}(\den{S$_{2}$})\\
+\begin{exe}
+	\ex \den{Coord$^{\prime}$} = \den{Coord}(\den{S$_{2}$}) \\
+	= ($\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\ q=1$)(\den{S$_{2}$}) \\
+	= $\lambda q_{t}.\ $\den{S$_{2}$}$=1\ \&\ q=1$
+\end{exe}
 
-\n = ($\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\ q=1$)(\den{S$_{2}$})
+\n Como já sabemos que:
 
-\n = $\lambda q_{t}.\ $\den{S$_{2}$}$=1\ \&\ q=1$ \\
+\begin{exe}
+	\ex \den{S$_{2}$} = 1 \textit{sse} $\predica{estuda}{maria}$
+\end{exe}
 
-\n Como já sabemos que:\\
+\n temos que:
 
-\n \den{S$_{2}$} = 1 \textit{sse} $\predica{estuda}{maria}$ \\
-
-\n Temos que:\\
-
-\n \den{Coord$^{\prime}$} = $\lambda q_{t}.\ \predica{estuda}{maria}\ \&\ q=1$\\
+\begin{exe}
+	\ex \den{Coord$^{\prime}$} = $\lambda q_{t}.\ \predica{estuda}{maria}\ \&\ q=1$
+\end{exe}
 
 \n Aplica\-ção funcional é então novamente utilizada para derivar
-as condi\-çõ\-es de verdade de CoordP:\\
+as condi\-çõ\-es de verdade de CoordP:
 
-\n \den{CoordP} = \den{Coord$^{\prime}$}(\den{S$_{1}$})\\
+\begin{exe}
+	\ex \den{CoordP} = \den{Coord$^{\prime}$}(\den{S$_{1}$})\\
+	= ($\lambda q_{t}.\ \predica{estuda}{maria}\ \&\ q=1$)(\den{S$_{1}$}) \\
+	= 1 \textit{sse} $\predica{estuda}{maria}$ $\&$ \den{S$_{1}$} = 1
+\end{exe}
 
-\n = ($\lambda q_{t}.\ \predica{estuda}{maria}\ \&\ q=1$)(\den{S$_{1}$})
+\n Como já sabemos que:
 
-\n = 1 \textit{sse} $\predica{estuda}{maria}$ $\&$ \den{S$_{1}$} = 1\\
+\begin{exe}
+	\ex \den{S$_{1}$} = 1 \textit{sse} $\predica{trabalha}{joão}$
+\end{exe}
 
-\n Como já sabemos que:\\
+\n temos que:
 
-\n \den{S$_{1}$} = 1 \textit{sse} $\predica{trabalha}{joão}$\\
+\begin{exe}
+	\ex \den{CoordP} = 1 \textit{sse} $\predica{estuda}{maria}\ \&\ \predica{trabalha}{joão} $
+\end{exe}
 
-\n temos que\\
+\n Note que, como o conectivo \& utilizado na metalinguagem é simétrico, ou seja, a ordem dos elementos coordenados não é relevante, podemos igualmente escrever:
 
-\n \den{CoordP} = 1 \textit{sse} $\predica{estuda}{maria}\ \&\ \predica{trabalha}{joão} $\\
-
-\n Note que, como o conectivo \& utilizado na metalinguagem é simétrico, ou seja, a ordem dos elementos coordenados não é relevante, podemos igualmente escrever: \\
-
-\n \den{CoordP} = 1 \textit{sse} $\predica{trabalha}{joão}\ \&\  \predica{estuda}{maria}$\\
+\begin{exe}
+	\ex \den{CoordP} = 1 \textit{sse} $\predica{trabalha}{joão}\ \&\  \predica{estuda}{maria}$
+\end{exe}
 
 \n Esse é, de fato, o resultado que desejávamos.
 
 \section{A flexibilidade da coordenação}
 
-Analisamos acima uma senten\-ça formada pela coordena\-ção de duas
-outras senten\-ças e atribuímos uma entrada lexical para a
+Analisamos acima uma senten\-ça formada pela coordena\-ção de duas senten\-ças e atribuímos uma entrada lexical para a
 conjun\-ção \textit{e} de tipo $\langle t,\langle t,t\rangle\rangle$, que
 nos forneceu condi\-çõ\-es de verdade adequadas.
 
@@ -231,9 +245,9 @@ suas versões não reduzidas. Considere, por exemplo, a senten\-ça
 em (\ref{ero}) e sua versão não reduzida em (\ref{fro}):
 
 \begin{exe}
-\ex Alguém estuda e trabalha.\label{ero}
+	\ex Alguém estuda e trabalha.\label{ero}
 
-\ex Alguém estuda e alguém trabalha.\label{fro}
+	\ex Alguém estuda e alguém trabalha.\label{fro}
 \end{exe}
 
 Ainda não dissemos nada sobre o pronome indefinido \textit{alguém}, e só
@@ -259,13 +273,12 @@ t,t\rangle\rangle$, utilizada na coordena\-ção de senten\-ças,
 haveria, por exemplo, uma outra de tipo $\langle et,\langle
 et,et\rangle\rangle$ utilizada na coordena\-ção de constituintes
 com
-denota\-çõ\-es de tipo $\langle e,t\rangle$, como em (\ref{croa}).\\
+denota\-çõ\-es de tipo $\langle e,t\rangle$, como em (\ref{croa}).
 
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ João ].N ].NP [ [ [ trabalha ].V ].VP$_{1}$ [ [ e$'$ ].Coord [ [ estuda ].V ].VP$_{2}$ ].Coord$'$ ].CoordP ].S } \caption{Coordenação de VPs }
+\end{figure}
 
-\Tree [ [ [ João ].N ].NP [ [ [ trabalha ].V ].VP$_{1}$ [ [ e$'$ ].Coord
-[ [ estuda ].V ].VP$_{2}$ ].Coord' ].CoordP ].S
-
-\bigskip
 
 \n Vamos chamar essa outra conjun\-ção de $e'$ para diferenciá-la
 do $e$ que coordena senten\-ças. Queremos que essa nova
@@ -273,72 +286,86 @@ conjun\-ção tome as extensões dos dois VPs (duas funções de tipo
 $\langle e,t\rangle$) como argumentos e retorne uma nova fun\-ção
 desse mesmo tipo $\langle e,t\rangle$. Essa nova função tomará um indivíduo como argumento (fornecido pela extensão do NP sujeito) e aplicará as extensões dos VPs originais a ela. A
 entrada lexical abaixo formaliza essa
-intuição:\\
+intuição:
 
-\n \den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\
-F(x)=1\ \&\ G(x)=1$\\
+\begin{exe}
+	\ex \den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ F(x)=1\ \&\ G(x)=1$
+\end{exe}
 
-\n Ou, equivalentemente, na notação de predicados:\\
+\n Ou, equivalentemente, na notação de predicados:
 
-\n \den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\
-F'(x)\ \&\ G'(x)$\\
+\begin{exe}
+	\ex \den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ G'(x)$
+\end{exe}
 
 \n Nessa nova entrada, $F$ e $G$ correspondem às extensões dos VPs coordenados e $x$ à extensão do NP sujeito. Com isso em mente, acompanhe atentamente a deriva\-ção das condi\-çõ\-es de
 verdade da estrutura acima e note que a nova entrada lexical fornece
-o resultado desejado.\\
+o resultado desejado.
 
-\n \den{Coord$'$} = \den{Coord}(\den{VP$_{2}$})\\
+\begin{exe}
+	\ex \den{Coord$'$} = \den{Coord}(\den{VP$_{2}$})\\
+	= ($\lambda F.\lambda G.\lambda x.\ F'(x)\ \&\ G'(x)$)(\den{VP$_{2}$})
+\end{exe}
 
-\n = ($\lambda F.\lambda G.\lambda x.\ F'(x)\ \&\
-G'(x)$)(\den{VP$_{2}$}) \\
 
+\n Como já sabemos que:
 
-\n Como já sabemos que:\\
+\begin{exe}
+	\ex \den{VP$_{2}$} = $\lambda x.\ \predica{estuda}{x}$
+\end{exe}
 
-\n \den{VP$_{2}$} = $\lambda x.\ \predica{estuda}{x}$ \\
+\n e que, portanto:
 
-\n e que, portanto:\\
+\begin{exe}
+	\ex \den{VP$_{2}$}($x$) = 1 \textit{sse} $\predica{estuda}{x}$
+\end{exe}
 
-\n \den{VP$_{2}$}($x$) = 1 \textit{sse} $\predica{estuda}{x}$ \\
+\n temos que:
 
-\n temos que:\\
-
-\n \den{Coord$'$} = $\lambda G.\lambda x.\ \predica{estuda}{x}\
-\&\ G'(x)$\\
+\begin{exe}
+	\ex \den{Coord$'$} = $\lambda G.\lambda x.\ \predica{estuda}{x}\ \&\ G'(x)$
+\end{exe}
 
 \n Quanto a CoordP, valemo-nos de aplica\-ção funcional
-novamente:\\
+novamente:
 
-\n \den{CoordP} = \den{Coord$'$}(\den{VP$_{1}$})\\
+\begin{exe}
+	\ex \den{CoordP} = \den{Coord$'$}(\den{VP$_{1}$}) \\
+	= ($\lambda G.\lambda x.\ \predica{estuda}{x}\ \&\ G'(x)$)(\den{VP$_{1}$})
+\end{exe}
 
-\n = ($\lambda G.\lambda x.\ \predica{estuda}{x}\ \&\
-G'(x)$)(\den{VP$_{1}$})\\
+\n Como já sabemos que:
 
-\n Como já sabemos que:\\
+\begin{exe}
+	\ex \den{VP$_{1}$} = $\lambda x.\ \predica{trabalha}{x}$
+\end{exe}
 
-\n \den{VP$_{1}$} = $\lambda x.\ \predica{trabalha}{x}$ \\
+\n e que, portanto:
 
-\n e que, portanto: \\
+\begin{exe}
+	\ex \den{VP$_{1}$}(\textit{x}) = 1 \textit{sse} $\predica{trabalha}{x}$
+\end{exe}
 
-\n \den{VP$_{1}$}(\textit{x}) = 1 \textit{sse} $\predica{trabalha}{x}$\\
+\n temos que:
 
-\n temos que:\\
+\begin{exe}
+	\ex \den{CoordP} = $\lambda x_{e}.\ \predica{estuda}{x}\ \&\ \predica{trabalha}{x}$
+\end{exe}
 
-\n \den{CoordP} = $\lambda x_{e}.\ \predica{estuda}{x}\ \&\ \predica{trabalha}{x}$\\
+\n Note que essa é uma função de tipo $\langle e,t\rangle$ que leva um indivíduo $x$ ao valor de verdade 1 se, e somente se, $x$ estuda e $x$ trabalha. Note, ainda, que dada a já salientada simetria do conectivo lógico \&, podemos igualmente escrever:
 
-\n Note que essa é uma função de tipo $\langle e,t\rangle$ que leva um indivíduo $x$ ao valor de verdade 1 se, e somente se, $x$ estuda e $x$ trabalha. Note, ainda, que dada a já salientada simetria do conectivo lógico \&, podemos igualmente escrever: \\
-
-\n \den{CoordP} = $\lambda x_{e}.\ \predica{trabalha}{x}\ \&\ \predica{estuda}{x}$\\
-
-
-\n Finalmente, temos que:\\
-
-\n \den{S} = \den{CoordP}(\den{NP})\\
+\begin{exe}
+	\ex \den{CoordP} = $\lambda x_{e}.\ \predica{trabalha}{x}\ \&\ \predica{estuda}{x}$
+\end{exe}
 
 
-\n \den{S} = $(\lambda x.\ \predica{trabalha}{x}\ \&\ \predica{estuda}{x})(\text{\textit{joão}})$\\
+\n Finalmente, temos que:
 
-\n \den{S} = 1 \textit{sse} $\predica{trabalha}{joão}\ \&\ \predica{estuda}{joão}$\\
+\begin{exe}
+	\ex \den{S} = \den{CoordP}(\den{NP})\\
+		\den{S} = $(\lambda x.\ \predica{trabalha}{x}\ \&\ \predica{estuda}{x})(\text{\textit{joão}})$\\
+		\den{S} = 1 \textit{sse} $\predica{trabalha}{joão}\ \&\ \predica{estuda}{joão}$
+\end{exe}
 
 A entrada lexical proposta acima para $e'$ pode ser utilizada não
 apenas em (\ref{croa}), mas também em (\ref{crod})-(\ref{crog}),
@@ -357,31 +384,29 @@ fun\-ção do mesmo tipo que as extensões desses verbos. Já os
 argumentos fornecidos a essa nova fun\-ção serão, por assim dizer,
 transmitidos às extensões dos verbos coordenados, como
 exemplificado
-abaixo:\\
+abaixo:
 
-\n \den{e$''$} = $\lambda F_{\langle e,\langle
-e,t\rangle\rangle}.\lambda G_{\langle e,\langle
-e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F(x)(y)=1\ \&\
-G(x)(y)=1$\\
+\begin{exe}
+	\ex \den{e$''$} = $\lambda F_{\langle e,\langle e,t\rangle\rangle}.\lambda G_{\langle e,\langle e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F(x)(y)=1\ \&\ G(x)(y)=1$
+\end{exe}
 
-\n \den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle
-e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle
-e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda
-z_{e}.\ F(x)(y)(z)=1\ \&\ G(x)(y)(z)=1$\\
-
-
-\n Ou, equivalentemente, na notação de predicados:\\
+\begin{exe}
+	\ex \den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda z_{e}.\ F(x)(y)(z)=1\ \& $ \\
+	\hspace*{\fill} $ G(x)(y)(z)=1 $
+\end{exe}
 
 
-\n \den{e$''$} = $\lambda F_{\langle e,\langle
-	e,t\rangle\rangle}.\lambda G_{\langle e,\langle
-	e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F'(y,x)\ \&\
-G'(y,x)$\\
 
-\n \den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle
-	e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle
-	e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda
-z_{e}.\ F'(z,x,y)\ \&\ G'(z,x,y)$\\
+\n Ou, equivalentemente, na notação de predicados:
+
+
+\begin{exe}
+	\ex \den{e$''$} = $\lambda F_{\langle e,\langle e,t\rangle\rangle}.\lambda G_{\langle e,\langle e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F'(y,x)\ \&\ G'(y,x)$
+\end{exe}
+
+\begin{exe}
+	\ex \den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda z_{e}.\ F'(z,x,y)\ \&\ G'(z,x,y)$
+\end{exe}
 
 Vistas sob um certo ângulo, essas entradas lexicais caracterizam uma espécie de economia de meios, em que um mesmo recurso sintático (sujeito, objeto direto, etc.) é utilizado duas vezes semanticamente.
 
@@ -405,24 +430,14 @@ derivássemos todas as demais.
 
 Há uma maneira relativamente simples de concretizar essa proposta.
 Ela se baseia em uma semelhan\-ça na forma das entradas lexicais
-que propusemos acima e que repetimos abaixo por conveniência:\\
+que propusemos acima e que repetimos abaixo por conveniência:
 
-
-\n \den{e} = $\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\
-q=1$\\
-
-\n \den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle
-e,t\rangle}.\lambda x_{e}.\ F(x)=1\ \&\ G(x)=1$\\
-
-\n \den{e$''$} = $\lambda F_{\langle e,\langle
-e,t\rangle\rangle}.\lambda G_{\langle e,\langle
-e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F(x)(y)=1\ \&\
-G(x)(y)=1$\\
-
-\n \den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle
-e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle
-e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda
-z_{e}.\ F(x)(y)(z)=1\ \&\ G(x)(y)(z)=1$\\
+\begin{exe}
+	\ex \den{e} = $\lambda p_{t}.\ \lambda q_{t}.\ p=1\  \&\ q=1$\\
+		\den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ F(x)=1\ \&\ G(x)=1$\\
+		\den{e$''$} = $\lambda F_{\langle e,\langle e,t\rangle\rangle}.\lambda G_{\langle e,\langle e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F(x)(y)=1\ \&\ G(x)(y)=1$\\
+		\den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda z_{e}.\ F(x)(y)(z)=1\ \& $ \\ \hspace*{\fill} $G(x)(y)(z)=1$
+\end{exe}
 
 
 \n Para \den{e}, valemo-nos simplesmente do conectivo lógico
@@ -436,22 +451,15 @@ argumentos necessários para que as fun\-çõ\-es
 envolvidas retornem um valor de verdade: 1, 2 e 3, respectivamente. 
 
 Tendo isso em mente, podemos tomar \den{e} como forma básica, e
-derivar as demais a partir dela.\\
+derivar as demais a partir dela.
 
-\n \den{e} = $\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\
-q=1$\\
-
-\n \den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle
-e,t\rangle}.\lambda x_{e}.\ \llbracket \text{e} \rrbracket (F(x))(G(x))$\\
-
-\n \den{e$''$} = $\lambda F_{\langle e,\langle
-e,t\rangle\rangle}.\lambda G_{\langle e,\langle
-e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ \llbracket \text{e} \rrbracket (F(x)(y))(G(x)(y))$\\
-
-\n \den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle
-e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle
-e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda
-z_{e}.\ \llbracket \text{e} \rrbracket (G(x)(y)(z))(G(x)(y)(z))$\\
+\begin{exe}
+	\ex \den{e} = $\lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\ q=1$\\
+		\den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ \llbracket \text{e} \rrbracket (F(x))(G(x))$\\
+		\den{e$''$} = $\lambda F_{\langle e,\langle e,t\rangle\rangle}.\lambda G_{\langle e,\langle e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ \llbracket \text{e} \rrbracket (F(x)(y))(G(x)(y))$\\
+		\den{e$'''$} = $\lambda F_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda G_{\langle e,\langle e, \langle e,t\rangle\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\lambda z_{e}. $ \\
+		\hspace*{\fill} $\llbracket \text{e} \rrbracket (F(x)(y)(z))(G(x)(y)(z))$
+\end{exe}
 
 \n É importante notar que, para
 procedermos dessa forma, é necessário que a aplicação das funções $F$ e $G$  aos argumentos $x$, $y$, $z$, cheguemos a um valor de verdade (tipo
@@ -468,24 +476,15 @@ e,e\rangle$, etc.
 Dessa forma, continuaremos assumindo que a conjun\-ção \textit{e} está associada a
 múltiplos tipos semânticos. Entretanto, relacionaremos explicitamente as múltiplas extensões envolvidas. Esse procedimento costuma ser chamado de polissemia lógica ou \textsc{polimorfismo}.
 
-Generalizando o que acabamos de ver para todos os tipos booleanos, podemos definir o seguinte esquema para a conjunção:\\
+Generalizando o que acabamos de ver para todos os tipos booleanos, podemos definir o seguinte esquema para a conjunção:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-	
-	\textbf{Versão polimórfica da conjun\-ção \underline{\textit{e}}}:\\
-	
-	\underline{Caso básico}: se $a = t$,
-	\begin{equation*}
-	\llbracket e_{\langle a ,\langle a,a\rangle\rangle}\rrbracket = \lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\ q=1 
-	\end{equation*}
-	\underline{Casos Derivados}: se $a = \langle a_{1},\langle a_{2}, ... ,\langle a_{n},t\rangle ... \rangle\rangle\ (n\geq 1)$,
-	\begin{multline*}
-	\llbracket e_{\langle a ,\langle a,a\rangle\rangle}\rrbracket = \lambda f_{a}.\lambda g_{a}.\lambda \gamma_{a_{1}}^{1}.\lambda \gamma_{a_{2}}^{2}...\lambda \gamma_{a_{n}}^{n}.\\ \llbracket e_{\langle t\langle t,t\rangle\rangle}\rrbracket(f_{a}(\gamma_{a_{1}}^{1})(\gamma_{a_{2}}^{2})...(\gamma_{a_{n}}^{n}))(g_{a}(\gamma_{a_{1}}^{1})(\gamma_{a_{2}}^{2})...(\gamma_{a_{n}}^{n}))
-	\end{multline*}
-	
-\end{tcolorbox}
-
-\bigskip
+\begin{exe}
+	\ex Versão polimórfica da conjun\-ção \textit{e}: \\
+	\hspace*{18pt}\underline{Caso básico}: se $a = t$, \\
+	\hspace*{30pt}$\llbracket e_{\langle a ,\langle a,a\rangle\rangle}\rrbracket = \lambda p_{t}.\ \lambda q_{t}.\ p=1\ \&\ q=1$ \\ 
+	\hspace*{18pt}\underline{Casos derivados}: se $a = \langle a_{1},\langle a_{2}, ... ,\langle a_{n},t\rangle ... \rangle\rangle\ (n\geq 1)$, \\
+	\hspace*{30pt} $\llbracket e_{\langle a ,\langle a,a\rangle\rangle}\rrbracket = \lambda f_{a}.\lambda g_{a}.\lambda \gamma_{a_{1}}^{1}.\lambda \gamma_{a_{2}}^{2}...\lambda \gamma_{a_{n}}^{n}.$\\ \hspace*{\fill} $\llbracket e_{\langle t\langle t,t\rangle\rangle}\rrbracket(f_{a}(\gamma_{a_{1}}^{1})(\gamma_{a_{2}}^{2})...(\gamma_{a_{n}}^{n}))(g_{a}(\gamma_{a_{1}}^{1})(\gamma_{a_{2}}^{2})...(\gamma_{a_{n}}^{n}))$
+\end{exe}
 
 
 \n Dado um caso concreto, basta selecionar a versão correspondente do tipo $a$ no esquema acima. Por exemplo, no caso da coordenação de verbos bitransitivos, $a$ será igual a $\langle e, \langle e, \langle e,t\rangle\rangle\rangle$ e $a_{1}=a_{2}=a_{3}=e$. Como o leitor poderá verificar, ao aplicar esses valores no esquema acima, obteremos exatamente a extensão de $e'''$ que vimos anteriormente.
@@ -497,24 +496,22 @@ tipo básico \textit{e}, que não é um tipo booleano, tal esquema não pode ser
 consegue atribuir uma extensão ao constituinte [$_{\text{\textsc{NP}}}$ João e Maria ]. Deixaremos, por hora, essa
 questão em aberto. Voltaremos a ela no capítulo sobre
 quantifica\-ção, quando estaremos em uma melhor posi\-ção para
-resolvê-la.\\
+resolvê-la.
 
-\n \textbf{Uma formalização diferente}\\
+Há uma outra maneira de formalizar essa flexibilidade da conjunção \textit{e}, com a qual vale a pena estar familiarizado. Trata-se de definir recursivamente as múltiplas entradas da conjunção. Para tanto, vamos retomar rapidamente as versões para a coordenação de verbos intransitivos e transitivos que já vimos. Lembremos que, para dar conta da coordenação de verbos intransitivos, como em \textit{Maria fuma e bebe}, valemo-nos da seguinte entrada lexical:
 
-\n Há uma outra maneira de formalizar essa flexibilidade da conjunção \textit{e}, com a qual vale a pena estar familiarizado. Trata-se de definir recursivamente as múltiplas entradas da conjunção. Para tanto, vamos retomar rapidamente as versões para a coordenação de verbos intransitivos e transitivos que já vimos. Lembremos que, para dar conta da coordenação de verbos intransitivos, como em \textit{Maria fuma e bebe}, valemo-nos da seguinte entrada lexical:\\
+\begin{exe}
+	\ex \den{e$'$} = $\lambda F_{\langle e,t\rangle}.\lambda G_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ G'(x)$
+\end{exe}
 
-\n \den{e$_{vi}$} = $\lambda F_{\langle e,t\rangle}.\lambda
-G_{\langle e,t\rangle}.\lambda x_{e}.\ F'(x)\ \&\ G'(x)$\\
+\n E para dar conta da coordenação de verbos transitivos, como em \textit{Maria beijou e abraçou Pedro}, valemo-nos de outra extensão:
 
-\n E para dar conta da coordenação de verbos transitivos, como em \textit{Maria beijou e abraçou Pedro}, valemo-nos de outra extensão:\\
-
-\n \den{e$_{vt}$} = $\lambda F_{\langle e,\langle
-	e,t\rangle\rangle}.\lambda G_{\langle e,\langle
-	e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F'(x)(y)\ \&\
-G'(x)(y)$\\
+\begin{exe}
+	\ex \den{e$''$} = $\lambda F_{\langle e,\langle e,t\rangle\rangle}.\lambda G_{\langle e,\langle e,t\rangle\rangle}.\lambda x_{e}.\lambda y_{e}.\ F'(x)(y)\ \&\ G'(x)(y)$
+\end{exe}
 
 \n Atente agora para o seguinte: os três primeiros argumentos que
-a entrada lexical \den{e$_{vt}$} toma correspondem às extensões de dois
+a entrada lexical \den{e$''$} toma correspondem às extensões de dois
 verbos transitivos, \textit{F} e \textit{G}, ambas de tipo
 $\langle e, et\rangle$ e à extensão do objeto direto, \textit{x},
 de tipo \textit{e}. Mas com essas extensões à nossa disposição,
@@ -522,22 +519,22 @@ podemos construir, por assim dizer, duas extensões de tipo
 $\langle e,t\rangle$, bastando aplicar \textit{F} e \textit{G} a
 \textit{x}. Os resultados, \textit{F(x)} e \textit{G(x)} são
 funções de tipo $\langle e,t\rangle$. Podemos então aplicar a
-estas novas funções a extensão \den{e$_{vi}$} e obteremos o mesmo
-resultado que teríamos obtido aplicando \den{e$_{vi}$} a
+estas novas funções a extensão \den{e$'$} e obteremos o mesmo
+resultado que teríamos obtido aplicando \den{e$'$} a
 \textit{F}, \textit{G} e \textit{x} nesta ordem. Em termos
-formais:\\
+formais:
 
-\n $\llbracket e_{\text{\textsc{vt}}}\rrbracket (F)(G)(x) =
-\llbracket e_{\text{\textsc{vi}}}\rrbracket (F(x))(G(x))$\\
+\begin{exe}
+	\ex $\llbracket e'' \rrbracket (F)(G)(x) = \llbracket e' \rrbracket (F(x))(G(x))$
+\end{exe}
 
 \n Que esta igualdade é verdadeira pode ser facilmente verificado
-a partir de \den{e$_{vt}$} e \den{e$_{vi}$}. O que fizemos acima foi 
-redefinir \den{e$_{vt}$} a partir de \den{e$_{vi}$}:\\
+a partir de \den{e$''$} e \den{e$'$}. O que fizemos acima foi 
+redefinir \den{e$''$} a partir de \den{e$'$}:
 
-\n $\llbracket e_{\text{\textsc{vt}}}\rrbracket = \lambda
-F_{\langle et\rangle}.\lambda G_{\langle et\rangle}.\lambda
-x_{e}.\
-\llbracket e_{\text{\textsc{vi}}}\rrbracket (F(x))(G(x))$\\
+\begin{exe}
+	\ex $\llbracket e'' \rrbracket = \lambda F_{\langle et\rangle}.\lambda G_{\langle et\rangle}.\lambda x_{e}.\ \llbracket e' \rrbracket (F(x))(G(x))$
+\end{exe}
 
 \n O procedimento que acabamos de ilustrar pode ser generalizado, tornando possível definir a
 extensão de uma conjunção que toma argumentos de tipo $\langle
@@ -552,12 +549,10 @@ coordena sentenças (tipo $t$), a qual podemos tomar como
 sendo básica.
 
 Formalizando tudo isso, chegamos à \textsc{definição
-recursiva} abaixo, em que $a$ é um tipo booleano: \\
+recursiva} abaixo, em que $a$ é um tipo booleano:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-	
-	\textbf{Versão recursiva da conjunção \underline{\textit{e}}}\\
-	
+\begin{exe}
+	\ex Versão recursiva da conjunção \textit{e}\\
 	$\llbracket e_{\langle a ,\langle
 		a,a\rangle\rangle}\rrbracket =
 	\begin{cases}
@@ -567,90 +562,93 @@ recursiva} abaixo, em que $a$ é um tipo booleano: \\
 	e_{\langle c\langle c,c\rangle\rangle}\rrbracket (F(x))(G(x)) &
 	\text{se } a = \langle b,c\rangle
 	\end{cases}$
-	
-	
-\end{tcolorbox}
+\end{exe}
 
-\bigskip
+
 
 Definições recursivas são caracterizadas por uma ou mais definições básicas (o caso $a=t$ acima) e por uma receita para reduzir casos complexos (os tipos funcionais, na definição acima) em casos cada vez mais simples até que eventualmente se chegue a um caso básico. 
 
 \section{Negação}
 
-Considere a senten\-ça (\ref{neg}) abaixo, à qual atribuiremos a
-estrutura em (\ref{negs}):
+Considere a senten\-ça (\ref{neg}) a seguir, bem como sua estrutura:
 
 \begin{exe}
-\ex João não trabalha.\label{neg}
-\ex \Tree [ [ [ João ].N ].NP [ [ não ].NEG [ [ trabalha
-].V ].VP$_{1}$ ].VP$_{2}$ ].S
+	\ex João não trabalha.\label{neg}
+\end{exe} 
 
-\label{negs}
-\end{exe}
-
-
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ João ].N ].NP [ não [ [ trabalha ].V ].VP ].VP$'$ ].S } \caption{Negação de VP }
+\end{figure}
 
 \n Intuitivamente, uma senten\-ça negativa formada com a palavra
 \textit{não} é verdadeira se a senten\-ça afirmativa correspondente
 (\textit{João trabalha}, no caso acima) for falsa; e falsa, se a senten\-ça
 afirmativa for verdadeira.  No exemplo acima, sabemos que a
-extensão de VP$_{1}$ é uma fun\-ção que leva um indivíduo \textit{x}
+extensão de VP é uma fun\-ção que leva um indivíduo \textit{x}
 no valor de verdade 1 se \textit{x} trabalha, ou no valor de verdade
 0, se \textit{x} não trabalha. O que a nega\-ção parece fazer é
 transformar essa fun\-ção em uma outra fun\-ção que, ao receber
 \textit{x} como input retorna o valor 1 , se \textit{x} não trabalha,
 ou 0, se \textit{x} trabalha. Para captar essa ideia, vamos assumir
-a seguinte entrada lexical para a palavra \textit{não}:\\
+a seguinte entrada lexical para a palavra \textit{não}:
 
-\n \den{não} = $\lambda F_{\langle e,t\rangle }.\ \lambda x_{e}.\
-F(\textit{x}) = 0$\\
+\begin{exe}
+	\ex \den{não} = $\lambda F_{\langle e,t\rangle }.\ \lambda x_{e}.\ F(\textit{x}) = 0$
+\end{exe}
 
-\n Ou, equivalentemente, na notação com a negação de predicados:\\
+\n Ou, equivalentemente, na notação com a negação de predicados:
 
-\n \den{não} = $\lambda F_{\langle e,t\rangle }.\ \lambda x_{e}.\
-\neg F'(x)$\\
+\begin{exe}
+	\ex \den{não} = $\lambda F_{\langle e,t\rangle }.\ \lambda x_{e}.\ \neg F'(x)$
+\end{exe}
 
 \n Essa extensão é uma fun\-ção de tipo
 $\langle\langle e,t \rangle,\langle e,t \rangle\rangle$.
 Note que o argumento dessa fun\-ção é, ele mesmo, uma outra
-fun\-ção. Vamos calcular o significado de (\ref{neg})-(\ref{negs}) e verificar
+fun\-ção. Vamos calcular o significado de (\ref{neg}) e verificar
 se a entrada lexical que acabamos de propor fornece resultados
 adequados ou não. Desta vez, procederemos de baixo para cima na
-estrutura (\ref{negs}). Já sabemos a extensão de VP$_{1}$:\\
+estrutura. Já sabemos a extensão de VP:
 
-\n \den{VP$_{1}$} = \den{V} = \den{trabalha} = $\lambda x_{e}.\ 
-\predica{trabalha}{x}$\\
+\begin{exe}
+	\ex \den{VP} = \den{V} = \den{trabalha} = $\lambda x_{e}.\ \predica{trabalha}{x}$
+\end{exe}
 
-\n Para obter a extensão de VP$_{2}$, podemos usar aplica\-ção
-funcional, já que a extensão de NEG é uma fun\-ção cujo domínio
+\n Para obter a extensão de VP$'$, podemos usar aplica\-ção
+funcional, já que a extensão de \textit{não} é uma fun\-ção cujo domínio
 é D$_{\langle e,t\rangle }$, justamente o domínio a que pertence a
-extensão de VP$_{1}$.\\
+extensão de VP$_{1}$.
 
-\n \den{NEG} = \den{não} = $\lambda F_{\langle e,t\rangle}.\
-\lambda x_{e}.\ \neg F'(x)$\\
+\begin{exe}
+	\ex \den{não} = $\lambda F_{\langle e,t\rangle}.\ \lambda x_{e}.\ \neg F'(x)$
+\end{exe}
 
-\n \den{VP$_{2}$} = \den{NEG}(\den{VP$_{1}$})
+\begin{exe}
+	\ex \den{VP$'$} = \den{não}(\den{VP}) \\
+		\den{VP$'$} = ($\lambda F_{\langle e,t\rangle}.\ \lambda x_{e}.\ \neg F'(x)$)(\den{VP})
+\end{exe}
 
-\n \den{VP$_{2}$} = ($\lambda F_{\langle e,t\rangle}.\ \lambda x_{e}.\
-\neg F'(x)$)(\den{VP$_{1}$}) \\
+\n Como sabemos que a extensão de VP é uma função que retorna o valor 1 se João trabalha
+e zero se João não trabalha, temos que:
 
-\n Como sabemos que a extensão de VP$_{1}$ é uma função que retorna o valor 1 se João trabalha
-e zero se João não trabalha, temos que:\\
-
-\n \den{VP$_{2}$} = $\lambda x_{e}.\ \neg\predica{trabalha}{x}$\\
+\begin{exe}
+	\ex \den{VP$'$} = $\lambda x_{e}.\ \neg\predica{trabalha}{x}$
+\end{exe}
 
 \n Para chegarmos às condi\-çõ\-es de verdade de S, basta
 utilizarmos aplica\-ção funcional uma vez mais, já que a extensão
 de NP é de tipo \textit{e}, podendo servir como argumento para a
-extensão de VP$_{2}$.\\
+extensão de VP$_{2}$.
 
-\n \den{NP} = \den{N} = \den{João} = \textit{joão}\\
+\begin{exe}
+	\ex \den{NP} = \den{N} = \den{João} = \textit{joão}
+\end{exe}
 
-\n \den{S} = \den{VP$_{2}$}(\den{NP})
-
-\n = ($\lambda x_{e}.\ \neg\predica{trabalha}{x}$)(\textit{joão})
-
-\n = 1 \textit{sse} $\neg\predica{trabalha}{joão}$\\
+\begin{exe}
+	\ex \den{S} = \den{VP$'$}(\den{NP}) \\
+		= ($\lambda x_{e}.\ \neg\predica{trabalha}{x}$)(\textit{joão}) \\
+		= 1 \textit{sse} $\neg\predica{trabalha}{joão}$
+\end{exe}
 
 \n Derivamos, assim, o resultado desejado, confirmando a adequa\-ção
 da entrada lexical que propusemos acima para a nega\-ção.
@@ -742,73 +740,65 @@ Há ainda casos em que a negação parece se aplicar a constituintes com extens�
 \end{exe}
 
 
-\n Para esses casos, precisaríamos de uma entrada de tipo $\langle t,t\rangle$ para a negação. Tal entrada deve inverter o valor de verdade do constituinte que a negação toma como argumento: \\
-
-\n \den{não$_{\langle t,t\rangle}$} = $(\lambda p_{t}.\ p=0)$\\
-
-\n O papel semântico dessa negação sentencial pode também ser representado em uma tabela como a abaixo:
+\n Para esses casos, precisaríamos de uma entrada de tipo $\langle t,t\rangle$ para a negação. Tal entrada deve inverter o valor de verdade do constituinte que a negação toma como argumento:
 
 \begin{exe}
-	\ex Tabela de verdade da negação\\
-	
-	\begin{tabular}{c||c}
-		$\phi$ & não $\phi$ \\ 
-		%\hline 
-		1 & 0 \\ 
-		%\hline 
-		0 & 1 \\ 
-	\end{tabular} 	
+	\ex \den{não$_{\langle t,t\rangle}$} = $(\lambda p_{t}.\ p=0)$
 \end{exe}
 
+\n O papel semântico dessa negação sentencial pode também ser representado como na tabela \ref{tabelaneg}:
 
-\n De acordo com a entrada acima, a negação toma um valor de verdade \textit{p} como argumento e retorna 1 se \textit{p} for igual a 0, e 0 se p for igual a 1. Aplicando-a ao exemplo em (\ref{jjj}), temos:\\
+\begin{table}
+	\begin{tabularx}{.3\textwidth}{XX}
+		\lsptoprule
+		$\phi$ & não $\phi$ \\
+		\midrule 
+		1 & \ \ 0 \\  
+		0 & \ \ 1 \\
+		\lspbottomrule
+	\end{tabularx}
+	\caption{Tabela de verdade da negação}
+	\label{tabelaneg}
+\end{table}
 
-\n \den{não está chovendo} = \den{não}(\den{está chovendo})\\
-\den{não está chovendo} = 1 \textit{sse} \den{está chovendo} = 0\\
-\den{não está chovendo} = 1 \textit{sse} não estiver chovendo\\
+
+\n De acordo com a entrada acima, a negação toma um valor de verdade \textit{p} como argumento e retorna 1 se \textit{p} for igual a 0, e 0 se p for igual a 1. Aplicando-a ao exemplo em (\ref{jjj}), temos:
+
+\begin{exe}
+	\ex \den{não está chovendo} = \den{não}(\den{está chovendo})\\
+	\den{não está chovendo} = 1 \textit{sse} \den{está chovendo} = 0\\
+	\den{não está chovendo} = 1 \textit{sse} não estiver chovendo
+\end{exe}
 
 Essa flexibilidade da negação em se associar a constituintes de diversos tipos semânticos é semelhante ao que vimos com a conjunção \textit{e}. Assim, munidos da estratégia que utilizamos nos casos de
 coordena\-ção, podemos pensar em associar uma multiplicidade de tipos à
 nega\-ção, definidos a partir de um tipo básico, de modo a relacionar
 seus diversos usos. O esquema seguinte, construído à maneira do
-esquema proposto para a conjun\-ção \textit{e} para tipos booleanos $a$, faz justamente isso:\\
+esquema proposto para a conjun\-ção \textit{e} para tipos booleanos $a$, faz justamente isso:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-	
-	\textbf{Versão polimórfica da negação \underline{\textit{não}}}:\\
-	
-	\underline{Caso básico}: Se $a = t$,
-	\begin{equation*}
-	\llbracket \text{não}_{\langle a,a\rangle}\rrbracket = (\lambda p_{t}.\ p=0)\\
-	\end{equation*}
-	
-	\underline{Casos Derivados}: Se $a = \langle a_{1},\langle a_{2}, ... ,\langle a_{n},t\rangle\rangle\rangle\ (n\geq 1)$ ,
-	\begin{equation*}	
-	\llbracket \text{não}_{\langle a,a\rangle} \rrbracket = \lambda F_{a}.\lambda \gamma_{a_{1}}^{1}.\lambda \gamma_{a_{2}}^{2}...\lambda \gamma_{a_{n}}^{n}.\ \llbracket  \text{não}_{\langle t,t\rangle}\rrbracket(F_{a}(\gamma_{a_{1}}^{1})(\gamma_{a_{2}}^{2})...(\gamma_{a_{n}}^{n}))
-	\end{equation*}
-	
-\end{tcolorbox}
+\begin{exe}
+	\ex Versão polimórfica da negação: \\
+	\hspace*{18pt}\underline{Caso básico}: Se $a = t$, \\
+	\hspace*{30pt} $\llbracket \text{não}_{\langle a,a\rangle}\rrbracket = (\lambda p_{t}.\ p=0)$\\ 
+	\hspace*{18pt}\underline{Casos derivados}: Se $a = \langle a_{1},\langle a_{2}, ... ,\langle a_{n},t\rangle\rangle\rangle\ (n\geq 1)$ , \\
+	\hspace*{30pt} $\llbracket \text{não}_{\langle a,a\rangle} \rrbracket = \lambda F_{a}.\lambda \gamma_{a_{1}}^{1}.\lambda \gamma_{a_{2}}^{2}...\lambda \gamma_{a_{n}}^{n}.\ \llbracket  \text{não}_{\langle t,t\rangle}\rrbracket(F_{a}(\gamma_{a_{1}}^{1})(\gamma_{a_{2}}^{2})...(\gamma_{a_{n}}^{n}))$
+\end{exe}
 
-\bigskip
+\n Note que o tipo básico é $\langle t,t\rangle$. Para obtermos nossa entrada lexical original de tipo $\langle et, et\rangle$, basta tomarmos como caso derivado a versão com $n=1$ e $a_{1}=e$, o que resulta em \textit{a} sendo o tipo $\langle e,t\rangle$:
 
-\n Note que o tipo básico é $\langle t,t\rangle$. Para obtermos nossa entrada lexical original de tipo $\langle et, et\rangle$, basta tomarmos como caso derivado a versão com $n=1$ e $a_{1}=e$, o que resulta em \textit{a} sendo o tipo $\langle e,t\rangle$ :\\
-
-\n $\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ \llbracket  \text{não}_{\langle t,t\rangle}\rrbracket(F_{\langle e,t\rangle}(x_{e}))$\\
-
-\n $\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ (\lambda p_{t}.\ p=0)(F(x))$\\
-
-\n $\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ F(x)=0$\\
-
-\n $\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ \neg F'(x)$\\
+\begin{exe}
+	\ex $\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ \llbracket  \text{não}_{\langle t,t\rangle}\rrbracket(F_{\langle e,t\rangle}(x_{e}))$\\
+	$\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ (\lambda p_{t}.\ p=0)(F(x))$\\
+	$\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ F(x)=0$\\
+	$\llbracket \text{não}_{\langle et,et\rangle} \rrbracket = \lambda F_{\langle e,t\rangle}.\lambda x_{e}.\ \neg F'(x)$
+\end{exe}
 
 \n De maneira análoga, obtemos os demais tipos, bastando aplicar o esquema acima a eles.  
 
-Também a exemplo do que vimos para a conjunção \textit{e}, podemos formalizar as múltiplas extensões da negação através de uma definição recursiva. Nesse caso, a ideia é que, quando o argumento da negação for de tipo funcional $\langle b,c\rangle$, podemos definir a extensão correspondente $\llbracket \text{não}_{\langle bc,bc\rangle} \rrbracket$ em função da extensão que toma argumentos de tipo $c$ $\llbracket \text{não}_{\langle c,c\rangle} \rrbracket$. Se $c$ for também um tipo funcional, repetimos o procedimento até chegarmos à versão básica de tipo $\langle t,t\rangle$. Lembre-se que estamos lidando com tipos booleanos e que, portanto, esse processo sempre terminará no caso básico. Em termos formais:\\
+Também a exemplo do que vimos para a conjunção \textit{e}, podemos formalizar as múltiplas extensões da negação através de uma definição recursiva. Nesse caso, a ideia é que, quando o argumento da negação for de tipo funcional $\langle b,c\rangle$, podemos definir a extensão correspondente $\llbracket \text{não}_{\langle bc,bc\rangle} \rrbracket$ em função da extensão que toma argumentos de tipo $c$ $\llbracket \text{não}_{\langle c,c\rangle} \rrbracket$. Se $c$ for também um tipo funcional, repetimos o procedimento até chegarmos à versão básica de tipo $\langle t,t\rangle$. Lembre-se que estamos lidando com tipos booleanos e que, portanto, esse processo sempre terminará no caso básico. Em termos formais:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-	
-	\textbf{Versão recursiva da negação}\\
-	
+\begin{exe}
+	\ex Versão recursiva da conjunção \textit{e}\\
 	$\llbracket \text{não}_{\langle a,a\rangle}\rrbracket =
 	\begin{cases}
 	\lambda p_{t}.\ \ p=0 & \text{se } a =
@@ -817,8 +807,7 @@ Também a exemplo do que vimos para a conjunção \textit{e}, podemos formalizar
 	\text{não}_{\langle c,c\rangle}\rrbracket (F(x)) &
 	\text{se } a = \langle b,c\rangle
 	\end{cases}$	
-	
-\end{tcolorbox}
+\end{exe}
 
 \n Fica a cargo do leitor como exercício técnico aplicar a definição acima para obter as negações correspondentes a verbos intransitivos, transitivos e bitransitivos.
 
@@ -850,12 +839,11 @@ coordena\-ção de três VPs:\\
 \n (1)\ \ \ João estudou, dançou e cantou.\\
 
 
-\n Assuma a seguinte estrutura sintática para essa senten\-ça:\\
+\n Assuma a seguinte estrutura sintática para essa senten\-ça:
 
-\Tree [ [ João ].NP [ [ estudou ].VP$_{1}$ [ [ dançou ].VP$_{2}$ [ [ e
-].Coord [ cantou ].VP$_{3}$ ].Coord$'$ ].Coord$''$ ].CoordP ].S
-
-\bigskip
+\begin{center}
+	\Tree [ [ João ].NP [ [ estudou ].VP$_{1}$ [ [ dançou ].VP$_{2}$ [ [ e ].Coord [ cantou ].VP$_{3}$ ].Coord$'$ ].Coord$''$ ].CoordP ].S
+\end{center}
 
 \n Proponha uma entrada lexical adicional para a conjun\-ção \textit{e} que permita ao nosso sistema interpretar a estrutura acima e mostre, passo a passo, como obter suas condi\-çõ\-es de verdade.\\
 
@@ -866,12 +854,11 @@ falado no Brasil.\\
 \n (1)\ \ \ João não trabalha não.\\
 
 
-\n Assuma para essa senten\-ça a estrutura sintática abaixo:\\
+\n Assuma para essa senten\-ça a estrutura sintática abaixo:
 
-\Tree [ [ [ João ].N ].NP [ [ [ não ].NEG$_{2}$ [ [ trabalha ].V
-].VP$_{3}$ ].SV$_{2}$ [ não ].NEG$_{1}$ ].VP$_{1}$ ].S
-
-\bigskip
+\begin{center}
+	\Tree [ [ [ João ].N ].NP [ [  não  [ [ trabalha ].V ].VP ].VP$'$ não  ].VP$''$ ].S
+\end{center}
 
 \n Sua tarefa é derivar as condi\-çõ\-es de verdade que o nosso
 sistema prevê para esta estrutura. Você deve proceder passo a

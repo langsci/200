@@ -1,4 +1,4 @@
-%versao de 15-MAR-2019
+%versao de 21-MAR-2019
 
 \chapter{Predicação}
 
@@ -13,11 +13,11 @@ aos nomes próprios.
 
 \section{Funções e a notação lambda}
 
-O objetivo desta seção inicial é familiarizar o leitor com o conceito matemático de \textsc{função} e com a chamada \textsc{notação lambda}, que utilizaremos intensamente não apenas neste capítulo, mas em todo o livro. Fixaremos alguns pontos notacionais e terminológicos que serão cruciais na compreensão deste e dos demais capítulos.\\
+O objetivo desta seção inicial é familiarizar o leitor com o conceito matemático de \textsc{função} e com a chamada \textsc{notação lambda}, que utilizaremos intensamente não apenas neste capítulo, mas em todo o livro. Fixaremos alguns pontos notacionais e terminológicos que serão cruciais na compreensão deste e dos demais capítulos.
 
-\n \textbf{Funções} \\
+\subsection{Funções}
 
-\n Uma função pode ser vista como um dispositivo que efetua uma
+Uma função pode ser vista como um dispositivo que efetua uma
 transformação sobre uma determinada classe de objetos. De acordo
 com essa caracterização mecânica ou dinâmica, uma função, ao
 receber determinado objeto (chamado de \textsc{argumento} ou
@@ -36,31 +36,32 @@ retornará como valor. Chamamos de \textsc{imagem} de uma função o subconjunto
 apenas os objetos que são efetivamente retornados como valor de
 algum argumento. No caso
 de \textit{f}, a imagem é o conjunto dos números naturais
-positivos. É comum representar $f$ da seguinte maneira:\\
+positivos. É comum representar $f$ da seguinte maneira:
 
-\n \begin{tabular}{l l} 
-	$f:$ & $\mathbb{N} \rightarrow \mathbb{N}$\\  
-	     &  $x \mapsto x + 1$\\ 
-   \end{tabular} \\
-
-%\begin{align*}
-	%f: &\ \mathbb{N} \rightarrow \mathbb{N} \\
-	%&\ x \mapsto x + 1 
-%\end{align*}
+\begin{exe}
+	\ex \begin{tabular}[t]{l l} 
+			$f:$ & $\mathbb{N} \rightarrow \mathbb{N}$\\  
+	     		 &  $x \mapsto x + 1$\\ 
+   		\end{tabular}
+\end{exe}
 
 Já na literatura sobre semântica, utiliza-se para a representação de funções uma notação criada pelo
 lógico americano Alonzo Church e conhecida como \textsc{notação
 lambda} em razão da utilização da letra grega de mesmo nome
 $\lambda$. Na notação lambda, nossa função \textit{f} do
 parágrafo anterior seria
-representada da seguinte forma:\\
+representada da seguinte forma:
 
-\n $(\lambda n: n \in \mathbb{N}.\ n + 1)$\\
+\begin{exe}
+	\ex $(\lambda n: n \in \mathbb{N}.\ n + 1)$
+\end{exe}
 
 \n De maneira mais geral, estaremos lidando com expressões da
-seguinte forma:\\
+seguinte forma:
 
-\n $(\lambda v:\phi .\ \gamma)$\\
+\begin{exe}
+	\ex $(\lambda v:\phi .\ \gamma)$
+\end{exe}
 
 \n Essa expressão representa a função que tem por domínio o
 conjunto dos elementos $v$ que satisfazem $\phi$ e que transforma
@@ -73,9 +74,11 @@ da expressão ou da função.
 informação sobre o domínio da função, sempre que isso puder
 ser inferido do contexto, bem como os parênteses, quando isso não resultar em ambiguidade. Por exemplo, se adotarmos 
 a convenção de usar a letra \textit{n} para nos referirmos a
-números naturais, então a representação acima pode ser simplificada:\\
+números naturais, então a representação acima pode ser simplificada:
 
-\n $\lambda n.\ n + 1$\\
+\begin{exe}
+	\ex $\lambda n.\ n + 1$
+\end{exe}
 
 \n Uma expressão do tipo $(\lambda v. \phi)$ é chamada de
 \textsc{abstração}-$\lambda$ ou \textsc{abstração funcional}.
@@ -88,26 +91,32 @@ da expressão $n + 1$, abstraindo sobre a variável \textit{n}.
 
 Para representarmos uma função $(\lambda v. \phi)$
 aplicada a um argumento \textit{a}
-qualquer de seu domínio, utilizamos uma expressão como a abaixo:\\
+qualquer de seu domínio, utilizamos uma expressão como a abaixo:
 
-\n $(\lambda v.\ \phi)(a)$\\
+\begin{exe}
+	\ex $(\lambda v.\ \phi)(a)$
+\end{exe}
 
 \n Uma expressão desse tipo é chamada de \textsc{aplicação
 funcional} ou simplesmente \textsc{aplicação}. Retornando ao
 nosso exemplo, a aplicação da função sucessor ao número
 natural 4 é
-representada da seguinte forma:\\
+representada da seguinte forma:
 
-\n $(\lambda n.\ n + 1)(4)$\\
+\begin{exe}
+	\ex $(\lambda n.\ n + 1)(4)$
+\end{exe}
 
 \n A interpretação que desejamos para essa expressão é o
 sucessor do número 4, ou seja, o número 5. Para obtermos esse
 resultado, basta eliminarmos da representação da função o
 prefixo $\lambda n.$ e substituirmos a variável \textit{n} pelo
 número
-4 no corpo da função:\\
+4 no corpo da função:
 
-\n $(\lambda n.\ n + 1)(4) \Rightarrow 4 + 1 \Rightarrow 5$\\
+\begin{exe}
+	\ex $(\lambda n.\ n + 1)(4) \Rightarrow 4 + 1 \Rightarrow 5$
+\end{exe}
 
 \n Esse processo de simplificação, que corresponde
 intuitivamente à computação do valor de uma função aplicada a
@@ -119,19 +128,20 @@ Note ainda que a
 escolha da variável \textit{n} nos exemplos acima foi, em um certo
 sentido, arbitrária. Poderíamos igualmente ter utilizado \textit{m}
 ou \textit{k}, por exemplo, que estaríamos ainda diante da mesma
-função:\\
+função:
 
-\n $(\lambda n.\ n + 1) \Leftrightarrow (\lambda m.\ m + 1)
-\Leftrightarrow (\lambda k.\ k + 1)$\\
+\begin{exe}
+	\ex $(\lambda n.\ n + 1) \Leftrightarrow (\lambda m.\ m + 1) \Leftrightarrow (\lambda k.\ k + 1)$
+\end{exe}
 
 \n Esse processo de substituição da variável que segue o
 operador lambda e de todas as suas ocorrências no corpo da
 função por uma outra variável é chamado de
-\textsc{redução}-$\alpha$ ou \textsc{conversão}-$\alpha$. Tanto a conversão-$\alpha$ quanto a conversão-$\lambda$ precisam estar sujeitas a determinadas condições para que produzam sempre os resultados desejados. Para saber mais sobre essas condições, ver o apêndice ao final do capítulo.\\
+\textsc{redução}-$\alpha$ ou \textsc{conversão}-$\alpha$. Tanto a conversão-$\alpha$ quanto a conversão-$\lambda$ precisam estar sujeitas a determinadas condições para que produzam sempre os resultados desejados. Para saber mais sobre essas condições, ver o apêndice ao final do capítulo.
 
-\n \textbf{Conjuntos e funções características}\\
+\subsection{Conjuntos e funções características}
 
-\n Há um tipo especial de função que aparecerá com bastante
+ Há um tipo especial de função que aparecerá com bastante
 frequência neste livro e para cuja representação a notação
 lambda também se mostra bastante adequada. Trata-se de funções
 que mapeiam cada um dos elementos de seu domínio ou no valor 0 ou
@@ -143,29 +153,38 @@ Para entender a razão
 desse nome, vamos trabalhar em cima de um exemplo concreto. Seja
 \textit{f} uma função de $\mathbb{N}$ em $\{0,1\}$ tal que
 $f(n)=0$ se $n$ for ímpar e $f(n)=1$ se $n$ for par. Na notação
-lambda, essa função pode ser representada da seguinte forma:\\
+lambda, essa função pode ser representada da seguinte forma:
+
+\begin{exe}
+	\ex $\lambda n.\ n\ \text{é par}$
+\end{exe}
 
 
-\n $\lambda n.\ n\ \text{é par}$\\
+\n A convenção é a seguinte: sempre que o corpo da função for uma sentença (afirmação), estamos diante de uma função característica. Tal sentença funciona como condição necessária e suficiente para um argumento ser mapeado no valor 1. Assim, temos que:
 
+\begin{exe}
+	\ex $(\lambda n.\ n\ \text{é par})(3) = 0$ já que a sentença \textit{3 é par} é falsa.
+\end{exe}
 
-\n A convenção é a seguinte: sempre que o corpo da função for uma sentença (afirmação), estamos diante de uma função característica. Tal sentença funciona como condição necessária e suficiente para um argumento ser mapeado no valor 1. Assim, temos que\\
+\begin{exe}
+	\ex $(\lambda n.\ n\ \text{é par})(8) = 1$ já que a sentença \textit{8 é par} é verdadeira.
+\end{exe}
 
-\n $(\lambda n.\ n\ \text{é par})(3) = 0$ já que a sentença \textit{3 é par} é falsa.\\
+\n De maneira geral, temos que:
 
-\n $(\lambda n.\ n\ \text{é par})(8) = 1$ já que a sentença \textit{8 é par} é verdadeira.\\
-
-\n De maneira geral, temos que:\\
-
-\n $(\lambda n.\ n\ \text{é par})(m) = 1$ \textit{sse} m for par.\\
+\begin{exe}
+	\ex $(\lambda n.\ n\ \text{é par})(m) = 1$ \textit{sse} m for par.
+\end{exe}
  
 \n Diz-se nesse caso que tal função caracteriza o conjunto dos números pares.
 
 É importante ter em mente que lidar com conjuntos de elementos de um certo domínio ou com funções que levam elementos desse domínio em valores de
 verdade (funções características) é, essencialmente, a
-mesma coisa. Isso porque existe uma correspondência biunívoca (um a um) entre esses conjuntos e essas funções. Para cada função $F$ com domínio $D$, pode-se definir o conjunto $C$ (um subconjunto de $D$),  de modo que, para todo $x$ em $D$, tenhamos o seguinte:\\
+mesma coisa. Isso porque existe uma correspondência biunívoca (um a um) entre esses conjuntos e essas funções. Para cada função $F$ com domínio $D$, pode-se definir o conjunto $C$ (um subconjunto de $D$),  de modo que, para todo $x$ em $D$, tenhamos o seguinte:
 
-\n $F(x) = 1\ sse\ x \in C $\\
+\begin{exe}
+	\ex $F(x) = 1\ sse\ x \in C $
+\end{exe}
 
 \n Note, agora, que se dois conjuntos quaisquer $C_1$ e $C_2$ são distintos, então as funções correspondentes também serão distintas, já que haverá pelo menos um elemento que pertencerá a apenas um dos conjuntos, e que, portanto, será mapeado no valor 1 por apenas uma das funções. Da mesma forma, a duas funções características distintas corresponderão
 sempre dois conjuntos distintos, já que pelo menos um elemento será mapeado por apenas uma delas no valor 1, e, portanto, pertencerá a apenas um dos conjuntos em questão. Em outras palavras, todo conjunto estará associado a uma única função característica, e toda função característica estará associada a apenas um único conjunto.
@@ -173,19 +192,23 @@ sempre dois conjuntos distintos, já que pelo menos um elemento será mapeado po
 Dada essa correspondência biunívoca, podemos falar indistintamente em conjuntos ou em suas funções características sem perda de
 informação, escolhendo o que nos for mais conveniente. Esteja,
 portanto, preparado para conviver simultaneamente (às vezes em um
-mesmo texto) com jargões baseados em conjuntos e jargões baseados em funções.\\
+mesmo texto) com jargões baseados em conjuntos e jargões baseados em funções.
 
-\n \textbf{Funções, conjuntos e predicados (propriedades) }\\
+\subsection{Funções, conjuntos e predicados}
 
-\n Além dessa relação estreita entre funções características e subconjuntos de um domínio, tiraremos partido de uma outra conexão. Tome, por exemplo, o conjunto dos números pares e a função $F$ que o caracteriza ($\lambda x.\ x\ \text{é par}$). Dizemos que os elementos desse conjunto têm a propriedade de ser par, ou que o predicado \textsc{par} se aplica a esses elementos. A aplicação de um predicado $P$ a um elemento $x$ qualquer é representada pela expressão $P(x)$.
+Além dessa relação estreita entre funções características e subconjuntos de um domínio, tiraremos partido de uma outra conexão. Tome, por exemplo, o conjunto dos números pares e a função $F$ que o caracteriza ($\lambda x.\ x\ \text{é par}$). Dizemos que os elementos desse conjunto têm a propriedade de ser par, ou que o predicado \textsc{par} se aplica a esses elementos. A aplicação de um predicado $P$ a um elemento $x$ qualquer é representada pela expressão $P(x)$.
 
-Temos então uma conexão tripla entre funções, conjuntos e predicados. Para deixar clara essa conexão nas representações que usaremos neste livro, partindo de uma função característica $F$ qualquer, vamos representar seu conjunto característico por $F_C$ e o predicado correspondente por $F'$. Dessa forma, dado um elemento $x$ e uma função $F$ quaisquer, teremos sempre a equivalência abaixo:\\
+Temos então uma conexão tripla entre funções, conjuntos e predicados. Para deixar clara essa conexão nas representações que usaremos neste livro, partindo de uma função característica $F$ qualquer, vamos representar seu conjunto característico por $F_C$ e o predicado correspondente por $F'$. Dessa forma, dado um elemento $x$ e uma função $F$ quaisquer, teremos sempre a equivalência abaixo:
 
-\n $F(x)=1 \leftrightarrow x \in F_C \leftrightarrow F'(x)$\\
+\begin{exe}
+	\ex $F(x)=1 \leftrightarrow x \in F_C \leftrightarrow F'(x)$
+\end{exe}
 
-\n Tiraremos partido dessa dupla equivalência no decorrer de todo o livro, escolhendo a forma que nos for mais conveniente no momento. Em particular, a notação de predicados, por ser mais compacta, será usada com bastante frequência. Por fim, essa dupla equivalência também pode ser vista na sua forma negativa:\\
+\n Tiraremos partido dessa dupla equivalência no decorrer de todo o livro, escolhendo a forma que nos for mais conveniente no momento. Em particular, a notação de predicados, por ser mais compacta, será usada com bastante frequência. Por fim, essa dupla equivalência também pode ser vista na sua forma negativa:
 
-\n $F(x)=0 \leftrightarrow x \notin F_C \leftrightarrow \neg F'(x)$\\
+\begin{exe}
+	\ex $F(x)=0 \leftrightarrow x \notin F_C \leftrightarrow \neg F'(x)$
+\end{exe}
 
 \n O símbolo $\neg$ (negação) à frente do predicado é oriundo da lógica. $\neg F'(x)$ significa que $x$ não tem a propriedade $F'$ ou que o predicado $F'$ não se aplica a $x$. 
  
@@ -201,24 +224,32 @@ No capítulo anterior, consideramos sentenças que têm um verbo intransitivo co
 	\ex João trabalha.\label{nno}
 \end{exe}
 
-\n Analisamos a extensão do nome próprio como sendo o indivíduo portador do nome e a extensão do verbo como o conjunto dos indivíduos que trabalham. A relação sujeito-predicado foi então analisada como pertinência: a sentença é verdadeira se, e somente se, a extensão do sujeito pertence à extensão do predicado. \\
+\n Analisamos a extensão do nome próprio como sendo o indivíduo portador do nome e a extensão do verbo como o conjunto dos indivíduos que trabalham. A relação sujeito-predicado foi então analisada como pertinência: a sentença é verdadeira se, e somente se, a extensão do sujeito pertence à extensão do predicado.
 
-\n \den{João trabalha}  = 1 \textit{sse} $\text{João} \in \{x | x\ \text{trabalha}\}$.\\
+\begin{exe}
+	\ex \den{João trabalha}  = 1 \textit{sse} $\text{João} \in \{x | x\ \text{trabalha}\}$.\\
+	\den{João trabalha}  = 1 \textit{sse} João trabalha.
+\end{exe}
 
-\n \den{João trabalha}  = 1 \textit{sse} João trabalha.\\
 
-\noindent Com relação aos nomes próprios, manteremos o que já temos:\\
+\noindent Com relação aos nomes próprios, manteremos o que já temos:
 
-\noindent \den{João} = João\\
+\begin{exe}
+	\ex \den{João} = João
+\end{exe}
 
 Já com relação ao verbo \textit{trabalhar}, efetuaremos uma mudança, que poderá parecer arbitrária de início, mas que nos permitirá um maior poder de generalização na formulação de nossas regras composicionais, conforme veremos ainda neste capitulo. Em vez de assumir que a extensão de um verbo intransitivo denota um conjunto, vamos assumir que a mesma é uma função, no sentido matemático do termo, como acabamos de ver na seção anterior. Mais precisamente, assumiremos que a extensão desses verbos é uma função característica, que leva indivíduos em valores de verdade, 0 ou 1. No caso do verbo \textit{trabalhar}, por exemplo, sua extensão leva um indivíduo \textit{x} no valor de verdade 1 se \textit{x} trabalha e
-no valor de verdade 0 se \textit{x} não trabalha. Usando a notação lambda, temos:\\
+no valor de verdade 0 se \textit{x} não trabalha. Usando a notação lambda, temos:
 
-\n\den{trabalha} = $\lambda x:x\ \text{é um indivíduo}.\ x\ \text{trabalha}$\\
+\begin{exe}
+	\ex \den{trabalha} = $\lambda x:x\ \text{é um indivíduo}.\ x\ \text{trabalha}$
+\end{exe}
 
-\n Assumindo que variáveis como \textit{x}, \textit{y}, \textit{z} tenham sempre indivíduos como valores, podemos simplificar:\\
+\n Assumindo que variáveis como \textit{x}, \textit{y}, \textit{z} tenham sempre indivíduos como valores, podemos simplificar:
 
-\n\den{trabalha} = $\lambda x.\ x\ \text{trabalha}$\\
+\begin{exe}
+	\ex \den{trabalha} = $\lambda x.\ x\ \text{trabalha}$
+\end{exe}
 
 \noindent Convém notar, antes de mais nada, que observações semelhantes às que fizemos a respeito da relação entre extensão e significado no capítulo anterior se aplicam a esse
 caso também. O significado do verbo \textit{trabalhar} não é igual à sua
@@ -231,43 +262,47 @@ a representação acima da extensão do verbo \textit{trabalhar} faz menção a
 essas condições.
 
 Olhemos agora para a representação sintática de nossa
-sentença.\\
+sentença.
 
-\Tree [ [ [ João ].N ].NP [ [ trabalha ].V ].VP ].S
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ João ].N ].NP [ [ trabalha ].V ].VP ].S } \caption{Sentença com verbo intransitivo}
+\end{figure}
+
+
 
 \bigskip
 
 \n Já sabemos a extensão dos itens lexicais. Vamos assumir
 agora que um nó não ramificado herda a extensão do nó
 imediatamente dominado por ele, como já fizemos no capítulo
-anterior.\\
+anterior.
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Princípio dos nós não ramificados:\\
+	Se $\alpha$ é um nó não ramificado cujo único constituinte imediato é $\beta$, então \den{$\alpha$} = \den{$\beta$}.
+\end{exe}
 
-\n \textbf{Princípio dos nós não ramificados}\\
-Se $\alpha$ é um nó não ramificado cujo único constituinte
-imediato é $\beta$, então \den{$\alpha$} = \den{$\beta$}.
+\n Assim, temos:
 
-\end{tcolorbox}
+\begin{exe}
+	\ex \den{NP} = \den{N} = \den{João} = João
+\end{exe} 
 
-\bigskip
-
-\n Assim, temos:\\
-
-\n \den{NP} = \den{N} = \den{João} = João \\
-
-\n \den{VP} = \den{V} = \den{trabalha} = $\lambda x.\ x\ \text{trabalha}$\\
+\begin{exe}
+	\ex \den{VP} = \den{V} = \den{trabalha} = $\lambda x.\ x\ \text{trabalha}$
+\end{exe}
 
 \noindent Resta-nos agora determinar como a extensão de S é obtida
 a partir das extensões de NP e VP. A extensão de NP é um
 indivíduo, enquanto a extensão de VP é uma função que leva
 indivíduos em valores de verdade. Como a extensão de S deve ser um valor
 de verdade, o que precisamos é de um princípio que
-derive a extensão de S, aplicando a extensão de VP à extensão do NP. Isto nos daria o seguinte resultado:\\
+derive a extensão de S, aplicando a extensão de VP à extensão do NP. Isto nos daria o seguinte resultado:
 
-\n \den{S} = $(\lambda x.\ x\ \text{trabalha})$(João)\\
-
-\n \den{S} = 1 \textit{sse} João trabalha\\
+\begin{exe}
+	\ex \den{S} = $(\lambda x.\ x\ \text{trabalha})$(João)\\
+	\den{S} = 1 \textit{sse} João trabalha
+\end{exe}
 
 \noindent Isso é exatamente o que queríamos derivar. Um sistema
 como o esquematizado acima se estende diretamente a outros casos
@@ -285,9 +320,11 @@ leva indivíduos a valores de verdade, tal que, para todo indivíduo
 $x$, $f(x)$ é igual a 1 se, e somente se, $x$
 estuda. Se chamarmos o conjunto dos valores de verdade --- $\{0,1\}$ --- de
 D$_{t}$, temos que a extensão de todo verbo intransitivo é
-uma função de D$_{e}$ em D$_{t}$.\\
+uma função de D$_{e}$ em D$_{t}$.
 
-\n \den{estuda} = $\lambda x_{e}.\ x\ \text{estuda}$\\
+\begin{exe}
+	\ex \den{estuda} = $\lambda x_{e}.\ x\ \text{estuda}$
+\end{exe}
 
 \n Note que, na representação acima, escrevemos $\lambda x_{e}$
 em vez de $\lambda x: x\in D_{e}$. É comum representar a
@@ -297,19 +334,13 @@ exatamente como acabamos de fazer. Veremos mais exemplos disso no decorrer do li
 
 Podemos formular agora aquele que será o pilar de todo nosso
 sistema interpretativo, o princípio de composição conhecido
-como \textsc{aplicação funcional}.\\
+como \textsc{aplicação funcional}.
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Aplicação funcional: \\
+	Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são $\beta$ e $\gamma$. Se \den{$\beta$} é uma função e \den{$\gamma$} pertence ao domínio de \den{$\beta$}, então \den{$\alpha$} = \den{$\beta$}(\den{$\gamma$}).
+\end{exe}
 
-\n\textbf{Aplicação funcional}\\
-Seja $\alpha$ um nó ramificado, cujos constituintes imediatos
-são $\beta$ e $\gamma$. Se \den{$\beta$} é uma função e
-\den{$\gamma$} pertence ao domínio de \den{$\beta$}, então
-\den{$\alpha$} = \den{$\beta$}(\den{$\gamma$}).\\
-
-\end{tcolorbox}
-
-\bigskip
 
 No exemplo mais acima, obtivemos a extensão da sentença \textit{João
 trabalha} a partir das extensões de NP e VP, valendo-nos de
@@ -325,16 +356,18 @@ Passemos, agora, a um exemplo com um verbo transitivo:
     \ex João ama Maria. \label{jam}
 \end{exe}
 
-\Tree [ [ [ João ].N ].NP$_{suj}$ [ [ ama ].V [ [ Maria ].N
-].NP$_{obj}$ ].VP ].S
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ João ].N ].NP$_{suj}$ [ [ ama ].V [ [ Maria ].N ].NP$_{obj}$ ].VP ].S } \caption{Sentença com verbo transitivo}
+\end{figure}
 
-\bigskip
 
 \noindent A novidade aqui é o verbo \textit{ama}, que se combina com o objeto direto \textit{Maria}, formando um VP, e só depois com o sujeito \textit{João}, formando a sentença. Queremos que nosso sistema interpretativo respeite a estrutura sintática da sentença e proceda composicionalmente, atribuindo uma extensão a cada nó dessa estrutura.
 
-Vejamos como proceder. Sabemos o que queremos derivar:\\
+Vejamos como proceder. Sabemos o que queremos derivar:
 
-\noindent \den{S} = 1 \textit{sse} João ama Maria.\\
+\begin{exe}
+	\ex \den{S} = 1 \textit{sse} João ama Maria.
+\end{exe}
 
 \noindent Já sabemos também que a extensão do NP sujeito é o
 indivíduo João. Pensemos agora na extensão do VP
@@ -343,9 +376,11 @@ resultado desejado se assumirmos que a extensão de VP é uma
 função que leva indivíduos em valores de verdade. Neste caso,
 queremos uma função que leve um indivíduo \textit{x} no valor de
 verdade 1
-se, e somente se, \textit{x} ama Maria:\\
+se, e somente se, \textit{x} ama Maria:
 
-\n \den{VP} = $\lambda x.\ x\ \text{ama Maria}$\\
+\begin{exe}
+	\ex \den{VP} = $\lambda x.\ x\ \text{ama Maria}$
+\end{exe}
 
 \n Passando para o interior de VP, já sabemos que a extensão do NP
 objeto é o indivíduo Maria. Nossa meta agora é descobrir uma
@@ -355,13 +390,17 @@ quisermos aplicá-lo neste caso, devemos assumir que a extensão de
 V, que é igual à extensão de \textit{ama}, é uma função cujo domínio é
 D$_{e}$. Mas que tipo de objeto essa função deve retornar quando
 aplicada ao indivíduo Maria? Isso nós já sabemos: ela deve
-retornar a extensão de VP, ou seja, uma outra função:\\
+retornar a extensão de VP, ou seja, uma outra função:
 
-\noindent \den{V}(\den{NP$_{obj}$}) = \den{VP}\\
+\begin{exe}
+	\ex \den{V}(\den{NP$_{obj}$}) = \den{VP}
+\end{exe}
 
-\noindent Queremos, portanto, uma função que, aplicada a um indivíduo, retorne uma outra função. Não há nada de errado com isso. Funções podem tomar como argumentos e retornar como valores quaisquer tipos de objetos, inclusive outras funções. Funções assim são chamadas, por vezes, de \textsc{funções de ordem superior}. A notação lambda fornece uma maneira bastante compacta de representar essas funções. Para o verbo \textit{ama}, temos:\\
+\noindent Queremos, portanto, uma função que, aplicada a um indivíduo, retorne uma outra função. Não há nada de errado com isso. Funções podem tomar como argumentos e retornar como valores quaisquer tipos de objetos, inclusive outras funções. Funções assim são chamadas, por vezes, de \textsc{funções de ordem superior}. A notação lambda fornece uma maneira bastante compacta de representar essas funções. Para o verbo \textit{ama}, temos:
 
-\noindent \den{ama} = $\lambda x_{e}.\lambda y_{e}.\ y\ \text{ama}\ x$\\
+\begin{exe}
+	\ex \den{ama} = $\lambda x_{e}.\lambda y_{e}.\ y\ \text{ama}\ x$
+\end{exe}
 
 \noindent Em palavras, a extensão de \textit{ama} aplicada a um indivíduo
 \textit{x} retorna uma outra função. Essa outra função leva um indivíduo \textit{y}
@@ -371,57 +410,69 @@ Para pôr em prática essas ferramentas que acabamos de adquirir, vamos
 calcular, passo a passo, a derivação das condições de
 verdade da sentença \textit{Maria odeia João}, cuja estrutura é análoga
 à de \textit{João ama Maria}, mas cujo significado obviamente não o é.
-As entradas lexicais que necessitamos estão dadas a seguir:\\
+As entradas lexicais que necessitamos estão dadas a seguir:
 
-\n \den{Maria} = Maria\\
-
-\n \den{João} = João\\
-
-\n \den{odeia} = $\lambda x_{e}.\lambda y_{e}.\ y\ \text{odeia}\ x$\\
+\begin{exe}
+	\ex 
+	\begin{xlist}
+		\ex\den{Maria} = Maria
+		\ex \den{João} = João
+		\ex \den{odeia} = $\lambda x_{e}.\lambda y_{e}.\ y\ \text{odeia}\ x$
+	\end{xlist}
+\end{exe}
 
 \n Com as entradas lexicais acima mais o princípio dos nós não
 ramificados, obtemos a extensão do nó V e dos nós correspondentes
-aos NPs sujeito e objeto.\\
+aos NPs sujeito e objeto.
 
-\n \den{V} = \den{odeia}\\
-
-\n \den{[$_{\text{NP}}$ João]} = \den{[$_{\text{N}}$ João]} =
-\den{João}\\
-
-\n \den{[$_{\text{NP}}$ Maria]} = \den{[$_{\text{N}}$ Maria]} =
-\den{Maria}\\
+\begin{exe}
+	\ex 
+	\begin{xlist}
+		\ex \den{V} = \den{odeia}
+		\ex \den{[$_{\text{NP}}$ João]} = 	\den{[$_{\text{N}}$ João]} = \den{João}
+		\ex \den{[$_{\text{NP}}$ Maria]} = \den{[$_{\text{N}}$ Maria]} = \den{Maria}
+	\end{xlist}
+\end{exe}
 
 \n Já a aplicação funcional nos permite obter a extensão de VP a
-partir das extensões de V e do NP objeto:\\
+partir das extensões de V e do NP objeto:
 
-\n \den{VP} = \den{V}(\den{[$_{\text{NP}}$ João]})\\
-
-\n \den{VP} = $(\lambda x_{e}.\lambda y_{e}.\ y\ \text{odeia}\ x)$(João)\\
-
-\n \den{VP} = $\lambda y_{e}.\ y\ \text{odeia João}$ \hfill (Conversão-$\lambda$)\\
+\begin{exe}
+	\ex \den{VP} = \den{V}(\den{[$_{\text{NP}}$ João]})\\
+	\den{VP} = $(\lambda x_{e}.\lambda y_{e}.\ y\ \text{odeia}\ x)$(João)\\
+	\den{VP} = $\lambda y_{e}.\ y\ \text{odeia João}$ \hfill (Conversão-$\lambda$)
+\end{exe}
 
 \n Para obter as condições de verdade da sentença, utilizamos
-aplicação funcional mais uma vez:\\
+aplicação funcional mais uma vez:
 
-\n \den{S} = \den{VP}(\den{[$_{\text{NP}}$ Maria})\\
-
-\n \den{S} = $(\lambda y_{e}.\ y\ \text{odeia João})$(Maria)\\
-
-\n \den{S} = 1 \textit{sse} Maria odeia João \\
+\begin{exe}
+	\ex \den{S} = \den{VP}(\den{[$_{\text{NP}}$ Maria})\\
+	\den{S} = $(\lambda y_{e}.\ y\ \text{odeia João})$(Maria)\\
+	\den{S} = 1 \textit{sse} Maria odeia João
+\end{exe}
 
 \n Podemos apreciar aqui um ponto vantajoso na utilização de funções para representar as extensões de predicados verbais. Apenas com aplicação funcional, fomos capazes de derivar as condições de verdade tanto de sentenças com verbos intransitivos quanto de sentenças com verbos transitivos. Conforme veremos mais adiante, outros tipos de predicados verbais e não verbais também receberão tratamento adequado via funções e aplicação funcional.
 
-Antes de prosseguir, vamos introduzir uma notação que usaremos no restante deste livro e que, mais cedo ou mais tarde, o leitor que se aventurar pela literatura em semântica formal encontrará. Retomemos a extensão dos verbos \textit{trabalhar} e \textit{amar}, a título de exemplo:\\
+Antes de prosseguir, vamos introduzir uma notação que usaremos no restante deste livro e que, mais cedo ou mais tarde, o leitor que se aventurar pela literatura em semântica formal encontrará. Retomemos a extensão dos verbos \textit{trabalhar} e \textit{amar}, a título de exemplo:
 
-\n \den{trabalhar} = $\lambda x.\ x\ \text{trabalha}$ \\
+\begin{exe}
+	\ex \den{trabalhar} = $\lambda x.\ x\ \text{trabalha}$
+\end{exe}
 
-\n \den{amar} = $\lambda x.\lambda y.\ y\ \text{ama}\ x$ \\
+\begin{exe}
+	\ex \den{amar} = $\lambda x.\lambda y.\ y\ \text{ama}\ x$
+\end{exe}
 
-\n É bastante comum nos textos da área utilizar, na parte da metalinguagem correspondente às especificações das condições de verdade, uma notação oriunda da lógica de predicados. Nela, sentenças simples formadas por um predicado (\textit{P}) e seus argumentos ($a_{1}, a_{2}, ..., a_{n}$) são representadas por $P(a_{1}, a_{2}, ..., a_{n})$. Nessa notação, o predicado aparece em primeiro lugar, seguido dos argumentos entre parênteses e separados por vírgulas. Assim, em vez de \textit{x trabalha} ou \textit{y ama x}, temos \textit{trabalha(x)} ou \textit{ama(y,x)}. Para diferenciar os predicados da linguagem objeto (no caso, o português)  desses predicados da metalinguagem, é comum representar esses últimos por algum tipo especial de fonte tipográfica, tais como negrito, itálico, caixa alta ou versalete. Aqui, optaremos por essa última. Dessa forma, as extensões vistas acima para os verbos \textit{trabalhar} e \textit{amar} receberão as seguintes representações:\\
+\n É bastante comum nos textos da área utilizar, na parte da metalinguagem correspondente às especificações das condições de verdade, uma notação oriunda da lógica de predicados. Nela, sentenças simples formadas por um predicado (\textit{P}) e seus argumentos ($a_{1}, a_{2}, ..., a_{n}$) são representadas por $P(a_{1}, a_{2}, ..., a_{n})$. Nessa notação, o predicado aparece em primeiro lugar, seguido dos argumentos entre parênteses e separados por vírgulas. Assim, em vez de \textit{x trabalha} ou \textit{y ama x}, temos \textit{trabalha(x)} ou \textit{ama(y,x)}. Para diferenciar os predicados da linguagem objeto (no caso, o português)  desses predicados da metalinguagem, é comum representar esses últimos por algum tipo especial de fonte tipográfica, tais como negrito, itálico, caixa alta ou versalete. Aqui, optaremos por essa última. Dessa forma, as extensões vistas acima para os verbos \textit{trabalhar} e \textit{amar} receberão as seguintes representações:
 
-\n \den{trabalhar} = $\lambda x.\ \text{\textsc{trabalha}}(x)$ \\
+\begin{exe}
+	\ex \den{trabalhar} = $\lambda x.\ \text{\textsc{trabalha}}(x)$
+\end{exe} 
 
-\n \den{amar} = $\lambda x.\lambda y.\ \text{\textsc{ama}}(y,x)$ \\
+\begin{exe}
+	\ex \den{amar} = $\lambda x.\lambda y.\ \text{\textsc{ama}}(y,x)$
+\end{exe}
 
 Deve-se sempre ter em mente que essa é uma questão meramente notacional, adotada por conveniência e tradição na área. Do ponto de vista técnico, as funções acima são as mesmas funções com que trabalhamos anteriormente.
 
@@ -449,45 +500,26 @@ das funções deste tipo. Como vimos, as extensões de verbos transitivos são f
 
 Podemos definir recursivamente um número infinito de
 tipos semânticos, a partir dos tipos básicos \textit{e} e
-\textit{t}. Por definição recursiva, entenda-se uma definição que assume a existência de tipos básicos (no nosso caso, \textit{e} e \textit{t}) e define tipos complexos (no nosso caso, os tipos funcionais) a partir deles. Vejamos como:\\
+\textit{t}. Por definição recursiva, entenda-se uma definição que assume a existência de tipos básicos (no nosso caso, \textit{e} e \textit{t}) e define tipos complexos (no nosso caso, os tipos funcionais) a partir deles. Vejamos como:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Tipos semânticos: \\
+	(a)\ \textit{e} e \textit{t} são tipos semânticos; \\
+	(b)\ Se $\sigma$ e $\tau$ são tipos semânticos, então $\langle\sigma ,\tau \rangle$ é um tipo semântico; \\
+	(c) Nada mais é um tipo semântico.
+\end{exe}
 
-\n \textbf{Tipos semânticos}
 
-\begin{itemize}
+\n Pela cláusula (a), temos que tanto $e$ quanto $t$ são tipos semânticos. Sendo assim, de acordo com a cláusula (b), temos que $\langle e,t \rangle$ também é um tipo semântico. Valendo-nos novamente da cláusula (b), temos que $\langle e,\langle e,t \rangle\rangle$ também é um tipo semântico, já que tanto $e$ quanto $\langle e,t \rangle$ o são. O mesmo vale para $\langle t,t \rangle$, $\langle\langle e,t \rangle,t\rangle$, e infinitos outros tipos funcionais, alguns dos quais aparecerão no decorrer deste livro. Notemos, por fim, que a cláusula (c) afirma que apenas os objetos construídos a partir de (a) e (b) são tipos semânticos.
 
-\item[(i)] \textit{e} e \textit{t} são tipos semânticos;
+Quanto aos domínios semânticos, eles são pareados aos tipos que acabamos de ver:
 
-\item[(ii)] Se $\sigma$ e $\tau$ são tipos semânticos, então
-$\langle\sigma ,\tau \rangle$ é um tipo semântico;
-
-\item[(iii)] Nada mais é um tipo semântico.
-
-\end{itemize}
-
-\end{tcolorbox}
-
-\bigskip
-
-\n Pela cláusula (i), temos que tanto $e$ quanto $t$ são tipos semânticos. Sendo assim, de acordo com a cláusula (ii), temos que $\langle e,t \rangle$ também é um tipo semântico. Valendo-nos novamente da cláusula (ii), temos que $\langle e,\langle e,t \rangle\rangle$ também é um tipo semântico, já que tanto $e$ quanto $\langle e,t \rangle$ o são. O mesmo vale para $\langle t,t \rangle$, $\langle\langle e,t \rangle,t\rangle$, e infinitos outros tipos funcionais, alguns dos quais aparecerão no decorrer deste livro. Notemos, por fim, que a cláusula (iii) afirma que apenas os objetos construídos a partir de (i) e (ii) são tipos semânticos.
-
-Quanto aos domínios semânticos, eles são pareados aos tipos que acabamos de ver:\\
-
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-
-\noindent \textbf{Domínios semânticos}\\
-
-\n $D_{e}$: conjunto dos indivíduos
-
-\n $D_{t}$: conjunto dos valores de verdade (\{0,1\})
-
-\n $D_{\langle\sigma ,\tau \rangle}$: conjunto das
-funções de $D_{\sigma}$ em $D_{\tau}$.
-
-\end{tcolorbox}
-
-\bigskip
+\begin{exe}
+	\ex Domínios semânticos:\\
+	$D_{e}$: conjunto dos indivíduos \\
+	$D_{t}$: conjunto dos valores de verdade (\{0,1\}) \\
+	$D_{\langle\sigma ,\tau \rangle}$: conjunto das funções de $D_{\sigma}$ em $D_{\tau}$.
+\end{exe}
 
 \n Utilizaremos daqui em diante a notação acima para representar
 o tipo semântico (ou o domínio) a que pertence a extensão de
@@ -507,12 +539,15 @@ constituinte sintático a partir de seus subconstituintes
 imediatos: o princípio de aplicação funcional e o
 princípio dos nós não ramificados. Vamos ver agora como esses
 princípios se aplicam na obtenção do significado de
-sentença com verbos bitransitivos, para os quais assumiremos a representação abaixo (mas ver exercício II ao final do capítulo).\\
+sentença com verbos bitransitivos, para os quais assumiremos a representação abaixo (mas ver exercício II ao final do capítulo).
 
-\Tree [ [ [ João ].N ].NP$_{su}$ [ [ [ apresentou ].V [ [ Pedro ].N
-].NP$_{od}$ ].V$^{\prime}$ [ [ para ].P [ [ Maria ].N ].NP$_{oi}$ ].PP ].VP ].S
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ João ].N ].NP$_{su}$ [ [ [ apresentou ].V [ [ Pedro ].N ].NP$_{od}$ ].V$^{\prime}$ [ [ para ].P [ [ Maria ].N ].NP$_{oi}$ ].PP ].VP ].S } \caption{ Sentença com verbo bitransitivo }
+\end{figure}
 
-\bigskip
+
+
+
 
 \n Há dois itens lexicais nessa estrutura que ainda não
 discutimos: a preposição \textit{para} e o verbo \textit{apresentou}. Com
@@ -522,57 +557,70 @@ sintáticas (caso gramatical, talvez). O sistema interpretativo desprezará
 esse item e tratará o nó PP como se fosse não ramificado. Fica
 faltando, então, uma extensão para o verbo \textit{apresentou}. Vamos
 proceder de cima para baixo. O resultado final que desejamos
-é:\\
+é:
 
-\noindent \den{S} = 1 \textit{sse} João apresentou Pedro para
-Maria.\\
+\begin{exe}
+	\ex \den{S} = 1 \textit{sse} João apresentou Pedro para Maria.
+\end{exe}
 
-\n Na notação importada da lógica de predicados, que começaremos a adotar a partir daqui, temos:\\
+\n Na notação importada da lógica de predicados, que começaremos a adotar a partir daqui, temos:
 
-\noindent \den{S} = 1 \textit{sse} $\predica{apresentou}{joão,pedro,maria}$\\
+\begin{exe}
+	\ex \den{S} = 1 \textit{sse} $\predica{apresentou}{joão,pedro,maria}$
+\end{exe}
 
 
 \noindent Além de representar o predicado em versalete, representaremos os argumentos em itálico e minúsculas, demarcando melhor a distinção entre um nome próprio (João) e o indivíduo correspondente (\textit{joão}). Dessa forma, com relação ao sujeito, a entrada lexical de \textit{João}
 mais o princípio dos nós não ramificados nos fornecem o
-seguinte:\\
+seguinte:
 
-\noindent \den{NP$_{su}$} = \den{N} = \den{João} = \textit{joão}\\
+\begin{exe}
+	\ex \den{NP$_{su}$} = \den{N} = \den{João} = \textit{joão}
+\end{exe}
 
 \noindent Para que aplicação funcional possa nos servir, vamos
 assumir que VP seja uma função de tipo $\langle e,t \rangle$ que
 leva um indivíduo \textit{x} no valor de verdade 1 se e somente se
-\textit{x} apresentou Pedro para Maria.\\
+\textit{x} apresentou Pedro para Maria.
 
-\noindent \den{VP} = $\lambda x_{e}.\ \predica{apresentou}{x,pedro,maria}$\\
+\begin{exe}
+	\ex \den{VP} = $\lambda x_{e}.\ \predica{apresentou}{x,pedro,maria}$
+\end{exe}
 
 \noindent Quanto a PP, como este será tratado como um nó não
-ramificado, temos o seguinte:\\
+ramificado, temos o seguinte:
 
-\noindent \den{PP} = \den{NP$_{oi}$} = \den{N} = \den{Maria} =
-\textit{maria}\\
+\begin{exe}
+	\ex \den{PP} = \den{NP$_{oi}$} = \den{N} = \den{Maria} = \textit{maria}
+\end{exe}
 
 \noindent E quanto a V$^{\prime}$? Novamente, guiados por aplicação
 funcional, podemos deduzir seu tipo semântico. Estamos
 buscando uma função que tomará a extensão de PP (tipo $e$) como
 argumento e retornará a extensão de VP (tipo
 $\langle e,t \rangle$) como valor, ou seja, uma função de tipo
-$\langle e, \langle e,t \rangle\rangle$.\\
+$\langle e, \langle e,t \rangle\rangle$.
 
-\noindent \den{V$^{\prime}$} = $\lambda y_{e}.\ \lambda x_{e}.\ \predica{apresentou}{x,pedro,y}$\\
+\begin{exe}
+	\ex \den{V$^{\prime}$} = $\lambda y_{e}.\ \lambda x_{e}.\ \predica{apresentou}{x,pedro,y}$
+\end{exe}
 
-\noindent Com relação ao objeto direto, temos que: \\
+\noindent Com relação ao objeto direto, temos que:
 
-\noindent \den{NP$_{od}$} = \den{N} = \den{Pedro} = \textit{pedro}\\
+\begin{exe}
+	\ex \den{NP$_{od}$} = \den{N} = \den{Pedro} = \textit{pedro}
+\end{exe}
 
 \noindent Por fim, chegamos ao verbo. Este deverá ser uma função
 que toma a extensão do objeto direto (tipo $e$) como argumento e
 retorna a extensão de V$^{\prime}$ (tipo
 $\langle e,\langle e,t \rangle\rangle$) como valor, ou seja, a extensão do
 verbo \textit{apresentou} será uma função de tipo
-$\langle e,\langle e,\langle e,t \rangle\rangle\rangle$.\\
+$\langle e,\langle e,\langle e,t \rangle\rangle\rangle$.
 
-\noindent \den{apresentou} = $\lambda z_{e}.\ \lambda y_{e}.\
-\lambda x_{e}.\ \predica{apresentou}{x,z,y}$\\
+\begin{exe}
+	\ex \den{apresentou} = $\lambda z_{e}.\ \lambda y_{e}.\ \lambda x_{e}.\ \predica{apresentou}{x,z,y}$
+\end{exe}
 
 \noindent A extensão do verbo \textit{apresentou} pode ser vista como uma função que toma três
 indivíduos \textit{z, y, x} --- um de cada vez e nessa ordem --- como argumentos e retorna o valor de
@@ -580,13 +628,16 @@ verdade 1 se, e somente se, \textit{x} apresentou \textit{z} pra
 \textit{y}. Outros verbos bitransitivos como \textit{dar} e \textit{mostrar}, por
 exemplo, podem ser tratados da mesma maneira.
 
-É crucial notar que o primeiro argumento ($z$) na representação acima está vinculado, por assim dizer, com a posição de objeto direto, o segundo ($y$) com a posição de objeto indireto e o terceiro ($x$) com a posição de sujeito. Isso reflete a estrutura sintática que assumimos, de acordo com a qual o verbo forma, primeiramente, um constituinte com seu objeto direto (V$^{\prime}$), unindo-se posteriormente com o objeto indireto (VP) e, por fim, com o sujeito, resultando em uma sentença (S). Queremos, assim, chamar a atenção ao fato de que a escolha da letra ($x$, $y$, ou $z$) para representar uma posição argumental não é, em si mesma, relevante. O que realmente importa é essa vinculação com as devidas posições. Dessa forma, poderíamos igualmente representar a extensão do verbo \textit{apresentar} das seguintes formas:\\
+É crucial notar que o primeiro argumento ($z$) na representação acima está vinculado, por assim dizer, com a posição de objeto direto, o segundo ($y$) com a posição de objeto indireto e o terceiro ($x$) com a posição de sujeito. Isso reflete a estrutura sintática que assumimos, de acordo com a qual o verbo forma, primeiramente, um constituinte com seu objeto direto (V$^{\prime}$), unindo-se posteriormente com o objeto indireto (VP) e, por fim, com o sujeito, resultando em uma sentença (S). Queremos, assim, chamar a atenção ao fato de que a escolha da letra ($x$, $y$, ou $z$) para representar uma posição argumental não é, em si mesma, relevante. O que realmente importa é essa vinculação com as devidas posições. Dessa forma, poderíamos igualmente representar a extensão do verbo \textit{apresentar} das seguintes formas:
 
-\n \den{apresentou} = $\lambda x.\ \lambda y.\
-\lambda z.\ z\ \text{apresentou}\ x\ \text{para}\ y$\\
+\begin{exe}
+	\ex \den{apresentou} = $\lambda x.\ \lambda y.\
+\lambda z.\ z\ \text{apresentou}\ x\ \text{para}\ y$
+\end{exe}
 
-\n \den{apresentou} = $\lambda x.\ \lambda y.\
-\lambda z.\ \predica{apresentou}{z,x,y}$\\
+\begin{exe}
+	\ex \den{apresentou} = $\lambda x.\ \lambda y.\ \lambda z.\ \predica{apresentou}{z,x,y}$
+\end{exe}
 
 \n Trata-se da mesma função anterior, já que aqui também temos o primeiro argumento ($x$) vinculado à posição de objeto direto, o segundo ($y$) à de objeto indireto, e o terceiro ($z$) à de sujeito (a esse respeito, ver o exercício I ao final do capítulo).
 
@@ -614,14 +665,11 @@ centrais deste livro. Iremos nos referir tanto a \textit{ser} quanto a
 \textit{estar} através de um termo mais genérico: cópula.
 
 Vamos assumir para sentenças como (\ref{pnva}) e (\ref{pnvb})
-as estruturas abaixo:\\
+as estruturas abaixo:
 
-$\vcenter{%
-	\hbox{\Tree [ [ [ Maria ].N ].NP [ [ é ].V [ [ pianista ].N ].NP ].VP ].S }} $ \hspace{1in} $ \vcenter{%
-	\hbox{\Tree [ [ [ João ].N ].NP [ [ é ].V [ [ feliz ].A ].AP ].VP ].S }} $
-
-
-\bigskip
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ Maria ].N ].NP [ [ é ].V [ [ pianista ].N ].NP ].VP ].S \hspace{1in} \Tree [ [ [ João ].N ].NP [ [ é ].V [ [ feliz ].A ].AP ].VP ].S } \caption{Sentenças copulares com predicados não-verbais }
+\end{figure}
 
 \n Substantivos comuns e adjetivos como os acima guardam certa
 semelhança com verbos intransitivos. Assim como alguém que sabe o
@@ -630,45 +678,58 @@ possa dizer de um indivíduo qualquer se ele fuma ou não, uma pessoa que
 sabe o significado do substantivo comum \textit{pianista} ou do adjetivo \textit{feliz} sabe as condições para que se possa dizer de uma
 pessoa qualquer se ela é ou não pianista ou se ela é feliz ou não. Dada essa
 semelhança, iremos propor para esses predicados extensões de tipo
-$\langle e,t \rangle$:\\
+$\langle e,t \rangle$:
 
-\n \den{pianista} = $\lambda x.\ x\ \text{é pianista}$\\
+\begin{exe}
+	\ex \den{pianista} = $\lambda x.\ x\ \text{é pianista}$
+\end{exe}
 
-\n \den{feliz} = $\lambda x.\ x\ \text{é feliz}$\\
+\begin{exe}
+	\ex \den{feliz} = $\lambda x.\ x\ \text{é feliz}$
+\end{exe}
 
-\n Na notação de predicados, costuma-se omitir o verbo \textit{ser}:\\
+\n Na notação de predicados, costuma-se omitir o verbo \textit{ser}:
 
-\n \den{pianista} = $\lambda x.\ \predica{pianista}{x}$\\
+\begin{exe}
+	\ex \den{pianista} = $\lambda x.\ \predica{pianista}{x}$
+\end{exe}
 
-\n \den{feliz} = $\lambda x.\ \predica{feliz}{x}$\\
+\begin{exe}
+	\ex \den{feliz} = $\lambda x.\ \predica{feliz}{x}$
+\end{exe}
 
 \n Assumiremos que a cópula é um elemento semanticamente vácuo, e
-que, portanto, a extensão de VP nos exemplos acima é a mesma de AP e NP (mas ver exercício V ao final do capítulo):\\
+que, portanto, a extensão de VP nos exemplos acima é a mesma de AP e NP (mas ver exercício V ao final do capítulo):
 
-\n \den{VP} = \den{NP} = $\lambda x_{e}.\ \predica{pianista}{x}$\\
+\begin{exe}
+	\ex \den{VP} = \den{NP} = $\lambda x_{e}.\ \predica{pianista}{x}$
+\end{exe}
 
-\n \den{VP} = \den{AP} = \den{feliz} = $\lambda x_{e}.\ \predica{feliz}{x}$\\
+\begin{exe}
+	\ex \den{VP} = \den{AP} = \den{feliz} = $\lambda x_{e}.\ \predica{feliz}{x}$
+\end{exe}
 
 \n Com isso, podemos nos valer de aplicação funcional para obter
 as condições de verdade destas sentenças a partir das
 extensões dos NPs sujeito e dos respectivos VPs. Para
-(\ref{pnva}), temos:\\
+(\ref{pnva}), temos:
 
-\n \den{S} = \den{VP}(\den{NP})\\
-
-\n \den{S} = ($\lambda x_{e}.\ \predica{pianista}{x}$)(\textit{joão})\\
-
-\n \den{S} = 1 \textit{sse} $\predica{pianista}{joão}$\\
+\begin{exe}
+	\ex \den{S} = \den{VP}(\den{NP}) \\
+		\den{S} = ($\lambda x_{e}.\ \predica{pianista}{x}$)(\textit{joão}) \\
+		\den{S} = 1 \textit{sse} $\predica{pianista}{joão}$
+\end{exe}
 
 \n Para (\ref{pnvb}), procedemos de maneira inteiramente análoga.
 
 Passemos agora a (\ref{pnvc}), que envolve um sintagma
-preposicional:\\
+preposicional:
 
-\Tree [ [ [ Pedro ].N ].NP [ [ está ].V [ [ em ].P [ [ Campinas
-].N ].NP ].PP ].VP ].S
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ Pedro ].N ].NP [ [ está ].V [ [ em ].P [ [ Campinas
+		].N ].NP ].PP ].VP ].S } \caption{Sentença copular com predicado preposicional }
+\end{figure}
 
-\bigskip
 
 \n O paralelo neste caso é entre a preposição \textit{em} e verbos
 transitivos. Intuitivamente, ambos relacionam dois indivíduos.
@@ -680,30 +741,32 @@ sabe as condições para que se possa dizer de dois indivíduos
 \textit{x} e \textit{y} se \textit{x} está ou não em \textit{y}. A
 entrada lexical que proporemos para essa preposição faz jus a
 esse paralelo, tratando a extensão de \textit{em} como uma função de
-tipo $\langle e, \langle e,t\rangle\rangle$.\\
+tipo $\langle e, \langle e,t\rangle\rangle$.
 
-\n \den{em} = $\lambda x_{e}.\ \lambda y_{e}.\ \predica{em}{y,x}$\\
+\begin{exe}
+	\ex \den{em} = $\lambda x_{e}.\ \lambda y_{e}.\ \predica{em}{y,x}$
+\end{exe}
 
 \n O cálculo das condições de verdade de (\ref{pnvc}) procede
 de maneira análoga aos casos envolvendo verbos transitivos. Para a
-obter a extensão de PP, utilizamos aplicação funcional:\\
+obter a extensão de PP, utilizamos aplicação funcional:
 
-\n \den{PP} = \den{P}(\den{NP})\\
-
-\n \den{PP} = ($\lambda x.\ \lambda y.\ \predica{em}{y,x}$)(\textit{campinas})\\
-
-\n \den{PP} = $\lambda y.\ \predica{em}{y,campinas}$\\
+\begin{exe}
+	\ex \den{PP} = \den{P}(\den{NP})\\
+		\den{PP} = ($\lambda x.\ \lambda y.\ \predica{em}{y,x}$)(\textit{campinas})\\
+		\den{PP} = $\lambda y.\ \predica{em}{y,campinas}$
+\end{exe}
 
 \n Como a cópula é um item semanticamente vácuo, temos que a
 extensão de VP é igual à extensão de PP. Por fim, utilizamos
 aplicação funcional mais uma vez para obtermos as condições
-de verdade da sentença:\\
+de verdade da sentença:
 
-\n \den{S} = \den{VP}(\den{NP})\\
-
-\n \den{S} = ($\lambda y.\ \predica{em}{y,campinas}$)(\textit{pedro})\\
-
-\n \den{S} = 1 \textit{sse} $\predica{em}{pedro,campinas}$\\
+\begin{exe}
+	\ex \den{S} = \den{VP}(\den{NP})\\
+		\den{S} = ($\lambda y.\ \predica{em}{y,campinas}$)(\textit{pedro})\\
+		\den{S} = 1 \textit{sse} $\predica{em}{pedro,campinas}$
+\end{exe}
 
 \n Além de adjetivos e nomes comuns como \textit{feliz} e \textit{pianista}, que
 poderíamos chamar de intransitivos, há também casos que se
@@ -719,13 +782,11 @@ assemelham a verbos transitivos, como, por exemplo, \textit{orgulhoso} e
 \end{xlist}
 \end{exe}
 
-\Tree [.S [.NP [.N João ] ] [.VP [.V é
-		] [.NP [.N irmão ]  [.PP [.P de ] [.NP [.N Maria ] ] ] ] ]
-		] \ \ \ \Tree [.S [.NP [.N João ] ] [.VP [.V está
-		] [.AP [.A orgulhoso ]  [.PP [.P de ] [.NP [.N Maria ] ] ] ] ]
-		]
+\begin{figure}[H]
+	\centerline{ \Tree [.S [.NP [.N João ] ] [.VP [.V é ] [.NP [.N irmão ] [.PP [.P de ] [.NP [.N Maria ] ] ] ] ] ]  \hspace{0.5in} \Tree [.S [.NP [.N João ] ] [.VP [.V está ] [.AP [.A orgulhoso ]  [.PP [.P de ] [.NP [.N Maria ] ] ] ] ] ] } \caption{Sentenças copulares com nomes e adjetivos transitivos }
+\end{figure}
 
-\bigskip
+
 
 
 \n Para esses casos, vamos assumir que a preposição \textit{de} é
@@ -734,11 +795,15 @@ complemento de P nas estruturas acima possa servir de argumento
 para a extensão de \textit{irmão} e \textit{orgulhoso}, que trataremos como
 sendo funções de tipo $\langle e, \langle e,t \rangle\rangle$,
 a exemplo de outros predicados transitivos que já
-discutimos.\\
+discutimos.
 
-\n \den{irmão} = $\lambda x.\ \lambda y.\ \predica{irmão}{y,x}$\\
+\begin{exe}
+	\ex \den{irmão} = $\lambda x.\ \lambda y.\ \predica{irmão}{y,x}$
+\end{exe}
 
-\n \den{orgulhoso} = $\lambda x.\ \lambda y.\ \predica{orgulhoso}{y,x}$\\
+\begin{exe}
+	\ex \den{orgulhoso} = $\lambda x.\ \lambda y.\ \predica{orgulhoso}{y,x}$
+\end{exe}
 
 \n Fica como exercício para o leitor o cálculo, passo a passo, das
 condições de verdade de (\ref{ptra}) e (\ref{ptrb}).
@@ -747,34 +812,50 @@ condições de verdade de (\ref{ptra}) e (\ref{ptrb}).
 
 Antes de fechar o capítulo, mais uma seção de cunho técnico, mas importante para o leitor se familiarizar com certas práticas e jargões da área.
 
-Notamos na seção inicial deste capítulo que há uma correspondência biunívoca entre conjuntos e funções características construídos a partir de certo domínio. Nos casos que analisamos até aqui, o domínio relevante é $D_e$, o domínio dos indivíduos. No caso dos verbos intransitivos, notamos correspondências como as abaixo, em que $a$ é um indivíduo qualquer:\\
+Notamos na seção inicial deste capítulo que há uma correspondência biunívoca entre conjuntos e funções características construídos a partir de certo domínio. Nos casos que analisamos até aqui, o domínio relevante é $D_e$, o domínio dos indivíduos. No caso dos verbos intransitivos, notamos correspondências como as abaixo, em que $a$ é um indivíduo qualquer:
 
-\n \den{trabalha}($a$) = 1 $\leftrightarrow$ $a \in \{x\ |\ x\ \text{trabalha} \}$ \\
+\begin{exe}
+	\ex \den{trabalha}($a$) = 1 $\leftrightarrow$ $a \in \{x\ |\ x\ \text{trabalha} \}$
+\end{exe}
 
-\n \den{trabalha}($a$) = 0 $\leftrightarrow$ $a \notin \{x\ | \ x\ \text{trabalha} \}$ \\
+\begin{exe}
+	\ex \den{trabalha}($a$) = 0 $\leftrightarrow$ $a \notin \{x\ | \ x\ \text{trabalha} \}$
+\end{exe}
 
 \n Tais equivalências se
-estendem para os casos de verbos transitivos e bitransitivos. Entretanto, em vez de caracterizar conjuntos de indivíduos, as extensões dos verbos transitivos e bitransitivos caracterizam \textsc{relações} entre indivíduos. Relações nada mais são que conjuntos de sequências ordenadas, também chamadas de \textsc{tuplas}. Assim, verbos transitivos são frequentemente apresentados como denotando conjuntos de pares ordenados (relações binárias) e os bitransitivos como denotando conjuntos de ternos ordenados (relações ternárias), como ilustrado abaixo para os verbos \textit{amar} e \textit{apresentar}, respectivamente:\\
+estendem para os casos de verbos transitivos e bitransitivos. Entretanto, em vez de caracterizar conjuntos de indivíduos, as extensões dos verbos transitivos e bitransitivos caracterizam \textsc{relações} entre indivíduos. Relações nada mais são que conjuntos de sequências ordenadas, também chamadas de \textsc{tuplas}. Assim, verbos transitivos são frequentemente apresentados como denotando conjuntos de pares ordenados (relações binárias) e os bitransitivos como denotando conjuntos de ternos ordenados (relações ternárias), como ilustrado abaixo para os verbos \textit{amar} e \textit{apresentar}, respectivamente:
 
-\n $R_{amar} = \{\langle x,y \rangle | x\ \text{ama}\ y\}$\\
+\begin{exe}
+	\ex $R_{amar} = \{\langle x,y \rangle | x\ \text{ama}\ y\}$
+\end{exe}
 
-\n $R_{apresentar} = \{\langle x,y,z \rangle | x\ \text{apresenta}\ y\ \text{para}\ z\}$\\
+\begin{exe}
+	\ex $R_{apresentar} = \{\langle x,y,z \rangle | x\ \text{apresenta}\ y\ \text{para}\ z\}$
+\end{exe}
 
 \n Os colchetes angulados ($\langle \rangle$) indicam tratar-se de uma sequência ordenada e que, portanto, $\langle x,y \rangle$ será diferente de $\langle y,x \rangle$ sempre que $x$ for diferente de $y$. No caso de \textit{amar}, por exemplo, um par $\langle a,b \rangle$ pertencerá à relação sempre que o primeiro membro do par ($a$) amar o segundo ($b$).
 
-Novamente, essa mudança de funções para relações é inofensiva, se atentarmos para as seguintes equivalências, em que $a$, $b$ e $c$ são três indivíduos quaisquer: \\
+Novamente, essa mudança de funções para relações é inofensiva, se atentarmos para as seguintes equivalências, em que $a$, $b$ e $c$ são três indivíduos quaisquer:
 
-\n \den{amar}($a$)($b$) = 1 $\leftrightarrow$ $\langle b,a \rangle \in R_{amar}$ \\
+\begin{exe}
+	\ex \den{amar}($a$)($b$) = 1 $\leftrightarrow$ $\langle b,a \rangle \in R_{amar}$
+\end{exe}
 
-\n \den{apresentar}($a$)($b$)($c$) = 1 $\leftrightarrow$ $\langle c,a,b \rangle \in R_{apresentar}$ \\
+\begin{exe}
+	\ex \den{apresentar}($a$)($b$)($c$) = 1 $\leftrightarrow$ $\langle c,a,b \rangle \in R_{apresentar}$
+\end{exe}
 
-Há ainda um ponto relacionado ao que acabamos de ver e que é importante o leitor conhecer. Primeiramente, notemos que, a partir da função correspondente à extensão de um verbo transitivo, para chegarmos a um valor de verdade, procedemos em dois passos. Inicialmente, aplicamos a função a um indivíduo, obtendo uma outra função. Essa outra função, por sua vez, quando aplicada também a um indivíduo, retorna um valor de verdade (0 ou 1). \\
+Há ainda um ponto relacionado ao que acabamos de ver e que é importante o leitor conhecer. Primeiramente, notemos que, a partir da função correspondente à extensão de um verbo transitivo, para chegarmos a um valor de verdade, procedemos em dois passos. Inicialmente, aplicamos a função a um indivíduo, obtendo uma outra função. Essa outra função, por sua vez, quando aplicada também a um indivíduo, retorna um valor de verdade (0 ou 1). 
 
-\n \den{amar}($x$)($y$) = 1 \textit{sse} $y$ ama $x$ \\
+\begin{exe}
+	\ex \den{amar}($x$)($y$) = 1 \textit{sse} $y$ ama $x$
+\end{exe}
 
-\n O mesmo se deu com verbos bitransitivos, sendo que, nesse caso, o processo envolveu três passos. \\
+\n O mesmo se deu com verbos bitransitivos, sendo que, nesse caso, o processo envolveu três passos.
 
-\n \den{apresentar}($x$)($y$)($z$) = 1 \textit{sse} $z$ apresenta $x$ para $y$ \\
+\begin{exe}
+	\ex \den{apresentar}($x$)($y$)($z$) = 1 \textit{sse} $z$ apresenta $x$ para $y$
+\end{exe}
 
 \n Não fosse nosso intuito de fazer a derivação semântica corresponder à estrutura sintática binária que estamos assumindo, poderíamos reduzir esses processos a um único passo, identificando as extensões verbais com funções que tomam sequências (tuplas) de indivíduos retornando diretamente um valor de verdade. Dessa forma, em vez de denotações como as em (a) nos exemplos abaixo, teríamos aquelas em (b):
 
@@ -794,11 +875,15 @@ Há ainda um ponto relacionado ao que acabamos de ver e que é importante o leit
 	\end{xlist}
 \end{exe}
 
-\n No caso de \textit{amar}, o argumento da função seria um par ordenado, enquanto no caso de \textit{apresentar}, teríamos um terno ordenado. Matematicamente, essa mudança é inofensiva se atentarmos para as seguintes igualdades, válidas para quaisquer $x$, $y$, $z$: \\
+\n No caso de \textit{amar}, o argumento da função seria um par ordenado, enquanto no caso de \textit{apresentar}, teríamos um terno ordenado. Matematicamente, essa mudança é inofensiva se atentarmos para as seguintes igualdades, válidas para quaisquer $x$, $y$, $z$:
 
-\n \den{ama$_1$}($x$)($y$) = \den{ama$_2$}($\langle x,y \rangle$)\\
+\begin{exe}
+	\ex \den{ama$_1$}($x$)($y$) = \den{ama$_2$}($\langle x,y \rangle$)
+\end{exe}
 
-\n \den{apresenta$_1$}($x$)($y$)($z$) =  \den{apresenta$_2$}($\langle x,y,z \rangle$)\\ 
+\begin{exe}
+	\ex \den{apresenta$_1$}($x$)($y$)($z$) =  \den{apresenta$_2$}($\langle x,y,z \rangle$)
+\end{exe} 
 
 \n Essas igualdades se generalizam para funções com qualquer número de argumentos. A transformação de uma função \textit{f} qualquer que toma uma sequência $\langle a_{1}, a_{2},...,a_{n}\rangle$ como argumento em uma outra
 função $f'$ que toma \textit{n} argumentos, $a_{1},
@@ -852,17 +937,21 @@ argumento aplicado a uma função. Compare os dois casos a seguir:
 número 3. Não há variáveis livres e a expressão deve ter um valor
 definido. Ao simplificar essa expressão através da
 conversão-$\lambda$ isso
-fica claro:\\
+fica claro:
 
-\n $(\lambda n.\ n+1)(3)$\\
-$3+1$\\
-$4$\\
+\begin{exe}
+	\ex $(\lambda n.\ n+1)(3)$\\
+		$3+1$\\
+		$4$
+\end{exe}
 
 \n No caso de (\ref{cn}), a expressão contém uma variável livre e, portanto, a ela não podemos atribuir um valor definido. Novamente,
-a conversão-$\lambda$ deixa isso claro:\\
+a conversão-$\lambda$ deixa isso claro:
 
-\n $(\lambda n.\ n+1)(m)$\\
-$m+1$\\
+\begin{exe}
+	\ex $(\lambda n.\ n+1)(m)$\\
+		$m+1$
+\end{exe}
 
 \n Note a coerência nos resultados obtidos. A expressão que não
 continha variáveis livres antes da conversão-$\lambda$ (e que,
@@ -924,16 +1013,17 @@ no corpo dessa função.
 
 Como, então, simplificar a aplicação funcional em (\ref{gg})
 via conversão-$\lambda$? A saída é usar a conversão-$\alpha$ antes
-de usar a conversão-$\lambda$. Como vimos na seção inicial deste capítulo, a conversão-$\alpha$ é o processo de substituição da variável que segue o operador lambda e todas suas ocorrências no corpo de uma função por uma outra variável, sem alterar a natureza da função:\\
+de usar a conversão-$\lambda$. Como vimos na seção inicial deste capítulo, a conversão-$\alpha$ é o processo de substituição da variável que segue o operador lambda e todas suas ocorrências no corpo de uma função por uma outra variável, sem alterar a natureza da função:
 
-\n $(\lambda n.\ n + 1) \Leftrightarrow (\lambda m.\ m + 1)
-\Leftrightarrow (\lambda k.\ k + 1)$\\
+\begin{exe}
+	\ex $(\lambda n.\ n + 1) \Leftrightarrow (\lambda m.\ m + 1) \Leftrightarrow (\lambda k.\ k + 1)$
+\end{exe}
 
 \n No caso com que estamos lidando, a conversão-$\alpha$ se
 aplicará à subexpressão que aparece sublinhada abaixo,
 substituindo-se \textit{n} por uma variável que ainda não apareça
 na expressão, como \textit{k}, por
-exemplo:\\
+exemplo:
 
 \begin{exe}
 	\ex $(\lambda m.\ \underline{\lambda n.\ m+n})(n)$\\
@@ -945,9 +1035,11 @@ exemplo:\\
 \n Essa é, de fato, a grande utilidade da conversão-$\alpha$:
 preparar uma expressão para a aplicação da conversão-$\lambda$.
 
-Assim como a conversão-$\lambda$, a conversão-$\alpha$ também tem seus caprichos. Comecemos pela função abaixo:\\
+Assim como a conversão-$\lambda$, a conversão-$\alpha$ também tem seus caprichos. Comecemos pela função abaixo:
 
-\n $\lambda n.\ 5$\\
+\begin{exe}
+	\ex $\lambda n.\ 5$
+\end{exe}
 
 \n Note que se trata de uma função um tanto peculiar, já que não
 há qualquer ocorrência da variável \textit{n} no corpo da
@@ -957,20 +1049,27 @@ seja esse argumento, o valor retornado será sempre o número 5. Uma
 função como essa é chamada de \textsc{função constante}.
 Funções de ordem superior também podem ser constantes, como
 deixam claro os
-exemplos abaixo:\\
+exemplos abaixo:
 
-\n $\lambda n.(\lambda m.\ m+1)$\\
+\begin{exe}
+	\ex $\lambda n.(\lambda m.\ m+1)$
+\end{exe}
 
-\n $\lambda f.\ 3$\\
+\begin{exe}
+	\ex $\lambda f.\ 3$
+\end{exe}
 
 \n No primeiro caso, não importa o argumento: o valor retornado é
 sempre a função sucessor. No segundo caso, qualquer que seja a
 função que sirva de argumento, o valor retornado é sempre o
 número 3.
 
-Considere agora o exemplo abaixo:\\
+Considere agora o exemplo abaixo:
 
-\n $\lambda n.(\lambda n.\ n+1)$\\
+\begin{exe}
+	\ex $\lambda n.(\lambda n.\ n+1)$
+\end{exe}
+
 
 \n Note que o corpo dessa função é a função sucessor. Se
 formos descrever a função acima em palavras, diríamos tratar-se
@@ -987,10 +1086,13 @@ podemos tirar disso é que uma expressão do tipo $\lambda v.
 A aplicação da função acima a um número qualquer --- 3, por
 exemplo --- pode ser representada e simplificada por
 conversão-$\lambda$ da
-seguinte forma:\\
+seguinte forma:
 
-\n $(\lambda n.\ \lambda n. n+1)(3)$\\
-$(\lambda n.\ n+1)$ \hfill (conversão-$\lambda$)\\
+\begin{exe}
+	\ex $(\lambda n.\ \lambda n. n+1)(3)$\\
+	$(\lambda n.\ n+1)$ \hfill (conversão-$\lambda$)
+\end{exe}
+
 
 \n Com isso queremos deixar claro que, no processo de
 conversão-$\lambda$ aplicado a uma expressão do tipo $(\lambda v.
@@ -1072,13 +1174,11 @@ excelente introdução em \cite{carpenter97}, capítulo 2. Assumimos neste capí
 
 \n O resultado continua o mesmo? Por quê?\\
 
-\n\textbf{II.} Já se propôs na literatura sintática que a estrutura argumental de verbos bitransitivos como \textit{apresentar} é, na verdade, algo como o seguinte (ver \cite{larson88} e, para uma apresentação em nível introdutório, \cite{carnie13}, capítulo 14):\\
+\n\textbf{II.} Já se propôs na literatura sintática que a estrutura argumental de verbos bitransitivos como \textit{apresentar} é, na verdade, algo como o seguinte (ver \cite{larson88} e, para uma apresentação em nível introdutório, \cite{carnie13}, capítulo 14):
 
-
-\Tree [ [ João ].NP [ V$_{1}$ [ [ Pedro ].NP [ [ apresentou ].V$_{2}$  \qroof{para Maria}.PP ].V$_{2}^{\prime}$ 
-].VP$_{2}$ ].VP$_{1}$ ].S
-
-\bigskip
+\begin{center}
+	\Tree [ [ João ].NP [ V$_{1}$ [ [ Pedro ].NP [ [ apresentou ].V$_{2}$  \qroof{para Maria}.PP ].V$_{2}^{\prime}$ ].VP$_{2}$ ].VP$_{1}$ ].S	
+\end{center}
 
 \n Nesse caso, uma operação sintática (sem reflexos semânticos) deslocaria o verbo para a posição V$_{1}$, logo após o sujeito, originando a ordem superficial S V OD OI. Assumindo que é a estrutura acima (sem movimento) que chega ao componente semântico, e que V$_{1}$ seja semanticamente vácuo, proponha uma entrada lexical para o verbo apresentar, prestando bastante atenção no que foi visto no exercício anterior.\\
 
@@ -1088,10 +1188,11 @@ excelente introdução em \cite{carpenter97}, capítulo 2. Assumimos neste capí
 
 \n (b) Pedro foi visto por João.\\
 
-\n Para (b), assuma a seguinte estrutura:\\
+\n Para (b), assuma a seguinte estrutura:
 
-\Tree [ [ [ Pedro ].N ].NP$_{1}$ [ [ foi-visto ].V [ [ por ].P [ [
-João ].N ].NP$$_{2}$$ ].PP ].VP ].S
+\begin{center}
+	\Tree [ [ [ Pedro ].N ].NP$_{1}$ [ [ foi-visto ].V [ [ por ].P [ [ João ].N ].NP$$_{2}$$ ].PP ].VP ].S
+\end{center}
 
 \n Para efeitos deste exercício, assuma que tanto \textit{viu}
 quanto \textit{foi visto} são itens lexicais e que a preposição
@@ -1105,11 +1206,11 @@ extensões que você acabou de propor?\\
 
 \n (a) João elogiou-se.\\
 
-\n Assuma para essa sentença a seguinte estrutura sintática:\\
+\n Assuma para essa sentença a seguinte estrutura sintática:
 
-\Tree [.S [.NP João ] [.VP [.V elogiou ] se ] ]
-
-\bigskip
+\begin{center}
+	\Tree [.S [.NP João ] [.VP [.V elogiou ] se ] ] 
+\end{center}
 
 \n Assuma agora que o pronome reflexivo \textit{se} tenha a
 seguinte extensão:\\

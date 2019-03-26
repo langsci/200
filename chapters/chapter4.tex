@@ -1,4 +1,4 @@
-%versao de 15-mar-2019
+%versao de 23-MAR-2019
 
 \chapter{Referência}
 
@@ -14,17 +14,17 @@ ampliado com a introdução do artigo definido singular
 
 Descrições definidas são expressões introduzidas pelo artigo
 definido (\textit{o}, \textit{a}, \textit{os}, \textit{as}) seguido de um sintagma nominal, como em
-\textit{o livro}, \textit{a capital de Alagoas}, \textit{os jogadores do Palmeiras} ou
-\textit{as praias de Santa Catarina}. Do ponto de vista sintático, vamos
+\textit{o livro}, \textit{a capital de Portugal}, \textit{os jogadores de futebol} e \textit{as praias do Brasil}. Do ponto de vista sintático, vamos
 categorizar o artigo definido como sendo um determinante (D), que
 toma como complemento um sintagma nominal (NP), sendo a projeção
-resultante um sintagma determinante (DP):\\
+resultante um sintagma determinante (DP):
 
-\Tree [ D NP ].DP
+\begin{figure}[H]
+	\centerline{ \Tree [ {\ \ \ \ \ D\ \ \ \ \ }  {\ \ \ \ \ NP\ \ \ \ \ } ].DP } \caption{Sintagma determinante }
+\end{figure}
 
-\bigskip
 
-\n NPs, a partir de agora, são estruturas nucleadas por um substantivo (nome), sem a presença do artigo. Nos exemplos do parágrafo anterior, são NPs as sequências \textit{livro}, \textit{capital de Alagoas}, \textit{jogadores do Palmeiras} e \textit{praias de Santa Catarina}. Voltaremos aos nomes próprios mais adiante.
+\n NPs, a partir de agora, são estruturas nucleadas por um substantivo (nome), sem a presença do artigo. Nos exemplos do parágrafo anterior, são NPs as sequências \textit{livro}, \textit{capital de Portugal}, \textit{jogadores de futebol} e \textit{praias do Brasil}. Voltaremos aos nomes próprios mais adiante.
 
 Passemos, então, ao significado de uma descrição definida.
 Limitaremos nossa atenção às descrições definidas singulares,
@@ -43,18 +43,20 @@ da pessoa que ocupa atualmente este cargo político.
 é verdadeira se JS é paulista e falsa se JS não é paulista. Iremos
 captar este fato, assumindo que a extensão de um DP definido é o
 indivíduo que satisfaz a descrição apresentada pelo NP que segue o
-artigo definido.\\
+artigo definido.
 
-\n \den{[$_{\text{DP}}$ o prefeito de Campinas ]} = o indivíduo
-\textit{a}, tal que \textit{a} é prefeito de Campinas\\
+\begin{exe}
+	\ex \den{[$_{\text{DP}}$ o prefeito de Campinas ]} = o indivíduo \textit{a}, tal que \textit{a} é prefeito de Campinas
+\end{exe}
 
 \n Qual a extensão do artigo definido \textit{o}? Olhemos para a
-estrutura (simplificada) de (\ref{def}) dada abaixo:\\
+estrutura (simplificada) de (\ref{def}) dada na figura a seguir:
 
-\n \Tree [ [ [ o ].D \qroof{prefeito de Campinas}.NP ].DP \qroof{é
-paulista}.VP ].S
+\begin{figure}[H]
+	\centerline{ \Tree [ [ [ o ].D \qroof{prefeito de Campinas}.NP ].DP \qroof{é paulista}.VP ].S } \caption{Sentença com DP definido }
+\end{figure}
 
-\bigskip
+
 
 \n A extensão do NP \textit{prefeito de Campinas} é uma função que leva
 um indivíduo \textit{x} no valor de verdade 1, se \textit{x} é
@@ -64,41 +66,41 @@ função leva JS no valor 1 e todos os demais indivíduos no valor 0.
 O que o artigo definido parece fazer, então, é olhar para a extensão
 de NP e selecionar o indivíduo ao qual esta função atribui valor
 1. Isso é o que está formalizado na entrada lexical abaixo (que
-ainda sofrerá modificações):\\
+ainda sofrerá modificações):
 
-\n \den{o} = $\lambda F_{\langle e,t\rangle}.\ \text{o indivíduo
-\textit{a}, tal que}\ F(a) = 1$\\
+\begin{exe}
+	\ex \den{o} = $\lambda F_{\langle e,t\rangle}.\ \text{o indivíduo \textit{a}, tal que}\ F(a) = 1$
+\end{exe}
 
-\n Há uma notação compacta para representar o único indivíduo que satisfaz uma certa condição $\phi$, que é $\iota x[\phi]$. Valendo-nos dela, e da notação de predicados, podemos representar a extensão de \textit{o} da seguinte forma:\\
+\n Há uma notação compacta para representar o único indivíduo que satisfaz uma certa condição $\phi$, que é $\iota x[\phi]$. Valendo-nos dela, e da notação de predicados, podemos representar a extensão de \textit{o} da seguinte forma:
 
-\n \den{o} = $\lambda F_{\langle e,t\rangle}.\ \iota x[F'(x)]$\\
+\begin{exe}
+	\ex \den{o} = $\lambda F_{\langle e,t\rangle}.\ \iota x[F'(x)]$
+\end{exe}
 
 \n A extensão do artigo definido é, portanto, uma função de tipo
 $\langle\langle e,t\rangle,e\rangle$. Como a extensão de NP é de
 tipo $\langle e,t\rangle$, utilizamos aplicação funcional para
 obter a extensão do DP sujeito em (\ref{def}), que será de tipo
-\textit{e}.\\
+\textit{e}.
 
-\n \den{[$_{\text{DP}}$ o prefeito de Campinas ]} =
-\den{o}(\den{[$_{\text{NP}}$ prefeito de Campinas ]})
-
-\n = $\iota x[\llbracket \text{NP} \rrbracket(x)=1]$
-
-\n = $\iota x[\ \predica{prefeito}{x, Campinas}]$
-
-\n = o indivíduo \textit{x}, tal que \textit{x} é prefeito de
-Campinas\\
+\begin{exe}
+	\ex \den{[$_{\text{DP}}$ o prefeito de Campinas ]} = \den{o}(\den{[$_{\text{NP}}$ prefeito de Campinas ]}) \\
+		= $\iota x[\llbracket \text{NP} \rrbracket(x)=1]$ \\
+		= $\iota x[\ \predica{prefeito}{x, Campinas}]$ \\
+		= o indivíduo \textit{x}, tal que \textit{x} é prefeito de Campinas
+\end{exe}
 
 \n Como a extensão de VP é de tipo $\langle e,t\rangle$,
 utilizando aplicação funcional mais uma vez, chegamos às condições
-de verdade de (\ref{def}).\\
+de verdade de (\ref{def}).
 
-\n \den{(\ref{def})} = 1 \textit{sse} \textsc{paulista}$(\iota x[  \predica{prefeito}{x, Campinas}]) $
+\begin{exe}
+	\ex \den{(\ref{def})} = 1 \textit{sse} \textsc{paulista}$(\iota x[  \predica{prefeito}{x, Campinas}]) $ \\
+		\den{(\ref{def})} = 1 \textit{sse} o indivíduo \textit{x}, tal que \textit{x} é prefeito de Campinas, é paulista
+\end{exe}
 
-\n \den{(\ref{def})} = 1 \textit{sse} o indivíduo \textit{x}, tal
-que \textit{x} é prefeito de Campinas, é paulista\\
-
-\n \textbf{Unicidade}\\
+\subsection{Unicidade}
 
 \n As condições de verdade acima parecem adequadas. A sentença
 (\ref{def}) será, de fato, verdadeira, se o indivíduo que ocupa
@@ -163,9 +165,11 @@ e,t\rangle$. Até aqui não impusemos nenhuma condição sobre essas
 funções. É o que faremos agora. Vamos assumir que o domínio da
 extensão do artigo definido contém apenas funções de tipo $\langle
 e,t\rangle$ que retornam o valor 1 para um único indivíduo e 0
-para todos os demais. Para representar esse tipo de função, vamos nos valer na metalinguagem da expressão $\exists !x$, que deve ser lida como `existe um único \textit{x}'. Vejamos:\\
+para todos os demais. Para representar esse tipo de função, vamos nos valer na metalinguagem da expressão $\exists !x$, que deve ser lida como `existe um único \textit{x}'. Vejamos:
 
-\n \den{o} = $\lambda F_{\langle e,t\rangle}:\exists !x \in D_{e}[ F'(x)].\ \iota x[F'(x)]$\\
+\begin{exe}
+	\ex \den{o} = $\lambda F_{\langle e,t\rangle}:\exists !x \in D_{e}[ F'(x)].\ \iota x[F'(x)]$
+\end{exe}
 
 
 \n A fórmula \underline{$\exists !x \in D_{e}[
@@ -230,9 +234,11 @@ reunião entre o prefeito de Campinas e o prefeito do Rio de
 Janeiro, nossa sentença já não seria mais adequada, pois o
 contexto, neste caso, torna salientes dois indivíduos que são
 prefeitos. Precisamos então adicionar o conceito de saliência à
-nossa entrada lexical do artigo definido:\\
+nossa entrada lexical do artigo definido:
 
-\n \den{o} = $\lambda F_{\langle e,t\rangle}:\exists !x_{e}\ \textit{saliente no contexto, tal que}\ [F'(x)].\ \iota x[F'(x)\ \& $ \textit{x} está saliente no contexto $]$\\
+\begin{exe}
+	\ex \den{o} = $\lambda F_{\langle e,t\rangle}:\exists !x_{e}\ \textit{saliente no contexto, tal que}\ [F'(x)].\ \iota x[F'(x)\ \& $ \textit{x} está saliente no contexto $]$
+\end{exe}
 
 \n Especificar exatamente como um indivíduo se torna saliente em
 um contexto é um dos tópicos mais controversos nos estudos da
@@ -282,12 +288,15 @@ que JS é, de fato, prefeito de Campinas, é que (\ref{defi}) e
 (\ref{js}) têm a mesma extensão, o valor de verdade 1, não o mesmo
 significado. Obviamente, na origem dessa distinção está a
 diferença na maneira como apresentamos a extensão do nome próprio
-João da Silva e a extensão do DP \textit{o prefeito de Campinas}:\\
+João da Silva e a extensão do DP \textit{o prefeito de Campinas}:
 
-\n \den{João da Silva} = JS
+\begin{exe}
+	\ex \den{João da Silva} = JS
+\end{exe}
 
-\n \den{[o prefeito de Campinas]} = o indivíduo \textit{a}, tal
-que \textit{a} é prefeito de Campinas\\
+\begin{exe}
+	\ex \den{[o prefeito de Campinas]} = o indivíduo \textit{a}, tal que \textit{a} é prefeito de Campinas
+\end{exe}
 
 \n Mesmo que, em certas situações, \textit{João da Silva} e \textit{o prefeito de Campinas} tenham a mesma extensão (o indivíduo JS), eles não têm o
 mesmo significado, e isto está expresso na diferença que acabamos
@@ -356,7 +365,7 @@ belo dia, alguém chegue para essa pessoa e diga a sentença abaixo:
 
 \n A pessoa em questão certamente se surpreenderia com essa
 revelação. Até aquele momento, tal pessoa provavelmente acreditava
-na negação de (\ref{fer}), ou seja em (\ref{fre}):
+na negação de (\ref{fer}), ou seja no conteúdo de (\ref{fre}):
 
 \begin{exe}
 \ex Arlette Torres não é Fernanda Montenegro.\label{fre}
@@ -366,24 +375,32 @@ Mas vejamos que significado, ou seja, que condições de verdade, o
 nosso sistema atribui a essas sentenças. Não dissemos nada sobre o
 uso do verbo \textit{ser} em sentenças desse tipo, mas é natural
 que sua extensão estabeleça a identidade entre as extensões dos
-nomes presentes na sentença:\\
+nomes presentes na sentença:
 
-\n\den{é} = $(\lambda x.\ \lambda y.\ x = y)$\\
+\begin{exe}
+	\ex \den{é} = $(\lambda x.\ \lambda y.\ x = y)$
+\end{exe}
 
 \n E quanto aos nomes próprios? Como ambos os nomes são nomes da
-mesma pessoa, não temos muita escolha:\\
+mesma pessoa, não temos muita escolha:
 
-\n\den{Arlette Torres} = \den{Fernanda Montenegro} = \textit{arlette torres}\\
+\begin{exe}
+	\ex \den{Arlette Torres} = \den{Fernanda Montenegro} = \textit{arlette torres}
+\end{exe}
 
 \n Lembre-se que o que aparece representado em itálico depois das igualdades é o indivíduo
-(carne e osso). Assim, poderíamos alternativamente dizer:\\
+(carne e osso). Assim, poderíamos alternativamente dizer:
 
-\n\den{Arlette Torres} = \den{Fernanda Montenegro} = \textit{fernanda montenegro}\\
+\begin{exe}
+	\ex \den{Arlette Torres} = \den{Fernanda Montenegro} = \textit{fernanda montenegro}
+\end{exe}
 
 \n Efetuando a derivação das condições de verdade de (\ref{fer})
-(a derivação fica a cargo do leitor), obteremos o seguinte:\\
+(a derivação fica a cargo do leitor), obteremos o seguinte:
 
-\n\den{(\ref{fer})} = 1 \textit{sse} \textit{arlette torres} = \textit{arlette torres}\\
+\begin{exe}
+	\ex \den{(\ref{fer})} = 1 \textit{sse} \textit{arlette torres} = \textit{arlette torres}
+\end{exe}
 
 \n Mas o que aparece após a igualdade é uma tautologia, já que
 sabemos de antemão que todo indivíduo é idêntico a si mesmo. Se
@@ -391,7 +408,7 @@ pensarmos melhor, essas são as mesmas condições de verdade que o
 nosso sistema atribui à sentença abaixo:
 
 \begin{exe}
-\ex Arlete Torres é Arlete Torres.\label{fli}
+	\ex Arlete Torres é Arlete Torres.\label{fli}
 \end{exe}
 
 \n Essa sentença, de fato, soa como tautológica, e certamente
@@ -404,9 +421,11 @@ Vendo o problema de outro ângulo: como nossa personagem
 acredita na verdade de (\ref{fre}), e como nosso sistema atribui a
 essa sentença as condições de verdade abaixo, deveríamos atribuir
 a essa pessoa uma crença contraditória, já que
-tais condições de verdade não são nunca satisfeitas:\\
+tais condições de verdade não são nunca satisfeitas:
 
-\n\den{(\ref{fer})} = 1 \textit{sse} \textit{arlette torres} $\neq$ \textit{arlette torres}\\
+\begin{exe}
+	\ex \den{(\ref{fre})} = 1 \textit{sse} \textit{arlette torres} $\neq$ \textit{arlette torres}
+\end{exe}
 
 \n Mas acreditar em (\ref{fre}) certamente não implica
 contradição. Estamos, pois, diante de um impasse gerado pela nossa
@@ -417,11 +436,11 @@ Não iremos investigar aqui possíveis reformulações em nosso
 sistema para tentar lidar com esse problema. O leitor, entretanto,
 deve estar ciente disso, bem como entrar em contato com a
 literatura clássica sobre o tema (ver, para isso, as referências
-ao final do capítulo). \\
+ao final do capítulo). 
 
 
 
-\n \textbf{Nomes próprios como predicados} \\
+\subsection{Nomes próprios como predicados} 
 
 \n Em todos os nossos exemplos até o momento, os nomes próprios
 diferem sintaticamente das descrições definidas pelo fato de não
@@ -441,21 +460,25 @@ Casos como esses existem também em dialetos do grego e do alemão, por exemplo.
 sintática entre os nomes próprios em (\ref{oj}) e as descrições
 definidas que analisamos mais acima parece clara o bastante para
 que tentemos assimilar essas categorias. Considere, então, a
-seguinte estrutura para o sintagma \textit{o João}:\\
+seguinte estrutura para o sintagma \textit{o João}:
 
-\Tree [ [ o ].D [ [ João ].N ].NP ].DP
 
-\bigskip
+
+\begin{figure}[H]
+	\centerline{ \Tree [ [ o ].D [ [ João ].N ].NP ].DP } \caption{Nome próprio precedido por artigo definido }
+\end{figure}
 
 Considere, ainda, a possibilidade de estender esse tratamento aos casos em que o nome
 pró\-prio não vem precedido do artigo. Para tanto, assumamos
 que exista um determinante nulo, idêntico semanticamente ao artigo definido, mas
 que não é realizado foneticamente, conforme ilustrado
-abaixo:\\
+abaixo:
 
-\Tree [ [ $\emptyset$ ].D [ [ João ].N ].NP ].DP
 
-\bigskip
+
+\begin{figure}[H]
+	\centerline{ \Tree [ [ $\emptyset$ ].D [ [ João ].N ].NP ].DP } \caption{Nome próprio com determinante nulo }
+\end{figure}
 
 \n Unificaríamos assim a estrutura sintática de constituintes como \textit{o
 João} e \textit{o menino}, ambos tratados agora como DPs ramificados em D
@@ -481,29 +504,28 @@ usados quando queremos nos referir a uma pessoa que passou por uma
 dessas, digamos, cerimônias, tendo ali sua pessoa associada a uma
 expressão verbal. É isso que queremos dizer com a condição `x se
 chama NN' onde NN é um nome próprio qualquer. De acordo com essa
-ideia, a entrada lexical de \textit{João} passa a ser a seguinte:\\
+ideia, a entrada lexical de \textit{João} passa a ser a seguinte:
 
-\n \den{João} = $\lambda x.\ x\ \text{se chama
-\textit{João}}$\\
+\begin{exe}
+	\ex \den{João} = $\lambda x.\ x\ \text{se chama \textit{João}}$
+\end{exe}
 
-\n Uma vez mais, aplicação funcional nos dá a extensão de \textit{o João} a partir de seus constituintes imediatos, conforme mostrado abaixo:\\
+\n Uma vez mais, aplicação funcional nos dá a extensão de \textit{o João} a partir de seus constituintes imediatos, conforme mostrado abaixo:
 
-\n ($\lambda F_{\langle e,t\rangle}:\exists !x\ \text{saliente no
-contexto}\ [F'(x)].\ \iota x[F'(x)]$)(\den{[$_{\text{NP}}$ João]})
-
-\n = $\iota x[x\ \text{está saliente no contexto}\ \&\ x\ \text{se
-chama \textit{João}}]$\\
+\begin{exe}
+	\ex ($\lambda F_{\langle e,t\rangle}:\exists !x\ \text{saliente no contexto}\ [F'(x)].\ \iota x[F'(x)]$)(\den{[$_{\text{NP}}$ João]}) \\
+	= $\iota x[x\ \text{está saliente no contexto}\ \&\ x\ \text{se chama \textit{João}}]$
+\end{exe}
 
 \n Para obtermos as condições de verdade da sentença (\ref{oja}),
 utilizamos aplicação funcional novamente. Desta vez, a extensão de
 DP, tipo e, serve como argumento para a extensão de VP, tipo
-$\langle e,t\rangle$.\\
+$\langle e,t\rangle$.
 
-\n \den{S} = \den{[$_{\text{VP}}$ está sorrindo]}([$_{\text{DP}}$ o
-João])
-
-\n = 1 \textit{sse} o único indivíduo saliente no contexto que se
-chama João está sorrindo.\\
+\begin{exe}
+	\ex \den{S} = \den{[$_{\text{VP}}$ está sorrindo]}([$_{\text{DP}}$ o João]) \\
+	\den{S} = 1 \textit{sse} o único indivíduo saliente no contexto que se chama João está sorrindo.
+\end{exe}
 
 \n As condições acima parecem adequadas. Note a menção à saliência
 contextual, semelhante ao caso das descrições definidas que
@@ -532,19 +554,24 @@ designadores rígidos.
 Consideremos uma outra possibilidade. Tomemos a extensão
 do nome próprio \textit{João} como sendo a função que leva o indivíduo
 João no valor de verdade 1 e todos os demais
-indivíduos no valor de verdade 0:\\
+indivíduos no valor de verdade 0:
 
-\n \den{João} = $(\lambda x.\ x=\text{\textit{joão}})$\\
+\begin{exe}
+	\ex \den{João} = $(\lambda x.\ x=\text{\textit{joão}})$
+\end{exe}
 
-\n Para o DP \textit{O João}, obteríamos o seguinte:\\
+\n Para o DP \textit{O João}, obteríamos o seguinte:
 
-\n \den{O João} = o único indivíduo \textit{x}, tal que \textit{x}
-= \textit{joão}\\
+\begin{exe}
+	\ex \den{O João} = o único indivíduo \textit{x}, tal que \textit{x} = \textit{joão}
+\end{exe}
 
 \n Como ninguém além do próprio João pode satisfazer a condição acima, não é difícil notar que isso é equivalente ao que tínhamos
-antes:\\
+antes:
 
-\n\den{O João} = \textit{joão}\\
+\begin{exe}
+	\ex \den{O João} = \textit{joão}
+\end{exe}
 
 \n Dois pontos importantes: em primeiro lugar, como o único indivíduo
 idêntico ao João é o próprio João, a condição de unicidade que
@@ -750,11 +777,10 @@ quem o pronome se refere? Continuando na esteira do que foi proposto em \cite{he
 tais usos a casos em que o índice de um pronome não pertence ao
 domínio da atribuição. Para tornar isso mais explícito, façamos
 uma pequena modificação no nosso esquema
-correspondente à entrada lexical dos pronomes:\\
+correspondente à entrada lexical dos pronomes:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-	
-	\textbf{Entrada lexical dos pronomes}\\
+\begin{exe}
+	\ex Entrada lexical dos pronomes\\
 	Para qualquer pronome \textit{pron}, qualquer atribuição
 	\textit{g}, e qualquer número natural \textit{i},\\
 	
@@ -763,10 +789,9 @@ correspondente à entrada lexical dos pronomes:\\
 	g(i) & \text{se } i\in\ \textit{Domínio de}\ g\\
 	indefinido & \text{se } i\not\in\ \textit{Domínio de}\ g
 	\end{cases}$
-	
-\end{tcolorbox}
+\end{exe}
 
-\bigskip
+
 
 \n Em palavras: a extensão de $pron_{i}$ em relação a \textit{g} é
 o valor que \textit{g} atribui a \textit{i}, se \textit{i}
@@ -777,31 +802,46 @@ Para formalizar o caso especial em que simplesmente não há
 indivíduos salientes no contexto, podemos pensar em uma
 atribuição nula, que é uma função cujo domínio é o conjunto
 vazio. Representaremos
-essa atribuição por $\varnothing$. Temos então o seguinte:\\
+essa atribuição por $\varnothing$. Temos então o seguinte:
 
-\n \den{ele$_{1}$}\gone{1}{João} = João\\
-\den{ele$_{1}$}\gone{1}{Pedro} = Pedro\\
-\den{ele$_{2}$}\gone{1}{João} = \textit{indefinido}\\
-\den{ele$_{1}$}\gvaz = \textit{indefinido}\\
+%xl
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{ele$_{1}$}\gone{1}{João} = João
+		\ex \den{ele$_{1}$}\gone{1}{Pedro} = Pedro
+		\ex \den{ele$_{2}$}\gone{1}{João} = \textit{indefinido}
+		\ex \den{ele$_{1}$}\gvaz = \textit{indefinido}  
+	\end{xlist}
+\end{exe}
 
-\n No nível sentencial, temos o seguinte:\\
+\n No nível sentencial, temos o seguinte:
 
-\n \den{Ele$_{1}$ é italiano}\gone{1}{João} = 1 \textit{sse} João é
-italiano\\
-\n \den{Ele$_{1}$ é italiano}\gone{1}{Pedro} = 1 \textit{sse} Pedro
-é italiano\\
-\n \den{Ele$_{1}$ é italiano}\gvaz = \textit{indefinido}\\
+%xl
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{Ele$_{1}$ é italiano}\gone{1}{João} = 1 \textit{sse} João é italiano
+		\ex \den{Ele$_{1}$ é italiano}\gone{1}{Pedro} = 1 \textit{sse} Pedro é italiano
+		\ex \den{Ele$_{1}$ é italiano}\gvaz = \textit{indefinido}  
+	\end{xlist}
+\end{exe}
 
 
 Para casos envolvendo mais de um pronome, a sentença ficará sem
 valor de verdade sempre que um ou mais índices não pertencerem ao
 domínio da atribuição, correspondendo a situações de fala em
-que um número insuficiente de indivíduos se tornaram salientes:\\
+que um número insuficiente de indivíduos se tornaram salientes:
 
-\n\den{Ele$_{1}$ é tio dele$_{2}$}\gtwo{1}{João}{2}{Pedro} = 1 \textit{sse} João é tio de Pedro\\
-\den{Ele$_{1}$ é tio dele$_{2}$}\gone{1}{João} = \textit{indefinido}\\
-\den{Ele$_{1}$ é tio dele$_{2}$}\gvaz = \textit{indefinido}\\
-
+%xl
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{Ele$_{1}$ é tio dele$_{2}$}\gtwo{1}{João}{2}{Pedro} = 1 \textit{sse} João é tio de Pedro
+		\ex \den{Ele$_{1}$ é tio dele$_{2}$}\gone{1}{João} = \textit{indefinido}
+		\ex \den{Ele$_{1}$ é tio dele$_{2}$}\gvaz = \textit{indefinido}  
+	\end{xlist}
+\end{exe}
 
 Note que a entrada lexical dos pronomes não faz menção a seus traços gramaticais (gênero, número, pessoa). Isso, claro, não parece semanticamente correto. Afinal de contas, \textit{ele} e \textit{ela} não parecem sinônimos. Um falante competente sabe que, diante de um homem, por exemplo, usa-se \textit{ele}, ao passo, que diante de uma mulher, usa-se \textit{ela}. Mas nem sempre há uma relação transparente entre morfologia e semântica. Uma sentença como \textit{João chamou uma pessoa, mas ela não escutou} não fornece indícios sobre o referente do pronome \textit{ela} ser um homem ou uma mulher. Nesse caso, é o gênero gramatical do antecedente do pronome (o sintagma nominal \textit{uma pessoa}) que parece determinar a escolha da forma feminina \textit{ela}. No que segue, continuaremos simplificando, ignorando a relação de gênero entre pronomes e seus antecedentes e/ou referentes.
 
@@ -813,31 +853,18 @@ nossos princípios composicionais de modo a fazer com que
 constituintes herdem essa sensibilidade de seus constituintes
 imediatos. Nossos dois princípios composicionais, o princípio dos
 nós não ramificados e o princípio de
-aplicação funcional, passam a ter as seguintes versões:\\
+aplicação funcional, passam a ter as seguintes versões:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
 
-\n \textbf{Princípio dos nós não ramificados}\\
-Se $\alpha$ é um nó não ramificado cujo único constituinte
-imediato é $\beta$, então para qualquer atribuição \textit{g},
-\den{$\alpha$}$^{g}$ = \den{$\beta$}$^{g}$.
+\begin{exe}
+	\ex Princípio dos nós não ramificados \\
+	Se $\alpha$ é um nó não ramificado cujo único constituinte imediato é $\beta$, então para qualquer atribuição \textit{g}, \den{$\alpha$}$^{g}$ = \den{$\beta$}$^{g}$.
+\end{exe}
 
-\end{tcolorbox}
-
-\bigskip
-
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-
-\n\textbf{Aplicação funcional}\\
-Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são
-$\beta$ e $\gamma$. Para qualquer atribuição \textit{g}, se
-\den{$\beta$}$^{g}$ é uma função e \den{$\gamma$}$^{g}$ pertence ao
-domínio de \den{$\beta$}$^{g}$, então \den{$\alpha$}$^{g}$ =
-\den{$\beta$}$^{g}$(\den{$\gamma$}$^{g}$).
-
-\end{tcolorbox}
-
-\bigskip
+\begin{exe}
+	\ex Aplicação funcional\\
+	Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são $\beta$ e $\gamma$. Para qualquer atribuição \textit{g}, se \den{$\beta$}$^{g}$ é uma função e \den{$\gamma$}$^{g}$ pertence ao domínio de \den{$\beta$}$^{g}$, então \den{$\alpha$}$^{g}$ = \den{$\beta$}$^{g}$(\den{$\gamma$}$^{g}$).
+\end{exe}
 
 Para que esses princípios se apliquem adequadamente, vamos assumir
 que as extensões de todos os itens lexicais são relativizadas a atribuições. Assim, para qualquer atribuição $g$, temos que:
@@ -874,49 +901,40 @@ todo o  material que introduzimos nesta seção. A estrutura
 sintática da sentença está representada na árvore logo a seguir. Assumiremos aqui que pronomes pessoais, como descrições definidas, são DPs. Os pronomes, entretanto, não tomam um NP complemento, sendo assim DPs não ramificados:
 
 \begin{exe}
-\ex Ele$_{1}$ gosta dela$_{2}$\label{las}
+	\ex Ele$_{1}$ gosta dela$_{2}$\label{las}
 \end{exe}
 
-\Tree [ [ ele$_{1}$ ].DP [ [ gosta ].V [ [ de ].P [ ela$_{2}$ ].DP ].PP ].VP ].S
+\begin{figure}[H]
+	\centerline{ \Tree [ [ ele$_{1}$ ].DP [ [ gosta ].V [ [ de ].P [ ela$_{2}$ ].DP ].PP ].VP ].S } \caption{Pronomes como DPs }
+\end{figure}
 
-\bigskip
-
-\n 1. \den{ela$_{2}$}$^{g}$ = $g(2)$ \hfill (L)
-
-\n 2. \den{PP}$^{g}$ = \den{DP}$^{g}$ =
-\den{ela$_{2}$}$^{g}$ = $g(2)$\hfill (1, NR, \textit{de} é vácua)
-
-\n 3. \den{gosta}$^{g}$ = $\lambda x.\lambda y.\ \predica{gosta}{y,x}$ \hfill (L)
-
-\n 4. \den{V}$^{g}$ = \den{gosta}$^{g}$ = $\lambda x.\lambda
-y.\ \predica{gosta}{y,x}$\hfill (3, NR)
-
-\n 5. \den{VP}$^{g}$ = \den{V}$^{g}$(\den{PP}$^{g}$) \hfill (AF)
-
-\n 6. \den{VP}$^{g}$ = $(\lambda x.\lambda y.\ \predica{gosta}{y,x})(g(2))$\hfill (2, 4, 5)
-
-\n 7. \den{VP}$^{g}$ = $\lambda y.\ \ \predica{gosta}{y,g(2)}$
-\hfill (6,Conversão-$\lambda$)
-
-\n 8. \den{ele$_{1}$}$^{g}$ = g(1) \hfill (L)
-
-\n 9. \den{DP$_{suj}$}$^{g}$ = \den{ele$_{1}$}$^{g}$ = \textit{g(1)}\hfill (8, NR)
-
-\n 10. \den{S}$^{g}$ = \den{VP}$^{g}$(\den{NP$_{suj}$}$^{g}$) \hfill (AF)
-
-\n 11. \den{S} = $(\lambda y.\ \predica{gosta}{y,g(2)})(\text{g(1)})$\hfill (7, 9, 10)
-
-\n 12. \den{S}$^{g}$ = 1 \textit{sse} $\predica{gosta}{g(1),g(2)}$ \hfill
-(11,Conversão-$\lambda$)\\
+\begin{exe}
+	\ex Derivação semântica de \textit{Ele}$_{1}$ \textit{gosta dela}$_{2}$: \\
+	1. \den{ela$_{2}$}$^{g}$ = $g(2)$ \hfill (L) \\
+	2. \den{PP}$^{g}$ = \den{DP}$^{g}$ = \den{ela$_{2}$}$^{g}$ = $g(2)$\hfill (1, NR, \textit{de} é vácua) \\
+	3. \den{gosta}$^{g}$ = $\lambda x.\lambda y.\ \predica{gosta}{y,x}$ \hfill (L) \\
+	4. \den{V}$^{g}$ = \den{gosta}$^{g}$ = $\lambda x.\lambda y.\ \predica{gosta}{y,x}$\hfill (3, NR) \\
+	5. \den{VP}$^{g}$ = \den{V}$^{g}$(\den{PP}$^{g}$) \hfill (AF) \\
+	6. \den{VP}$^{g}$ = $(\lambda x.\lambda y.\ \predica{gosta}{y,x})(g(2))$\hfill (2, 4, 5) \\
+	7. \den{VP}$^{g}$ = $\lambda y.\ \ \predica{gosta}{y,g(2)}$ \hfill (6,Conversão-$\lambda$) \\
+	8. \den{ele$_{1}$}$^{g}$ = g(1) \hfill (L) \\
+	9. \den{DP$_{suj}$}$^{g}$ = \den{ele$_{1}$}$^{g}$ = \textit{g(1)}\hfill (8, NR) \\
+	10. \den{S}$^{g}$ = \den{VP}$^{g}$(\den{NP$_{suj}$}$^{g}$) \hfill (AF) \\
+	11. \den{S} = $(\lambda y.\ \predica{gosta}{y,g(2)})(\text{g(1)})$\hfill (7, 9, 10) \\
+	12. \den{S}$^{g}$ = 1 \textit{sse} $\predica{gosta}{g(1),g(2)}$ \hfill (11,Conversão-$\lambda$)
+\end{exe}
 
 \n As condições de verdade de (\ref{las}) dependem, portanto, do
-valor atribuído a \textit{g}. Por exemplo,\\
+valor atribuído a \textit{g}. Por exemplo:
 
-\n\den{S}\gtwo{1}{Pedro}{2}{Maria} = 1 \textit{sse} Pedro gosta de Maria\\
-
-\n\den{S}\gtwo{1}{João}{2}{Marta} = 1 \textit{sse} João gosta de Marta\\
-
-\n\den{S}\gvaz = \textit{indefinido}\\
+\begin{exe}
+	\ex
+	\begin{xlist}
+		\ex \den{S}\gtwo{1}{Pedro}{2}{Maria} = 1 \textit{sse} Pedro gosta de Maria
+		\ex \den{S}\gtwo{1}{João}{2}{Marta} = 1 \textit{sse} João gosta de Marta
+		\ex \den{S}\gvaz = \textit{indefinido} 
+	\end{xlist}
+\end{exe}
 
 \n No caso da atribuição $\varnothing$, o sistema não confere
 valor de verdade à sentença. Isso deriva do fato de que as

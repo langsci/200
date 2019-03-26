@@ -1,4 +1,4 @@
-%versao de 15-MAR-2019
+%versao de 22-MAR-2019
 
 \chapter{De volta aos pronomes}
 
@@ -12,31 +12,28 @@ No capítulo 4, introduzimos a noção de atribuição e discutimos seu papel na
 	\ex Ela$_{1}$ ama Pedro.
 \end{exe}
 
-%\vspace{12pt}
-
-\n\den{ama}$^{g}$ = $\lambda x.\lambda y.\ \predica{ama}{y,x}$
-
-\n\den{Pedro}$^{g}$ = $pedro$
-
-\n\den{ama Pedro}$^{g}$ = \den{ama}$^{g}$(\den{Pedro}$^{g}$)
-
-\n\den{ama Pedro}$^{g}$ = $\lambda y.\ \predica{ama}{y,pedro}$
-
-\n\den{ela$_{1}$}$^{g}$ = $g(1)$
-
-\n\den{ela$_{1}$ ama Pedro}$^{g}$ = \den{ama Pedro}$^{g}$(\den{ela$_{1}$}$^{g}$)
-
-\n\den{ela$_{1}$ ama Pedro}$^{g}$ = 1 \textit{sse} $\predica{ama}{g(1),pedro}$ \\
+\begin{exe}
+	\ex \den{ama}$^{g}$ = $\lambda x.\lambda y.\ \predica{ama}{y,x}$ \\
+	\den{Pedro}$^{g}$ = $pedro$ \\
+	\den{ama Pedro}$^{g}$ = \den{ama}$^{g}$(\den{Pedro}$^{g}$) \\
+	\den{ama Pedro}$^{g}$ = $\lambda y.\ \predica{ama}{y,pedro}$ \\
+	\den{ela$_{1}$}$^{g}$ = $g(1)$ \\
+	\den{ela$_{1}$ ama Pedro}$^{g}$ = \den{ama Pedro}$^{g}$(\den{ela$_{1}$}$^{g}$) \\
+	\den{ela$_{1}$ ama Pedro}$^{g}$ = 1 \textit{sse} $\predica{ama}{g(1),pedro}$
+\end{exe}
 
 \n Nesse caso, o pronome $ela_{1}$ está livre e a sentença será pareada com condições de verdade dependentes da atribuição. Especificamente, apenas no caso de atribuições que tiverem o índice 1 em seu domínio, conferiremos um valor de verdade à sentença.
 
 Já no capítulo 5, discutimos a interpretação composicional das orações relativas. Analisamos casos em que um pronome (resumptivo) era ligado por um índice numérico associado a um pronome relativo. Nesse caso, a interpretação da oração relativa como um todo não dependia mais de uma atribuição. Isso era consequência do princípio composicional que chamamos de abstração funcional, como ilustrado resumidamente abaixo:
 
 \begin{exe}
-\ex $[_{\text{NP}}\ \text{cachorro}\ [\text{\underline{que 1 Pedro cuida dele}}_{1}]]$\\
-\den{1 Pedro cuida dele$_{1}$}$^{g}$ = $\lambda x.$ \den{Pedro cuida dele$_{1}$}$^{g[1 \rightarrow x]}$\\
-\den{Pedro cuida dele$_{1}$}$^{g[1 \rightarrow x]}$ = 1 \textit{sse} \textsc{cuida}(\textit{pedro},$g[1 \rightarrow x](1)$)\\
-\den{1 o Pedro cuida dele$_{1}$}$^{g}$ = $\lambda x.$ \textsc{cuida}(\textit{pedro},$x$)
+	\ex $[_{\text{NP}}\ \text{cachorro}\ [\text{\underline{que 1 Pedro cuida dele}}_{1}]]$
+\end{exe}
+
+\begin{exe}
+	\ex \den{1 Pedro cuida dele$_{1}$}$^{g}$ = $\lambda x.$ \den{Pedro cuida dele$_{1}$}$^{g[1 \rightarrow x]}$\\
+	\den{Pedro cuida dele$_{1}$}$^{g[1 \rightarrow x]}$ = 1 \textit{sse} \textsc{cuida}(\textit{pedro},$g[1 \rightarrow x](1)$)\\
+	\den{1 o Pedro cuida dele$_{1}$}$^{g}$ = $\lambda x.$ \textsc{cuida}(\textit{pedro},$x$)
 \end{exe}
 
 \n No restante desse capítulo, vamos olhar um pouco mais de perto para a ligação e sua relação com a correferência pronominal.  
@@ -68,7 +65,7 @@ Consideremos o par de sentenças abaixo:
 \n A primeira interpretação parece a mais saliente, mas basta trabalharmos um pouquinho o contexto para que a segunda emerja naturalmente, como, por exemplo, em (\ref{mel}):
 
 \begin{exe}
-	\ex Na firma em que o João trabalha, todos os funcionários se dão bem com os respectivos chefes. Mas, \textbf{só o João ADORA o chefe dele.} \label{mel}
+	\ex Na firma em que o João trabalha, todos os funcionários se dão bem com os respectivos chefes. Mas, \underline{só o João adora o chefe dele.} \label{mel}
 \end{exe}
 
 
@@ -121,27 +118,34 @@ Apliquemos, então, a extensão em (\ref{soh}), de tipo $\langle et,t\rangle$, �
 
 Como se pode ver, essas são exatamente as duas interpretações que havíamos detectado inicialmente, e nossa explicação para a ambiguidade de (\ref{sow}) e seu contraste com a não ambiguidade de (\ref{jo}) está praticamente pronta. Resta-nos apenas explicitar as representações sintáticas do VP \textit{adora o chefe do João} que conduzem às interpretações em (\ref{duas}). 
 
-Para a interpretação de correferência, nada relevante precisa ser acrescentado. Aplicação funcional, envolvendo as extensões de VP e do DP sujeito, basta:\\
+Para a interpretação de correferência, nada relevante precisa ser acrescentado. Aplicação funcional, envolvendo as extensões de VP e do DP sujeito, basta:
 
-\Tree [ \qroof{só o João}.DP \qroof{odeia o chefe dele$_{1}$}.VP ].S
 
-\bigskip
+
+\begin{figure}[H]
+	\centerline{ \Tree [ \qroof{só o João}.DP \qroof{odeia o chefe dele$_{1}$}.VP ].S } \caption{Estrutura com pronome livre}
+\end{figure}
 
 \n Nesse caso, o pronome está livre e basta assumirmos que a atribuição correspondente ao contexto relevante é tal que $g(1)$ = \den{João}.
 
-Já para a interpretação de variável ligada, precisamos acionar abstração funcional, o que, por sua vez, implica a presença de um índice derivado de movimento sintático. Aqui podemos nos valer tanto da hipótese do sujeito interno a VP, que se move abertamente para sua posição superficial, quanto da regra de alçamento de quantificador, em que DPs se movem cobertamente para uma posição periférica na sentença, ambas vistas no capítulo anterior:\\
+Já para a interpretação de variável ligada, precisamos acionar abstração funcional, o que, por sua vez, implica a presença de um índice derivado de movimento sintático. Aqui podemos nos valer tanto da hipótese do sujeito interno a VP, que se move abertamente para sua posição superficial, quanto da regra de alçamento de quantificador, em que DPs se movem cobertamente para uma posição periférica na sentença, ambas vistas no capítulo anterior:
 
-\Tree [.S \qroof{só o João}.DP [.$\alpha$ 1 \qroof{$t_1$ odeia o chefe dele$_{1}$}.VP ] ]
+\begin{figure}[H]
+	\centerline{ \Tree [.S \qroof{só o João}.DP [. 1 \qroof{$t_1$ odeia o chefe dele$_{1}$}.VP ] ] } \caption{Estrutura com vestígio e pronome ligados }
+\end{figure}
+
+
 	
-\bigskip
 
-\n Nesse caso, o pronome e o vestígio estão coindexados e ambos atrelados ao mesmo índice resultante do movimento sintático. Abstração funcional se aplica nesse nível, e o constituinte $\alpha$ acima terá justamente a extensão que desejamos, ou seja, a interpretação vista em (\ref{duasb}).
+\n Nesse caso, o pronome e o vestígio estão coindexados e ambos atrelados ao mesmo índice resultante do movimento sintático. Abstração funcional se aplica nesse nível, e o constituinte irmão do DP sujeito acima terá justamente a extensão que desejamos, ou seja, a interpretação vista em (\ref{duasb}).
 
-Note, por fim, que a interpretação de correferência é compatível com o movimento sintático do sujeito, bastando que o pronome e o vestígio não estejam coindexados:\\
+Note, por fim, que a interpretação de correferência é compatível com o movimento sintático do sujeito, bastando que o pronome e o vestígio não estejam coindexados:
 
-\Tree [.S \qroof{só o João}.DP [.$\alpha$ 2 \qroof{$t_2$ odeia o chefe dele$_{1}$}.VP ] ]
+\begin{figure}[H]
+	\centerline{ \Tree [.S \qroof{só o João}.DP [. 2 \qroof{$t_2$ odeia o chefe dele$_{1}$}.VP ] ] } \caption{Estrutura com vestígio ligado e pronome livre }
+\end{figure}
 
-\bigskip
+
 
 \n Fica a cargo do leitor calcular as condições de verdade dessa estrutura e conferir que são as mesmas obtidas na interpretação da estrutura sem movimento vista mais acima.
 
@@ -155,129 +159,138 @@ Para apresentarmos essa proposta semântica, voltaremos a uma das sentenças que
 	\ex Só o João odeia o chefe dele.  \label{deno}
 \end{exe} 
 
-\n Sua estrutura sintática é a seguinte:\\
+\n Sua estrutura sintática é a seguinte:
 
-\Tree [.S \qroof{só o João}.DP [.VP odeia [.DP o
-	[.NP chefe [.PP de ele ] ] ] ] ]
-	
-\bigskip
-	
+\begin{figure}[H]
+	\centerline{ \Tree [.S \qroof{só o João}.DP [.VP odeia [.DP o [.NP chefe [.PP de ele ] ] ] ] ] } \caption{ Pronome sem índice}
+\end{figure}
+
+
 \n Note, desde já, a ausência de índices e vestígios de movimento sintático. Comecemos pela interpretação dos pronomes (vamos continuar ignorando traços de gênero, número e pessoa). Nesse novo sistema, um pronome denota uma \textsc{função identidade}, que mapeia cada elemento de seu domínio no próprio elemento. No caso dos pronomes pessoais singulares que estamos discutindo, trata-se de uma função de tipo $\langle e,e\rangle$ que mapeia um indivíduo $x$ qualquer nesse próprio indivíduo $x$:
 
 \begin{exe}
 	\ex \den{ele} = $\lambda x_{e}.\ x$  \label{prono}
 \end{exe}
 
-\n Pronomes, portanto, não são mais expressões referenciais que denotam indivíduos. Não se preocupe se isso parece contraintuitivo. Devemos julgar uma ideia não pelas impressões iniciais, mas pelos seus resultados. Prossigamos, então, para ver aonde chegaremos. Assumindo que a preposição \textit{de} em (\ref{deno}) seja semanticamente vácua, o PP \textit{dele} herdará essa extensão:\\
+\n Pronomes, portanto, não são mais expressões referenciais que denotam indivíduos. Não se preocupe se isso parece contraintuitivo. Devemos julgar uma ideia não pelas impressões iniciais, mas pelos seus resultados. Prossigamos, então, para ver aonde chegaremos. Assumindo que a preposição \textit{de} em (\ref{deno}) seja semanticamente vácua, o PP \textit{dele} herdará essa extensão:
 
-\n \den{PP} = \den{ele} = $\lambda x.\ x$ \\
+\begin{exe}
+	\ex \den{PP} = \den{ele} = $\lambda x.\ x$
+\end{exe}
 
-\n Vejamos, agora, como essa extensão se combina com a extensão do substantivo comum \textit{chefe}, do qual é complemento:\\
+\n Vejamos, agora, como essa extensão se combina com a extensão do substantivo comum \textit{chefe}, do qual é complemento:
 
-\n \den{chefe} = $\lambda x.\ \lambda y.\ \predica{chefe}{y,x}$ \\
+\begin{exe}
+	\ex \den{chefe} = $\lambda x.\ \lambda y.\ \predica{chefe}{y,x}$
+\end{exe}
 
 \n Essa é uma função de tipo $\langle e,et\rangle$. Como a extensão do PP é de tipo $\langle e,e\rangle$, não podemos usar aplicação funcional. Em seu lugar, vamos usar um novo princípio, que chamaremos de \textsc{composição funcional}. Antes de defini-lo formalmente e aplicá-lo a nosso exemplo, vamos entender seu funcionamento informalmente por meio de um exemplo envolvendo números.
 
-Considere, a título de ilustração, duas funções $F$ e $G$ que mapeiam números naturais em números naturais, definidas da seguinte forma:\\
+Considere, a título de ilustração, duas funções $F$ e $G$ que mapeiam números naturais em números naturais, definidas da seguinte forma:
 
-\n $F:\ \lambda n.\ n^{2}$ \\
-   $G:\ \lambda n.\ 3n$ \\
+\begin{exe}
+	\ex $F:\ \lambda n.\ n^{2}$ \\
+   		$G:\ \lambda n.\ 3n$
+\end{exe}
    
-\n A função $F$ mapeia um número no seu quadrado, enquanto $G$ mapeia um número no seu triplo. Pense, agora, em uma outra função $H$, definida a partir de $F$ e $G$ da seguinte forma:\\
+\n A função $F$ mapeia um número no seu quadrado, enquanto $G$ mapeia um número no seu triplo. Pense, agora, em uma outra função $H$, definida a partir de $F$ e $G$ da seguinte forma:
 
-\n $H:\ \lambda n.\ G(F(n))$ \\
+\begin{exe}
+	\ex $H:\ \lambda n.\ G(F(n))$
+\end{exe} 
 
-\n Trata-se também de uma função de números em números. Veja que o input de $H$ passa primeiro pela função $F$ e que o output de $F$ serve de input para $G$. O resultado final $G(F(x))$ é o output da função $H$. Como exemplo, tomemos $n=2$. Teremos então o seguinte:\\
+\n Trata-se também de uma função de números em números. Veja que o input de $H$ passa primeiro pela função $F$ e que o output de $F$ serve de input para $G$. O resultado final $G(F(x))$ é o output da função $H$. Como exemplo, tomemos $n=2$. Teremos então o seguinte:
 
-\n $H(2) = G(F(2)) = G(2^{2}) = G(4) = 3 \cdot 4 = 12$ \\
+\begin{exe}
+	\ex $H(2) = G(F(2)) = G(2^{2}) = G(4) = 3 \cdot 4 = 12$
+\end{exe}
 
-\n Diz-se de uma função como $H$ que ela é a composição de $F$ e $G$. Note que, para que a composição funcione, é preciso que o output de uma das funções originais --- $F$, no caso --- pertença ao domínio da outra função ($G$). No caso acima, isso não foi problema pois ambas as funções eram funções de números para números. Note, por fim, que a ordem de composição é importante. No nosso exemplo, $G(F(x))$ e $F(G(x))$ são diferentes, como ilustrado abaixo:\\
+\n Diz-se de uma função como $H$ que ela é a composição de $F$ e $G$. Note que, para que a composição funcione, é preciso que o output de uma das funções originais --- $F$, no caso --- pertença ao domínio da outra função ($G$). No caso acima, isso não foi problema pois ambas as funções eram funções de números para números. Note, por fim, que a ordem de composição é importante. No nosso exemplo, $G(F(x))$ e $F(G(x))$ são diferentes, como ilustrado abaixo:
 
-\n $F(G(2)) = F(3 \cdot 2) = F(6) = 6^{2} = 36$ \\
+\begin{exe}
+	\ex $F(G(2)) = F(3 \cdot 2) = F(6) = 6^{2} = 36$
+\end{exe}
 
-Com essas preliminares no lugar, voltemos ao nosso exemplo (\ref{deno}) e sua derivação semântica. No ponto em que paramos, precisávamos combinar a extensão de N (\textit{chefe}), que é de tipo $\langle e,et\rangle$ com a extensão de PP (\textit{dele}), que é de tipo $\langle e,e\rangle$. Já sabemos que aplicação funcional não nos serve aqui. Mas note que composição funcional pode ser usada nesse caso para obtermos a extensão de NP (\textit{chefe dele}). O output de \den{PP} é de tipo $e$, justamente o tipo do input de \den{N}. Vejamos o resultado: \\
+Com essas preliminares no lugar, voltemos ao nosso exemplo (\ref{deno}) e sua derivação semântica. No ponto em que paramos, precisávamos combinar a extensão de N (\textit{chefe}), que é de tipo $\langle e,et\rangle$ com a extensão de PP (\textit{dele}), que é de tipo $\langle e,e\rangle$. Já sabemos que aplicação funcional não nos serve aqui. Mas note que composição funcional pode ser usada nesse caso para obtermos a extensão de NP (\textit{chefe dele}). O output de \den{PP} é de tipo $e$, justamente o tipo do input de \den{N}. Vejamos o resultado:
 
-\n \den{NP} = $\lambda x_{e}.$ \den{N}(\den{PP}($x$))\\
+\begin{exe}
+	\ex \den{NP} = $\lambda x_{e}.$ \den{N}(\den{PP}($x$))
+\end{exe}
 
-\n Efetuando-se as devidas substituições e conversões lambda, teremos o seguinte:\\
+\n Efetuando-se as devidas substituições e conversões lambda, teremos o seguinte:
 
-\n \den{NP} = $\lambda x.\ \lambda y.\ \predica{chefe}{y,x}$ \\
+\begin{exe}
+	\ex \den{NP} = $\lambda x.\ \lambda y.\ \predica{chefe}{y,x}$
+\end{exe}
 
 \n Note que essa é a mesma extensão de N! De fato, compor com a função identidade é semanticamente vácuo. Se você estiver um pouco confuso, consulte nosso exemplo anterior envolvendo funções numéricas e assuma que $F$ seja a função identidade. Como tal, $F(n) = n$ e $G(F(n)) = G(n)$. Sendo $H$ a composição de $F$ e $G$, $H(n)=G(n)$ para qualquer $n$. Em outras palavras, $H$ e $G$ são idênticas.
 
-Já podemos agora formalizar nosso novo princípio composicional (que ainda sofrerá uma pequena modificação):\\
+Já podemos agora formalizar nosso novo princípio composicional (que ainda sofrerá uma pequena modificação):
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
-
-\noindent \textbf{Composição funcional (versão preliminar)}
-
-\n Seja $\alpha$ um nó ramificado, cujos constituintes imediatos
-são $\beta$ e $\gamma$. Sejam $a$, $b$, $c$ três tipos  quaisquer. Se \den{$\beta$} é uma função de
-tipo $\langle a,b \rangle$ e \den{$\gamma$} é uma função de
-tipo $\langle b,c \rangle$, então
-\den{$\alpha$} é uma função de tipo $\langle a,c \rangle$ e \den{$\alpha$} = $\lambda w_{a}.$\den{$\gamma$}(\den{$\beta$}($w$)).
-
-\end{tcolorbox}
-
-\bigskip
+\begin{exe}
+	\ex Composição funcional (versão preliminar) \\
+	Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são $\beta$ e $\gamma$. Sejam $a$, $b$, $c$ três tipos  quaisquer. Se \den{$\beta$} é uma função de tipo $\langle a,b \rangle$ e \den{$\gamma$} é uma função de tipo $\langle b,c \rangle$, então \den{$\alpha$} é uma função de tipo $\langle a,c \rangle$ e \den{$\alpha$} = $\lambda w_{a}.$\den{$\gamma$}(\den{$\beta$}($w$)).
+\end{exe}
 
 
-\n O real papel da composição funcional na interpretação pronominal fica mais claro quando lidamos com constituintes que contêm pronomes, como o NP \textit{chefe dele}, que é justamente o ponto em que estamos. Esse NP, cuja extensão vista acima é de tipo $\langle e,et\rangle$ precisa combinar com o artigo definido \textit{o}, cuja extensão é de tipo $\langle et,e\rangle$, para obtermos a extensão do DP resultante. Novamente, aplicação funcional não pode ser usada, mas composição funcional sim. Vejamos:\\
 
-\n \den{DP} = $\lambda x_{e}.$ \den{o}(\den{chefe dele}(\textit{x}))
+\n O real papel da composição funcional na interpretação pronominal fica mais claro quando lidamos com constituintes que contêm pronomes, como o NP \textit{chefe dele}, que é justamente o ponto em que estamos. Esse NP, cuja extensão vista acima é de tipo $\langle e,et\rangle$ precisa combinar com o artigo definido \textit{o}, cuja extensão é de tipo $\langle et,e\rangle$, para obtermos a extensão do DP resultante. Novamente, aplicação funcional não pode ser usada, mas composição funcional sim. Vejamos:
 
-\n \den{o} = $\lambda F.\ \iota y[F'(y)]$ 
+\begin{exe}
+	\ex \den{DP} = $\lambda x_{e}.$ \den{o}(\den{chefe dele}(\textit{x})) \\
+	\den{o} = $\lambda F.\ \iota y[F'(y)]$  \\
+	\den{chefe dele}($x$) = $\lambda y.\ \predica{chefe}{y,x}$ \\
+	\den{DP} = $\lambda x_{e}.\ \iota y[\predica{chefe}{y,x}]$
+\end{exe}
 
-\n \den{chefe dele}($x$) = $\lambda y.\ \predica{chefe}{y,x}$
+\n Ou, de maneira mais direta:
 
-\n \den{DP} = $\lambda x_{e}.\ \iota y[\predica{chefe}{y,x}]$\\
-
-\n Ou, de maneira mais direta:\\
-
-\n \den{DP} = $\lambda x.\ \textit{o chefe de x}$\\
+\begin{exe}
+	\ex \den{DP} = $\lambda x.\ \textit{o chefe de x}$
+\end{exe}
 
 \n Olhando para esse resultado, fica claro que composição funcional está ``passando adiante'' a posição argumental ocupada pelo pronome. Note que a extensão do DP \textit{o chefe dele} é de tipo $\langle e,e\rangle$ e que se aplicássemos essa função a um indivíduo $i$ qualquer, o resultado seria o chefe desse indivíduo $i$. 
 
-No próximo passo interpretativo, a extensão do DP objeto irá combinar com a extensão do verbo transitivo \textit{adora}, que representamos abaixo:\\
+No próximo passo interpretativo, a extensão do DP objeto irá combinar com a extensão do verbo transitivo \textit{adora}, que representamos abaixo:
 
-\n \den{adora} = $\lambda x.\lambda y.\ \predica{adora}{y,x}$ \\
+\begin{exe}
+	\ex \den{adora} = $\lambda x.\lambda y.\ \predica{adora}{y,x}$
+\end{exe}
 
-\n É nesse momento que a ligação do pronome irá ocorrer semanticamente. O resultado que buscamos para o VP resultante é o seguinte:\\
+\n É nesse momento que a ligação do pronome irá ocorrer semanticamente. O resultado que buscamos para o VP resultante é o seguinte:
 
-\n \den{adora o chefe dele} = $\lambda x.\ \predica{adora}{x,o chefe de x}$ \\
+\begin{exe}
+	\ex \den{adora o chefe dele} = $\lambda x.\ \predica{adora}{x,o chefe de x}$
+\end{exe}
 
-\n Note por essa representação que a posição de sujeito (argumento externo) do verbo e a posição argumental original do pronome estão preenchidas pela mesma variável $x$ e ligadas pelo mesmo operador lambda. É isso, efetivamente, que corresponde ao processo de ligação do ponto de vista semântico. No sistema dos capítulos e seções anteriores, isso era feito via abstração funcional com o apoio de índices e atribuições. Na ausência de tudo isso, um novo princípio precisa ser formulado que tenha o efeito de identificar essas posições argumentais que acabamos de mencionar. E aqui fica mais claro o papel que a composição funcional desempenhou. Ao passar adiante o argumento correspondente à posição original do pronome, ela permitiu que o mesmo chegasse até o constituinte (DP) que é irmão do verbo na estrutura sintática: \\
-
-\n \Tree [.VP [.$\lambda x.\lambda y.\ y\ \text{adora}\ x$ adora ] [.$\underline{\lambda x}.\ \iota y[\predica{chefe}{y,\underline{x}}]$ [.$\lambda F.\ \iota y[F'(y)]$ o ] [.$\underline{\lambda x}.\lambda y.\ \predica{chefe}{y,\underline{x}}$ [.$\lambda x.\lambda y.\ \predica{chefe}{y,x}$ chefe ] [.$\underline{\lambda x}.\ \underline{x}$ dele ] ] ] ]
-
-\bigskip
+\n Note por essa representação que a posição de sujeito (argumento externo) do verbo e a posição argumental original do pronome estão preenchidas pela mesma variável $x$ e ligadas pelo mesmo operador lambda. É isso, efetivamente, que corresponde ao processo de ligação do ponto de vista semântico. No sistema dos capítulos e seções anteriores, isso era feito via abstração funcional com o apoio de índices e atribuições. Na ausência de tudo isso, um novo princípio precisa ser formulado que tenha o efeito de identificar essas posições argumentais que acabamos de mencionar. E aqui fica mais claro o papel que a composição funcional desempenhou. Ao passar adiante o argumento correspondente à posição original do pronome, ela permitiu que o mesmo chegasse até o constituinte (DP) que é irmão do verbo na estrutura sintática:
 
 
-\n Como a extensão do verbo carrega a outra posição argumental em questão, podemos tirar partido disso e manipular ambas na formulação do princípio que chamaremos de \textsc{ligação funcional}, definido preliminarmente abaixo:\\
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{figure}[H]
+	\centerline{ \Tree [.VP [.$\lambda x.\lambda y.\ y\ \text{adora}\ x$ adora ] [.$\underline{\lambda x}.\ \iota y[\predica{chefe}{y,\underline{x}}]$ [.$\lambda F.\ \iota y[F'(y)]$ o ] [.$\underline{\lambda x}.\lambda y.\ \predica{chefe}{y,\underline{x}}$ [.$\lambda x.\lambda y.\ \predica{chefe}{y,x}$ chefe ] [.$\underline{\lambda x}.\ \underline{x}$ dele ] ] ] ] } \caption{O papel da composição funcional }
+\end{figure}
 
-\noindent \textbf{Ligação funcional (versão preliminar)}
 
-\n Seja $\alpha$ um nó ramificado, cujos constituintes imediatos
-são $\beta$ e $\gamma$. Seja $a$ um tipo qualquer. Se \den{$\beta$} é uma função de
-tipo $\langle a,et \rangle$ e \den{$\gamma$} é uma função de
-tipo $\langle e,a \rangle$, então
-\den{$\alpha$} é uma função de tipo $\langle e,t \rangle$ e \den{$\alpha$} = $\lambda x_{e}.\ $\den{$\beta$}(\den{$\gamma$}($x$))($x$).
+\n Como a extensão do verbo carrega a outra posição argumental em questão, podemos tirar partido disso e manipular ambas na formulação do princípio que chamaremos de \textsc{ligação funcional}, definido preliminarmente abaixo:
 
-\end{tcolorbox}
+\begin{exe}
+	\ex Ligação funcional (versão preliminar) \\
+	Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são $\beta$ e $\gamma$. Seja $a$ um tipo qualquer. Se \den{$\beta$} é uma função de tipo $\langle a,et \rangle$ e \den{$\gamma$} é uma função de tipo $\langle e,a \rangle$, então \den{$\alpha$} é uma função de tipo $\langle e,t \rangle$ e definida da seguinte forma: \den{$\alpha$} = $\lambda x_{e}.\ $\den{$\beta$}(\den{$\gamma$}($x$))($x$).
+\end{exe}
 
-\bigskip
 
-\n Apliquemos esse princípio composicional na computação da extensão do VP \textit{adora o chefe dele}. Nesse caso, $a$ acima é o tipo $e$ e a extensão do verbo \textit{adora} -- de tipo $\langle e,et \rangle$ -- fará o papel de $\beta$. Já a extensão de \textit{o chefe dele} -- de tipo $\langle e,e \rangle$ -- fará o papel de $\gamma$:\\
+\n Apliquemos esse princípio composicional na computação da extensão do VP \textit{adora o chefe dele}. Nesse caso, $a$ acima é o tipo $e$ e a extensão do verbo \textit{adora} -- de tipo $\langle e,et \rangle$ -- fará o papel de $\beta$. Já a extensão de \textit{o chefe dele} -- de tipo $\langle e,e \rangle$ -- fará o papel de $\gamma$:
 
-\n \den{adora o chefe dele} = $\lambda x.\ $\den{adora}(\den{o chefe dele}($x$))($x$).\\
+\begin{exe}
+	\ex \den{adora o chefe dele} = $\lambda x.\ $\den{adora}(\den{o chefe dele}($x$))($x$)
+\end{exe}
 
-\n Olhando para o que aparece nessa expressão após o prefixo $\lambda x.$, percebe-se que a extensão do verbo será saturada pelos indivíduos \textit{o chefe de x} e \textit{x}. O resultado é exatamente o que queríamos:\\
+\n Olhando para o que aparece nessa expressão após o prefixo $\lambda x.$, percebe-se que a extensão do verbo será saturada pelos indivíduos \textit{o chefe de x} e \textit{x}. O resultado é exatamente o que queríamos: 
 
-\n \Tree [.$\lambda x.\ \predica{adora}{x,o chefe de x}$ [.V$_{\langle e,et\rangle}$ $(\lambda x.\lambda y.\ \predica{adora}{y,x})$ ] [.DP$_{\langle e,e\rangle}$ $(\lambda x.\ \text{\textit{o chefe de}}\ x)$ ] ]
-
-\bigskip
+\begin{figure}[H]
+	\centerline{ \Tree [.$\lambda x.\ \predica{adora}{x,o chefe de x}$ [.\ \ \ \ \ V$_{\langle e,et\rangle}$ $(\lambda x.\lambda y.\ \predica{adora}{y,x})$ ] [.\ \ \ \ \ DP$_{\langle e,e\rangle}$ $(\lambda x.\ \text{\textit{o chefe de}}\ x)$ ] ] } \caption{O papel da ligação funcional }
+\end{figure}
 
 \n Como se pode notar, trata-se de uma extensão de tipo $\langle e,t\rangle$. Como passo final, para derivarmos as condições de verdade da sentença, basta combinarmos essa extensão do VP \textit{adora o chefe dele} com a extensão do DP sujeito \textit{só o João}, utilizando aplicação funcional, exatamente como já fizemos na seção anterior. O resultado é a leitura de variável ligada de acordo com a qual João, e ninguém mais, tem a propriedade de adorar o próprio chefe.
 
@@ -289,57 +302,38 @@ Conforme acabamos de ver, o trabalho conjunto de ligação funcional e composiç
 	\ex João odeia todo mundo. \label{err}
 \end{exe}
 
-Trata-se de uma oração simples com um verbo transitivo, um nome próprio na posição de sujeito e um DP quantificador na posição de objeto. Já vimos no capítulo anterior como interpretá-la, seja via alçamento de quantificador, seja via mudança de tipos. Mas, agora, com a composição funcional no nosso leque de regras composicionais, uma derivação alternativa emerge. Acompanhe, passo a passo, a derivação a seguir:\\
+Trata-se de uma oração simples com um verbo transitivo, um nome próprio na posição de sujeito e um DP quantificador na posição de objeto. Já vimos no capítulo anterior como interpretá-la, seja via alçamento de quantificador, seja via mudança de tipos. Mas, agora, com a composição funcional no nosso leque de regras composicionais, uma derivação alternativa emerge. Acompanhe, passo a passo, a derivação a seguir:
 
-\n \den{odeia} = $\lambda x. \lambda y.\ \predica{odeia}{y,x}$ \hfill tipo $\langle e,et \rangle$ 
-
-\n \den{todo mundo} = $\lambda F.\ \forall z [F'(z)]$ \hfill tipo $\langle et,t \rangle$
-
-\n \den{odeia todo mundo} = $\lambda x.$ \den{todo mundo}(\den{odeia}(\textit{x})) \hfill (CF)
-
-\n \den{odeia todo mundo} = $\lambda x.\ \forall z [z\ \predica{odeia}{z,x}]$ 
-
-\n \den{João odeia todo mundo} = \den{odeia todo mundo}(\den{João}) \hfill (AF)
-
-\n \den{João odeia todo mundo} = 1 \textit{sse} $\forall z [\predica{odeia}{z,joão}]$ \\
+\begin{exe}
+	\ex \den{odeia} = $\lambda x. \lambda y.\ \predica{odeia}{y,x}$ \hfill tipo $\langle e,et \rangle$ \\
+	\den{todo mundo} = $\lambda F.\ \forall z [F'(z)]$ \hfill tipo $\langle et,t \rangle$ \\
+	\den{odeia todo mundo} = $\lambda x.$ \den{todo mundo}(\den{odeia}(\textit{x})) \hfill (CF) \\
+	\den{odeia todo mundo} = $\lambda x.\ \forall z [z\ \predica{odeia}{z,x}]$ \\
+	\den{João odeia todo mundo} = \den{odeia todo mundo}(\den{João}) \hfill (AF) \\
+	\den{João odeia todo mundo} = 1 \textit{sse} $\forall z [\predica{odeia}{z,joão}]$
+\end{exe}
 
 \n Inverteram-se os papeis argumentais! O sujeito terminou sendo interpretado como argumento interno e o objeto direto quantificado vinculado ao argumento externo do verbo.  
 
 Note que, no exemplo anterior a esse, nosso objetivo com a composição funcional foi o de passar adiante a posição argumental de um pronome até que a posição do ligador aparecesse e a ligação funcional se aplicasse. O que precisamos agora é limitar seu uso a casos envolvendo constituintes que contêm pronomes. Fazer isso em um sistema guiado exclusivamente por tipos semânticos (\textit{type-driven}) como o nosso não é trivial e a solução a seguir é apenas um paliativo. 
 
-Salientemos, de partida, que nesse nosso novo sistema com composição e ligação funcional, pronomes e constituintes que os contêm denotam funções que levam indivíduos (tipo \textit{e}) em algum tipo de entidade (tipo $a$). Para identificar esses constituintes, não associaremos tais denotações ao tipo $\langle e,a \rangle$ como fizemos até aqui, mas sim a um novo tipo  $\langle e;a \rangle$. Note a troca da vírgula por um ponto e vírgula. Acabamos de criar um novo construtor de tipos semânticos complexos (funcionais). Pronomes, por exemplo, serão de tipo $\langle e;e\rangle$. Podemos, assim, redefinir a composição funcional:\\
+Salientemos, de partida, que nesse nosso novo sistema com composição e ligação funcional, pronomes e constituintes que os contêm denotam funções que levam indivíduos (tipo \textit{e}) em algum tipo de entidade (tipo $a$). Para identificar esses constituintes, não associaremos tais denotações ao tipo $\langle e,a \rangle$ como fizemos até aqui, mas sim a um novo tipo  $\langle e;a \rangle$. Note a troca da vírgula por um ponto e vírgula. Acabamos de criar um novo construtor de tipos semânticos complexos (funcionais). Pronomes, por exemplo, serão de tipo $\langle e;e\rangle$. Podemos, assim, redefinir a composição funcional:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Composição funcional \\
+	Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são $\beta$ e $\gamma$. Sejam $a$ e $b$ dois tipos quaisquer. Se \den{$\beta$} é uma função de tipo $\langle e;a \rangle$ e \den{$\gamma$} é uma função de tipo $\langle a,b \rangle$, então \den{$\alpha$} é uma função de tipo $\langle e;b \rangle$ e \den{$\alpha$} = $\lambda x_{e}.$\den{$\gamma$}(\den{$\beta$}($x$)).
+\end{exe}
 
-\noindent \textbf{Composição funcional}
-
-\n Seja $\alpha$ um nó ramificado, cujos constituintes imediatos
-são $\beta$ e $\gamma$. Sejam $a$ e $b$ dois tipos quaisquer. Se \den{$\beta$} é uma função de
-tipo $\langle e;a \rangle$ e \den{$\gamma$} é uma função de
-tipo $\langle a,b \rangle$, então
-\den{$\alpha$} é uma função de tipo $\langle e;b \rangle$ e \den{$\alpha$} = $\lambda x_{e}.$\den{$\gamma$}(\den{$\beta$}($x$)).
-
-\end{tcolorbox}
-
-\bigskip
 
 \n Composição funcional passa, agora, a ser utilizável só em casos que envolvem constituintes que contenham pronomes. De imediato, concluímos que ela não será acionada no caso de sentenças como (\ref{err}) acima, que não contêm pronomes. 
 
-Também a ligação funcional pode ser limitada a casos com pronomes:\\
+Também a ligação funcional pode ser limitada a casos com pronomes:
 
-\begin{tcolorbox}[boxrule=0pt,sharp corners]
+\begin{exe}
+	\ex Ligação funcional \\
+	Seja $\alpha$ um nó ramificado, cujos constituintes imediatos são $\beta$ e $\gamma$. Seja $a$ um tipo qualquer. Se \den{$\beta$} é uma função de tipo $\langle a,et \rangle$ e \den{$\gamma$} é uma função de tipo $\langle e;a \rangle$, então \den{$\alpha$} é uma função de tipo $\langle e,t \rangle$ e definida da seguinte forma: \den{$\alpha$} = $\lambda x_{e}.\ $\den{$\beta$}(\den{$\gamma$}($x$))($x$).
+\end{exe}
 
-\noindent \textbf{Ligação funcional}
-
-\n Seja $\alpha$ um nó ramificado, cujos constituintes imediatos
-são $\beta$ e $\gamma$. Seja $a$ um tipo qualquer. Se \den{$\beta$} é uma função de
-tipo $\langle a,et \rangle$ e \den{$\gamma$} é uma função de
-tipo $\langle e;a \rangle$, então
-\den{$\alpha$} é uma função de tipo $\langle e,t \rangle$ e \den{$\alpha$} = $\lambda x_{e}.\ $\den{$\beta$}(\den{$\gamma$}($x$))($x$).
-
-\end{tcolorbox}
-
-\bigskip
 
 \n Note que, após a ligação, a extensão do constituinte resultante é de tipo $\langle e,t \rangle$ e não de tipo $\langle e;t \rangle$, indicando que o pronome em questão não está mais disponível para ser ligado ou passado adiante.
 
@@ -352,25 +346,27 @@ Em nosso sistema anterior, com atribuições e índices, a extensão de sentenç
 	\ex João gosta dela. \label{free}
 \end{exe}
 
-\n Agora, que não dispomos mais de atribuições, algo diferente acontece. Vejamos passo a passo:\\
+\n Agora, que não dispomos mais de atribuições, algo diferente acontece. Vejamos passo a passo:
 
-\n \den{gosta} = $\lambda x. \lambda y.\ \predica{gosta}{y,x}$ \hfill tipo $\langle e,et \rangle$
+\begin{exe}
+	\ex \den{gosta} = $\lambda x. \lambda y.\ \predica{gosta}{y,x}$ \hfill tipo $\langle e,et \rangle$ \\
+	\den{dela} = $\lambda x.\ x$ \hfill tipo $\langle e;e \rangle$ \\
+	\den{gosta dela} = $\lambda x.$ \den{gosta}(\den{dela}(\textit{x})) \hfill (CF) \\
+	\den{gosta dela} = $\lambda x. \lambda y.\ \predica{gosta}{y,x}$ \hfill tipo $\langle e;et \rangle$
+\end{exe}
 
-\n \den{dela} = $\lambda x.\ x$ \hfill tipo $\langle e;e \rangle$
+\n Compare os tipos das denotações do verbo \textit{gosta} e do VP \textit{gosta dela}. São diferentes, já que apenas o segundo contém um pronome. Note, agora, que, como o tipo do VP é $\langle e;et \rangle$, e não $\langle e,et \rangle$, aplicação funcional não pode ser usada para combinar VP com o sujeito \textit{João}, de tipo \textit{e}. Nesse caso, nem mesmo composição funcional pode ser usada, já que um dos constituintes não denota uma função! Mas há uma solução. Lembre-se de que, no capítulo anterior, vimos que nomes próprios podem ser tratados como quantificadores generalizados (tipo $\langle et,t \rangle$). Para o sujeito de nossa sentença, teríamos:
 
-\n \den{gosta dela} = $\lambda x.$ \den{gosta}(\den{dela}(\textit{x})) \hfill (CF)
+\begin{exe}
+	\ex \den{João} = $\lambda F_{\langle e,t\rangle}.\ F'(\textit{joão})$
+\end{exe}
 
-\n \den{gosta dela} = $\lambda x. \lambda y.\ \predica{gosta}{y,x}$ \hfill tipo $\langle e;et \rangle$\\
+\n Sendo essa uma extensão de tipo $\langle et,t \rangle$, ela pode se combinar com a extensão do VP \textit{gosta dela}, de tipo $\langle e;et \rangle$, via composição funcional:
 
-\n Compare os tipos das denotações do verbo \textit{gosta} e do VP \textit{gosta dela}. São diferentes, já que apenas o segundo contém um pronome. Note, agora, que, como o tipo do VP é $\langle e;et \rangle$, e não $\langle e,et \rangle$, aplicação funcional não pode ser usada para combinar VP com o sujeito \textit{João}, de tipo \textit{e}. Nesse caso, nem mesmo composição funcional pode ser usada, já que um dos constituintes não denota uma função! Mas há uma solução. Lembre-se de que, no capítulo anterior, vimos que nomes próprios podem ser tratados como quantificadores generalizados (tipo $\langle et,t \rangle$). Para o sujeito de nossa sentença, teríamos:\\
-
-\n \den{João} = $\lambda F_{\langle e,t\rangle}.\ F'(\textit{joão})$\\
-
-\n Sendo essa uma extensão de tipo $\langle et,t \rangle$, ela pode se combinar com a extensão do VP \textit{gosta dela}, de tipo $\langle e;et \rangle$, via composição funcional:\\
-
-\n \den{João gosta dela} = $\lambda x.$ \den{João}(\den{gosta dela}(x)) \hfill (CF)\\
-
-\n \den{João gosta dela} = $\lambda x.\ \predica{gosta}{joão,x}$  \hfill tipo $\langle e;t \rangle$\\ 
+\begin{exe}
+	\ex \den{João gosta dela} = $\lambda x.$ \den{João}(\den{gosta dela}(x)) \hfill (CF)\\
+	\den{João gosta dela} = $\lambda x.\ \predica{gosta}{joão,x}$  \hfill tipo $\langle e;t \rangle$
+\end{exe}
 
 \n Note que a sentença não tem por extensão um valor de verdade, mas sim uma função de indivíduos em valores de verdade. A ideia é que, quando uma tal sentença for enunciada em um contexto em que um indivíduo esteja saliente, obteremos um valor de verdade aplicando a função a esse indivíduo.
 
