@@ -1,8 +1,8 @@
 {
   "versions": [{
-    "versiontype": "proofreading",
-    "title": "",
-    "authors": [{"name": ""}],
-    "publishedAt": "2016-11-07T00:00:33.000Z"
+    "versiontype": "first_edition",
+    "title": "Curso de semântica formal",
+    "authors": [{"name": "Marcelo Ferreira"}],
+    "publishedAt": "2019-03-26T00:00:33.000Z"
   }]
 }
